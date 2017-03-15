@@ -1,0 +1,26 @@
+Remove Pin=P5-1 From Net=MISO
+Remove Pin=P5-3 From Net=MOSI
+Remove Pin=U1-17 From Net=M3.1
+Add Pin To Net: Pin=P4-3 Old Net=PWMM2.2 New Net=PWMM4.1
+Add Pin To Net: Pin=P7-3 Old Net=PWMM2.2 New Net=PWMM1.1
+Add Pin To Net: Pin=P9-1 Old Net=PWMM3.1 New Net=PWMM1.2
+Add Pin To Net: Pin=U1-6 Old Net=M1.1 New Net=M2.1
+Change Pin Designator/Name:  Old Designator=U1-1 Old Name=PD2 (PCINT18/PSCIN2/OC1A/MISO_A) New Designator =PB6 (ADC7/PSCOUT1B/PCINT6) New Name=27
+Change Pin Designator/Name:  Old Designator=U1-6 Old Name=PC2 (PCINT10/T0/TXCAN) New Designator =PB2 (ADC5/INT1/ACMPN0/PCINT2) New Name=16
+Change Pin Designator/Name:  Old Designator=U1-7 Old Name=PC3 (PCINT11/T1/RXCAN/ICP1B) New Designator =PB3 (AMP0-/PCINT3) New Name=23
+Change Pin Designator/Name:  Old Designator=U1-10 Old Name=PE1 (PCINT25/OC0B/XTAL1) New Designator =PD0 (PCINT16/PSCOUT0A) New Name=29
+Change Pin Designator/Name:  Old Designator=U1-11 Old Name=PE2 (PCINT26/ADC0/XTAL2) New Designator =PD1 (PCINT17/PSCIN0/CLKO) New Name=32
+Change Pin Designator/Name:  Old Designator=U1-13 Old Name=PD5 (ADC2/ACMP2/PCINT21) New Designator =PC7 (D2A/AMP2+/PCINT15) New Name=25
+Change Pin Designator/Name:  Old Designator=U1-14 Old Name=PD6 (ADC3/ACMPN2/INT0/PCINT22) New Designator =PD5 (ADC2/ACMP2/PCINT21) New Name=13
+Change Pin Designator/Name:  Old Designator=U1-15 Old Name=PD7 (ACMP0/PCINT23) New Designator =PD6 (ADC3/ACMPN2/INT0/PCINT22) New Name=14
+Change Pin Designator/Name:  Old Designator=U1-16 Old Name=PB2 (ADC5/INT1/ACMPN0/PCINT2) New Designator =PC6 (ADC10/ACMP1/PCINT14) New Name=22
+Change Pin Designator/Name:  Old Designator=U1-18 Old Name=PC5 (ADC9/ACMP3/AMP1+/PCINT13) New Designator =PC3 (PCINT11/T1/RXCAN/ICP1B) New Name=7
+Change Pin Designator/Name:  Old Designator=U1-22 Old Name=PC6 (ADC10/ACMP1/PCINT14) New Designator =PC4 (ADC8/ACMPN3/AMP1-/PCINT12) New Name=17
+Change Pin Designator/Name:  Old Designator=U1-23 Old Name=PB3 (AMP0-/PCINT3) New Designator =PC5 (ADC9/ACMP3/AMP1+/PCINT13) New Name=18
+Change Pin Designator/Name:  Old Designator=U1-25 Old Name=PC7 (D2A/AMP2+/PCINT15) New Designator =PB5 (ADC6/INT2/ACMPN1/AMP2-/PCINT5) New Name=26
+Change Pin Designator/Name:  Old Designator=U1-26 Old Name=PB5 (ADC6/INT2/ACMPN1/AMP2-/PCINT5) New Designator =PD7 (ACMP0/PCINT23) New Name=15
+Change Pin Designator/Name:  Old Designator=U1-27 Old Name=PB6 (ADC7/PSCOUT1B/PCINT6) New Designator =PE1 (PCINT25/OC0B/XTAL1) New Name=10
+Change Pin Designator/Name:  Old Designator=U1-28 Old Name=PB7 (ADC4/PSCOUT0B/SCK/PCINT7) New Designator =PD2 (PCINT18/PSCIN2/OC1A/MISO_A) New Name=1
+Change Pin Designator/Name:  Old Designator=U1-29 Old Name=PD0 (PCINT16/PSCOUT0A) New Designator =PC0 (PCINT8/INT3/PSCOUT1A) New Name=30
+Change Pin Designator/Name:  Old Designator=U1-30 Old Name=PC0 (PCINT8/INT3/PSCOUT1A) New Designator =PB7 (ADC4/PSCOUT0B/SCK/PCINT7) New Name=28
+Change Pin Designator/Name:  Old Designator=U1-32 Old Name=PD1 (PCINT17/PSCIN0/CLKO) New Designator =PE2 (PCINT26/ADC0/XTAL2) New Name=11
