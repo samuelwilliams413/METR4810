@@ -1,100 +1,80 @@
 Protel Design System Design Rule Check
 PCB File : C:\Users\Samuel\Documents\GitHub\METR4810\PCB\PCB1.PcbDoc
-Date     : 18/03/2017
-Time     : 10:46:47 PM
+Date     : 19/03/2017
+Time     : 12:37:58 PM
 
-Processing Rule : Room Sheet1 (Bounding Region = (62.75mm, 63mm, 125.5mm, 105.75mm) (InComponentClass('Sheet1'))
-Rule Violations :0
-
-Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
-Rule Violations :0
-
-Processing Rule : Un-Routed Net Constraint ( (All) )
-   Violation between Un-Routed Net Constraint: Net 5V Between Pad VR1-3(30.46mm,17.55mm) on Top Layer And Pad Free-2(47.25mm,20.75mm) on Top Layer 
-Rule Violations :1
-
-Processing Rule : Clearance Constraint (Gap=0.254mm) (All),(All)
-   Violation between Clearance Constraint: (0.25mm < 0.254mm) Between Pad 32M1-2(21.5mm,29.9mm) on Top Layer And Pad 32M1-1(22.3mm,29.9mm) on Top Layer 
-   Violation between Clearance Constraint: (0.25mm < 0.254mm) Between Pad 32M1-3(20.7mm,29.9mm) on Top Layer And Pad 32M1-2(21.5mm,29.9mm) on Top Layer 
-   Violation between Clearance Constraint: (0.25mm < 0.254mm) Between Pad 32M1-4(19.9mm,29.9mm) on Top Layer And Pad 32M1-3(20.7mm,29.9mm) on Top Layer 
-   Violation between Clearance Constraint: (0.25mm < 0.254mm) Between Pad 32M1-5(19.1mm,29.9mm) on Top Layer And Pad 32M1-4(19.9mm,29.9mm) on Top Layer 
-   Violation between Clearance Constraint: (0.25mm < 0.254mm) Between Pad 32M1-6(18.3mm,29.9mm) on Top Layer And Pad 32M1-5(19.1mm,29.9mm) on Top Layer 
-   Violation between Clearance Constraint: (0.25mm < 0.254mm) Between Pad 32M1-7(17.5mm,29.9mm) on Top Layer And Pad 32M1-6(18.3mm,29.9mm) on Top Layer 
-   Violation between Clearance Constraint: (0.25mm < 0.254mm) Between Pad 32M1-8(16.7mm,29.9mm) on Top Layer And Pad 32M1-7(17.5mm,29.9mm) on Top Layer 
-   Violation between Clearance Constraint: (0.25mm < 0.254mm) Between Pad 32M1-10(15.35mm,27.75mm) on Top Layer And Pad 32M1-9(15.35mm,28.55mm) on Top Layer 
-   Violation between Clearance Constraint: (0.25mm < 0.254mm) Between Pad 32M1-11(15.35mm,26.95mm) on Top Layer And Pad 32M1-10(15.35mm,27.75mm) on Top Layer 
-   Violation between Clearance Constraint: (0.25mm < 0.254mm) Between Pad 32M1-12(15.35mm,26.15mm) on Top Layer And Pad 32M1-11(15.35mm,26.95mm) on Top Layer 
-   Violation between Clearance Constraint: (0.25mm < 0.254mm) Between Pad 32M1-13(15.35mm,25.35mm) on Top Layer And Pad 32M1-12(15.35mm,26.15mm) on Top Layer 
-   Violation between Clearance Constraint: (0.25mm < 0.254mm) Between Pad 32M1-14(15.35mm,24.55mm) on Top Layer And Pad 32M1-13(15.35mm,25.35mm) on Top Layer 
-   Violation between Clearance Constraint: (0.25mm < 0.254mm) Between Pad 32M1-15(15.35mm,23.75mm) on Top Layer And Pad 32M1-14(15.35mm,24.55mm) on Top Layer 
-   Violation between Clearance Constraint: (0.25mm < 0.254mm) Between Pad 32M1-16(15.35mm,22.95mm) on Top Layer And Pad 32M1-15(15.35mm,23.75mm) on Top Layer 
-   Violation between Clearance Constraint: (0.25mm < 0.254mm) Between Pad 32M1-18(17.5mm,21.6mm) on Top Layer And Pad 32M1-17(16.7mm,21.6mm) on Top Layer 
-   Violation between Clearance Constraint: (0.25mm < 0.254mm) Between Pad 32M1-19(18.3mm,21.6mm) on Top Layer And Pad 32M1-18(17.5mm,21.6mm) on Top Layer 
-   Violation between Clearance Constraint: (0.171mm < 0.254mm) Between Track (19mm,21.7mm)(19.1mm,21.6mm) on Top Layer And Pad 32M1-19(18.3mm,21.6mm) on Top Layer 
-   Violation between Clearance Constraint: (0.25mm < 0.254mm) Between Pad 32M1-20(19.1mm,21.6mm) on Top Layer And Pad 32M1-19(18.3mm,21.6mm) on Top Layer 
-   Violation between Clearance Constraint: (0.25mm < 0.254mm) Between Pad 32M1-21(19.9mm,21.6mm) on Top Layer And Pad 32M1-20(19.1mm,21.6mm) on Top Layer 
-   Violation between Clearance Constraint: (0.25mm < 0.254mm) Between Pad 32M1-22(20.7mm,21.6mm) on Top Layer And Pad 32M1-21(19.9mm,21.6mm) on Top Layer 
-   Violation between Clearance Constraint: (0.25mm < 0.254mm) Between Pad 32M1-23(21.5mm,21.6mm) on Top Layer And Pad 32M1-22(20.7mm,21.6mm) on Top Layer 
-   Violation between Clearance Constraint: (0.25mm < 0.254mm) Between Pad 32M1-24(22.3mm,21.6mm) on Top Layer And Pad 32M1-23(21.5mm,21.6mm) on Top Layer 
-   Violation between Clearance Constraint: (0.25mm < 0.254mm) Between Pad 32M1-26(23.65mm,23.75mm) on Top Layer And Pad 32M1-25(23.65mm,22.95mm) on Top Layer 
-   Violation between Clearance Constraint: (0.25mm < 0.254mm) Between Pad 32M1-27(23.65mm,24.55mm) on Top Layer And Pad 32M1-26(23.65mm,23.75mm) on Top Layer 
-   Violation between Clearance Constraint: (0.25mm < 0.254mm) Between Pad 32M1-28(23.65mm,25.35mm) on Top Layer And Pad 32M1-27(23.65mm,24.55mm) on Top Layer 
-   Violation between Clearance Constraint: (0.25mm < 0.254mm) Between Pad 32M1-29(23.65mm,26.15mm) on Top Layer And Pad 32M1-28(23.65mm,25.35mm) on Top Layer 
-   Violation between Clearance Constraint: (0.25mm < 0.254mm) Between Pad 32M1-30(23.65mm,26.95mm) on Top Layer And Pad 32M1-29(23.65mm,26.15mm) on Top Layer 
-   Violation between Clearance Constraint: (0.25mm < 0.254mm) Between Pad 32M1-31(23.65mm,27.75mm) on Top Layer And Pad 32M1-30(23.65mm,26.95mm) on Top Layer 
-   Violation between Clearance Constraint: (0.25mm < 0.254mm) Between Pad 32M1-32(23.65mm,28.55mm) on Top Layer And Pad 32M1-31(23.65mm,27.75mm) on Top Layer 
-   Violation between Clearance Constraint: (0.175mm < 0.254mm) Between Area Fill (22.5mm,8.15mm) (25.5mm,10.4mm) on Top Layer And Pad B1-4(25.85mm,9.85mm) on Top Layer 
-   Violation between Clearance Constraint: (0.175mm < 0.254mm) Between Area Fill (22.5mm,3.125mm) (25.5mm,5.375mm) on Top Layer And Pad B1-2(22.15mm,3.65mm) on Top Layer 
-Rule Violations :31
-
-Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)
-Rule Violations :0
-
-Processing Rule : Width Constraint (Min=0.254mm) (Max=2.032mm) (Preferred=0.508mm) (All)
-Rule Violations :0
-
-Processing Rule : Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)
-Rule Violations :0
-
-Processing Rule : Hole Size Constraint (Min=0.762mm) (Max=4.064mm) (All)
-   Violation between Hole Size Constraint: (0.711mm < 0.762mm) Via (53.4mm,27.3mm) from Top Layer to Bottom Layer Actual Hole Size = 0.711mm
-   Violation between Hole Size Constraint: (0.711mm < 0.762mm) Via (53.725mm,36.3mm) from Top Layer to Bottom Layer Actual Hole Size = 0.711mm
-   Violation between Hole Size Constraint: (0.711mm < 0.762mm) Via (53.9mm,42.175mm) from Top Layer to Bottom Layer Actual Hole Size = 0.711mm
-   Violation between Hole Size Constraint: (0.711mm < 0.762mm) Via (21.375mm,41.825mm) from Top Layer to Bottom Layer Actual Hole Size = 0.711mm
-   Violation between Hole Size Constraint: (0.711mm < 0.762mm) Via (27.25mm,35.25mm) from Top Layer to Bottom Layer Actual Hole Size = 0.711mm
-   Violation between Hole Size Constraint: (0.711mm < 0.762mm) Via (24mm,33.75mm) from Top Layer to Bottom Layer Actual Hole Size = 0.711mm
-   Violation between Hole Size Constraint: (0.711mm < 0.762mm) Via (44.5mm,13.5mm) from Top Layer to Bottom Layer Actual Hole Size = 0.711mm
-   Violation between Hole Size Constraint: (0.711mm < 0.762mm) Via (55.5mm,13.5mm) from Top Layer to Bottom Layer Actual Hole Size = 0.711mm
-   Violation between Hole Size Constraint: (0.711mm < 0.762mm) Via (37.75mm,17.5mm) from Top Layer to Bottom Layer Actual Hole Size = 0.711mm
-   Violation between Hole Size Constraint: (0.711mm < 0.762mm) Via (31.3mm,24.55mm) from Top Layer to Bottom Layer Actual Hole Size = 0.711mm
-   Violation between Hole Size Constraint: (0.711mm < 0.762mm) Via (12.325mm,33.678mm) from Top Layer to Bottom Layer Actual Hole Size = 0.711mm
-   Violation between Hole Size Constraint: (0.711mm < 0.762mm) Via (52.4mm,39mm) from Top Layer to Bottom Layer Actual Hole Size = 0.711mm
-   Violation between Hole Size Constraint: (0.711mm < 0.762mm) Via (20.201mm,28.001mm) from Top Layer to Bottom Layer Actual Hole Size = 0.711mm
-   Violation between Hole Size Constraint: (0.711mm < 0.762mm) Via (23.775mm,41.825mm) from Top Layer to Bottom Layer Actual Hole Size = 0.711mm
-   Violation between Hole Size Constraint: (0.711mm < 0.762mm) Via (27.175mm,22.375mm) from Top Layer to Bottom Layer Actual Hole Size = 0.711mm
-   Violation between Hole Size Constraint: (0.711mm < 0.762mm) Via (29.25mm,23.325mm) from Top Layer to Bottom Layer Actual Hole Size = 0.711mm
-   Violation between Hole Size Constraint: (0.711mm < 0.762mm) Via (18.3mm,26.1mm) from Top Layer to Bottom Layer Actual Hole Size = 0.711mm
-   Violation between Hole Size Constraint: (0.711mm < 0.762mm) Via (2.725mm,33.678mm) from Top Layer to Bottom Layer Actual Hole Size = 0.711mm
-Rule Violations :18
-
-Processing Rule : Hole To Hole Clearance (Gap=0.152mm) (All),(All)
-Rule Violations :0
-
-Processing Rule : Minimum Solder Mask Sliver (Gap=0.01mm) (All),(All)
-Rule Violations :0
-
-Processing Rule : Silk To Solder Mask (Clearance=0.01mm) (IsPad),(All)
-Rule Violations :0
-
-Processing Rule : Silk to Silk (Clearance=0.01mm) (All),(All)
+Processing Rule : Modified Polygon (Allow modified: No), (Allow shelved: No)
 Rule Violations :0
 
 Processing Rule : Net Antennae (Tolerance=0mm) (All)
 Rule Violations :0
 
-Processing Rule : Modified Polygon (Allow modified: No), (Allow shelved: No)
+Processing Rule : Silk to Silk (Clearance=0.01mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Silk To Solder Mask (Clearance=0.01mm) (IsPad),(All)
+Rule Violations :0
+
+Processing Rule : Minimum Solder Mask Sliver (Gap=0.01mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Hole To Hole Clearance (Gap=0.152mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Hole Size Constraint (Min=0.762mm) (Max=4.064mm) (All)
+Rule Violations :0
+
+Processing Rule : Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=0.254mm) (Max=2.032mm) (Preferred=0.508mm) (All)
+Rule Violations :0
+
+Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=0.254mm) (All),(All)
+   Violation between Clearance Constraint: (0.175mm < 0.254mm) Between Area Fill (22.5mm,3.125mm) (25.5mm,5.375mm) on Top Layer And Pad B1-2(22.15mm,3.65mm) on Top Layer 
+   Violation between Clearance Constraint: (0.175mm < 0.254mm) Between Area Fill (22.5mm,8.15mm) (25.5mm,10.4mm) on Top Layer And Pad B1-4(25.85mm,9.85mm) on Top Layer 
+   Violation between Clearance Constraint: (0.25mm < 0.254mm) Between Pad 32M1-31(23.65mm,27.75mm) on Top Layer And Pad 32M1-32(23.65mm,28.55mm) on Top Layer 
+   Violation between Clearance Constraint: (0.25mm < 0.254mm) Between Pad 32M1-30(23.65mm,26.95mm) on Top Layer And Pad 32M1-31(23.65mm,27.75mm) on Top Layer 
+   Violation between Clearance Constraint: (0.25mm < 0.254mm) Between Pad 32M1-29(23.65mm,26.15mm) on Top Layer And Pad 32M1-30(23.65mm,26.95mm) on Top Layer 
+   Violation between Clearance Constraint: (0.25mm < 0.254mm) Between Pad 32M1-28(23.65mm,25.35mm) on Top Layer And Pad 32M1-29(23.65mm,26.15mm) on Top Layer 
+   Violation between Clearance Constraint: (0.25mm < 0.254mm) Between Pad 32M1-27(23.65mm,24.55mm) on Top Layer And Pad 32M1-28(23.65mm,25.35mm) on Top Layer 
+   Violation between Clearance Constraint: (0.25mm < 0.254mm) Between Pad 32M1-26(23.65mm,23.75mm) on Top Layer And Pad 32M1-27(23.65mm,24.55mm) on Top Layer 
+   Violation between Clearance Constraint: (0.25mm < 0.254mm) Between Pad 32M1-25(23.65mm,22.95mm) on Top Layer And Pad 32M1-26(23.65mm,23.75mm) on Top Layer 
+   Violation between Clearance Constraint: (0.25mm < 0.254mm) Between Pad 32M1-23(21.5mm,21.6mm) on Top Layer And Pad 32M1-24(22.3mm,21.6mm) on Top Layer 
+   Violation between Clearance Constraint: (0.25mm < 0.254mm) Between Pad 32M1-22(20.7mm,21.6mm) on Top Layer And Pad 32M1-23(21.5mm,21.6mm) on Top Layer 
+   Violation between Clearance Constraint: (0.25mm < 0.254mm) Between Pad 32M1-21(19.9mm,21.6mm) on Top Layer And Pad 32M1-22(20.7mm,21.6mm) on Top Layer 
+   Violation between Clearance Constraint: (0.25mm < 0.254mm) Between Pad 32M1-20(19.1mm,21.6mm) on Top Layer And Pad 32M1-21(19.9mm,21.6mm) on Top Layer 
+   Violation between Clearance Constraint: (0.25mm < 0.254mm) Between Pad 32M1-19(18.3mm,21.6mm) on Top Layer And Pad 32M1-20(19.1mm,21.6mm) on Top Layer 
+   Violation between Clearance Constraint: (0.25mm < 0.254mm) Between Pad 32M1-18(17.5mm,21.6mm) on Top Layer And Pad 32M1-19(18.3mm,21.6mm) on Top Layer 
+   Violation between Clearance Constraint: (0.25mm < 0.254mm) Between Pad 32M1-17(16.7mm,21.6mm) on Top Layer And Pad 32M1-18(17.5mm,21.6mm) on Top Layer 
+   Violation between Clearance Constraint: (0.25mm < 0.254mm) Between Pad 32M1-15(15.35mm,23.75mm) on Top Layer And Pad 32M1-16(15.35mm,22.95mm) on Top Layer 
+   Violation between Clearance Constraint: (0.25mm < 0.254mm) Between Pad 32M1-14(15.35mm,24.55mm) on Top Layer And Pad 32M1-15(15.35mm,23.75mm) on Top Layer 
+   Violation between Clearance Constraint: (0.25mm < 0.254mm) Between Pad 32M1-13(15.35mm,25.35mm) on Top Layer And Pad 32M1-14(15.35mm,24.55mm) on Top Layer 
+   Violation between Clearance Constraint: (0.25mm < 0.254mm) Between Pad 32M1-12(15.35mm,26.15mm) on Top Layer And Pad 32M1-13(15.35mm,25.35mm) on Top Layer 
+   Violation between Clearance Constraint: (0.25mm < 0.254mm) Between Pad 32M1-11(15.35mm,26.95mm) on Top Layer And Pad 32M1-12(15.35mm,26.15mm) on Top Layer 
+   Violation between Clearance Constraint: (0.25mm < 0.254mm) Between Pad 32M1-10(15.35mm,27.75mm) on Top Layer And Pad 32M1-11(15.35mm,26.95mm) on Top Layer 
+   Violation between Clearance Constraint: (0.25mm < 0.254mm) Between Pad 32M1-9(15.35mm,28.55mm) on Top Layer And Pad 32M1-10(15.35mm,27.75mm) on Top Layer 
+   Violation between Clearance Constraint: (0.25mm < 0.254mm) Between Pad 32M1-7(17.5mm,29.9mm) on Top Layer And Pad 32M1-8(16.7mm,29.9mm) on Top Layer 
+   Violation between Clearance Constraint: (0.25mm < 0.254mm) Between Pad 32M1-6(18.3mm,29.9mm) on Top Layer And Pad 32M1-7(17.5mm,29.9mm) on Top Layer 
+   Violation between Clearance Constraint: (0.25mm < 0.254mm) Between Pad 32M1-5(19.1mm,29.9mm) on Top Layer And Pad 32M1-6(18.3mm,29.9mm) on Top Layer 
+   Violation between Clearance Constraint: (0.25mm < 0.254mm) Between Pad 32M1-4(19.9mm,29.9mm) on Top Layer And Pad 32M1-5(19.1mm,29.9mm) on Top Layer 
+   Violation between Clearance Constraint: (0.25mm < 0.254mm) Between Pad 32M1-3(20.7mm,29.9mm) on Top Layer And Pad 32M1-4(19.9mm,29.9mm) on Top Layer 
+   Violation between Clearance Constraint: (0.25mm < 0.254mm) Between Pad 32M1-2(21.5mm,29.9mm) on Top Layer And Pad 32M1-3(20.7mm,29.9mm) on Top Layer 
+   Violation between Clearance Constraint: (0.25mm < 0.254mm) Between Pad 32M1-1(22.3mm,29.9mm) on Top Layer And Pad 32M1-2(21.5mm,29.9mm) on Top Layer 
+Rule Violations :30
+
+Processing Rule : Un-Routed Net Constraint ( (All) )
+Rule Violations :0
+
+Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
+Rule Violations :0
+
+Processing Rule : Room Sheet1 (Bounding Region = (62.75mm, 63mm, 125.5mm, 105.75mm) (InComponentClass('Sheet1'))
 Rule Violations :0
 
 
-Violations Detected : 50
+Violations Detected : 30
 Time Elapsed        : 00:00:01

@@ -42,7 +42,6 @@ Generating : Bottom Layer
 
 
 Used DCodes :
-    D14
     D22
     D23
     D24
@@ -137,7 +136,6 @@ Generating : Bottom Solder
 
 
 Used DCodes :
-    D38
     D46
     D47
     D48
@@ -178,6 +176,6 @@ Generating : Keep-Out Layer
 
 
 Used DCodes :
-    D31
+    D32
 *************************************************************
 
