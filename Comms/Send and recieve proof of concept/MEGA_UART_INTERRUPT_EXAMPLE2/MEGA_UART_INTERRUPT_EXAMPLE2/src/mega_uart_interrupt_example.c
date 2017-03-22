@@ -213,6 +213,39 @@ static inline bool uart_char_waiting(void)
 	return !ring_buffer_is_empty(&ring_buffer_in);
 }
 
+
+static inline void send_confirmation_msg(uint8_t data)
+{
+	uint8_t cnt = 0;
+	for (cnt = 0; cnt < strlen(test_string); cnt++) {
+		while(!ring_buffer_is_empty(&ring_buffer_out)) {
+			;
+		}
+		uart_putchar(test_string[cnt]);
+	}
+	while(!ring_buffer_is_empty(&ring_buffer_out)) {
+		;
+	}
+	uart_putchar(data);
+	for (cnt = 0; cnt < strlen(test_string2); cnt++) {
+		while(!ring_buffer_is_empty(&ring_buffer_out)) {
+			;
+		}
+		uart_putchar(test_string2[cnt]);
+	}
+}
+
+static inline void send_str(char msg[])
+{
+	uint8_t cnt = 0;
+	for (cnt = 0; cnt < strlen(msg); cnt++) {
+		while(!ring_buffer_is_empty(&ring_buffer_out)) {
+			;
+		}
+		uart_putchar(msg[cnt]);
+	}
+}
+
 /**
  * \brief The main application
  *
@@ -226,32 +259,15 @@ int main(void)
 {
 
 	uint8_t data = 0;
-	uint8_t cnt = 0;
+
 	cli();
 	uart_init();
 	sei();
 
 	while(1) {
 		if (uart_char_waiting()) {
-			data = uart_getchar();
-
-				for (cnt = 0; cnt < strlen(test_string); cnt++) {
-					while(!ring_buffer_is_empty(&ring_buffer_out)) {
-						;
-					}
-					uart_putchar(test_string[cnt]);
-				}
-				while(!ring_buffer_is_empty(&ring_buffer_out)) {
-					;
-				}
-				uart_putchar(data);
-				for (cnt = 0; cnt < strlen(test_string2); cnt++) {
-					while(!ring_buffer_is_empty(&ring_buffer_out)) {
-						;
-					}
-					uart_putchar(test_string2[cnt]);
-				}
-
+			data = uart_getchar(); // THIS IS THE RECEIVED CHARACTER
+			send_confirmation_msg(data);
 		}
 
 	}
