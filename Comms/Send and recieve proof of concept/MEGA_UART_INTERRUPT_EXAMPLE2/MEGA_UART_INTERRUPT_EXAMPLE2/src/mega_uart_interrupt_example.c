@@ -99,7 +99,7 @@ uint8_t out_buffer[BUFFER_SIZE];
 uint8_t in_buffer[BUFFER_SIZE];
 
 // the string we send and receive on UART
-const char test_string[] = "I just received:[";
+const char test_string[] = "Received:[";
 const char test_string2[] = "]";
 const char test_string3[] = "LALALALALAL";
 
@@ -246,6 +246,16 @@ static inline void send_str(char msg[])
 	}
 }
 
+static inline uint8_t get_char(void)
+{	
+	uint8_t data = '\0';
+	if (uart_char_waiting()) {
+		data = uart_getchar(); // THIS IS THE RECEIVED CHARACTER
+	}
+	return data;
+}
+
+
 /**
  * \brief The main application
  *
@@ -263,10 +273,10 @@ int main(void)
 	cli();
 	uart_init();
 	sei();
-
+	send_str("HELLO WORLD");
 	while(1) {
-		if (uart_char_waiting()) {
-			data = uart_getchar(); // THIS IS THE RECEIVED CHARACTER
+		data = get_char(); // THIS IS THE RECEIVED CHARACTER
+		if (data != '\0') {
 			send_confirmation_msg(data);
 		}
 
