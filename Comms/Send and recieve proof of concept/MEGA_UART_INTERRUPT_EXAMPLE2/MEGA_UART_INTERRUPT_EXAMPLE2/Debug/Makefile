@@ -53,6 +53,7 @@ SUBDIRS :=  \
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
 ../src/ASF/mega/boards/stk600/rcx_x/init.c \
+../src/comms.c \
 ../src/mega_uart_interrupt_example.c
 
 
@@ -64,18 +65,22 @@ ASM_SRCS +=
 
 OBJS +=  \
 src/ASF/mega/boards/stk600/rcx_x/init.o \
+src/comms.o \
 src/mega_uart_interrupt_example.o
 
 OBJS_AS_ARGS +=  \
 src/ASF/mega/boards/stk600/rcx_x/init.o \
+src/comms.o \
 src/mega_uart_interrupt_example.o
 
 C_DEPS +=  \
 src/ASF/mega/boards/stk600/rcx_x/init.d \
+src/comms.d \
 src/mega_uart_interrupt_example.d
 
 C_DEPS_AS_ARGS +=  \
 src/ASF/mega/boards/stk600/rcx_x/init.d \
+src/comms.d \
 src/mega_uart_interrupt_example.d
 
 OUTPUT_FILE_PATH +=MEGA_UART_INTERRUPT_EXAMPLE2.elf
@@ -92,6 +97,8 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
 
 
 

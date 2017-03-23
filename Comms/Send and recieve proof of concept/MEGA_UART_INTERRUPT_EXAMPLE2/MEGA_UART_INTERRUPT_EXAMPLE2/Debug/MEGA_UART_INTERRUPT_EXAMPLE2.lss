@@ -3,33 +3,33 @@ MEGA_UART_INTERRUPT_EXAMPLE2.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .data         00000018  00800100  000004f2  00000586  2**0
+  0 .data         00000018  00800100  0000053a  000005ce  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  1 .text         000004f2  00000000  00000000  00000094  2**1
+  1 .text         0000053a  00000000  00000000  00000094  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .bss          000000d2  00800118  00800118  0000059e  2**0
+  2 .bss          000000d2  00800118  00800118  000005e6  2**0
                   ALLOC
-  3 .comment      00000030  00000000  00000000  0000059e  2**0
+  3 .comment      00000030  00000000  00000000  000005e6  2**0
                   CONTENTS, READONLY
-  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  000005d0  2**2
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000618  2**2
                   CONTENTS, READONLY
-  5 .debug_aranges 00000030  00000000  00000000  0000060c  2**0
+  5 .debug_aranges 00000068  00000000  00000000  00000654  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   00001075  00000000  00000000  0000063c  2**0
+  6 .debug_info   00001110  00000000  00000000  000006bc  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 000007a2  00000000  00000000  000016b1  2**0
+  7 .debug_abbrev 00000802  00000000  00000000  000017cc  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   00000883  00000000  00000000  00001e53  2**0
+  8 .debug_line   00000d09  00000000  00000000  00001fce  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  000000d8  00000000  00000000  000026d8  2**2
+  9 .debug_frame  00000160  00000000  00000000  00002cd8  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    0000efd2  00000000  00000000  000027b0  2**0
+ 10 .debug_str    0000efe1  00000000  00000000  00002e38  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    000005bd  00000000  00000000  00011782  2**0
+ 11 .debug_loc    0000076b  00000000  00000000  00011e19  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 000001a0  00000000  00000000  00011d3f  2**0
+ 12 .debug_ranges 00000168  00000000  00000000  00012584  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_macro  00000425  00000000  00000000  00011edf  2**0
+ 13 .debug_macro  0000058e  00000000  00000000  000126ec  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -100,8 +100,8 @@ Disassembly of section .text:
   74:	11 e0       	ldi	r17, 0x01	; 1
   76:	a0 e0       	ldi	r26, 0x00	; 0
   78:	b1 e0       	ldi	r27, 0x01	; 1
-  7a:	e2 ef       	ldi	r30, 0xF2	; 242
-  7c:	f4 e0       	ldi	r31, 0x04	; 4
+  7a:	ea e3       	ldi	r30, 0x3A	; 58
+  7c:	f5 e0       	ldi	r31, 0x05	; 5
   7e:	02 c0       	rjmp	.+4      	; 0x84 <__do_copy_data+0x10>
   80:	05 90       	lpm	r0, Z+
   82:	0d 92       	st	X+, r0
@@ -122,8 +122,8 @@ Disassembly of section .text:
   94:	aa 3e       	cpi	r26, 0xEA	; 234
   96:	b2 07       	cpc	r27, r18
   98:	e1 f7       	brne	.-8      	; 0x92 <.do_clear_bss_loop>
-  9a:	98 d0       	rcall	.+304    	; 0x1cc <main>
-  9c:	28 c2       	rjmp	.+1104   	; 0x4ee <_exit>
+  9a:	42 d2       	rcall	.+1156   	; 0x520 <main>
+  9c:	4c c2       	rjmp	.+1176   	; 0x536 <_exit>
 
 0000009e <__bad_interrupt>:
   9e:	b0 cf       	rjmp	.-160    	; 0x0 <__vectors>
@@ -375,12 +375,12 @@ static inline void ring_buffer_put(struct ring_buffer *ring, uint8_t data)
  1c8:	1f 90       	pop	r1
  1ca:	18 95       	reti
 
-000001cc <main>:
- *
- * \note The RX and TX pins should be externally connected in order to pass the
- * test.
+000001cc <uart_init>:
+ * This function will initialize the UART baud rate registers with the correct
+ * values using the AVR libc setbaud utility. In addition set the UART to
+ * 8-bit, 1 stop and no parity.
  */
-int main(void)
+extern void uart_init(void)
 {
  1cc:	cf 93       	push	r28
  1ce:	df 93       	push	r29
@@ -392,853 +392,889 @@ int main(void)
  1da:	de bf       	out	0x3e, r29	; 62
  1dc:	0f be       	out	0x3f, r0	; 63
  1de:	cd bf       	out	0x3d, r28	; 61
-
-	uint8_t data = 0;
-
-	cli();
- 1e0:	f8 94       	cli
- */
-static void uart_init(void)
-{
 #if defined UBRR0H
 	// get the values from the setbaud tool
 	UBRR0H = UBRRH_VALUE;
- 1e2:	10 92 c5 00 	sts	0x00C5, r1	; 0x8000c5 <__TEXT_REGION_LENGTH__+0x7e00c5>
+ 1e0:	10 92 c5 00 	sts	0x00C5, r1	; 0x8000c5 <__TEXT_REGION_LENGTH__+0x7e00c5>
 	UBRR0L = UBRRL_VALUE;
- 1e6:	8c e0       	ldi	r24, 0x0C	; 12
- 1e8:	80 93 c4 00 	sts	0x00C4, r24	; 0x8000c4 <__TEXT_REGION_LENGTH__+0x7e00c4>
+ 1e4:	8c e0       	ldi	r24, 0x0C	; 12
+ 1e6:	80 93 c4 00 	sts	0x00C4, r24	; 0x8000c4 <__TEXT_REGION_LENGTH__+0x7e00c4>
 #else
 #error "Device is not supported by the driver"
 #endif
 
 #if USE_2X
 	UCSR0A |= (1 << U2X0);
- 1ec:	e0 ec       	ldi	r30, 0xC0	; 192
- 1ee:	f0 e0       	ldi	r31, 0x00	; 0
- 1f0:	80 81       	ld	r24, Z
- 1f2:	82 60       	ori	r24, 0x02	; 2
- 1f4:	80 83       	st	Z, r24
+ 1ea:	e0 ec       	ldi	r30, 0xC0	; 192
+ 1ec:	f0 e0       	ldi	r31, 0x00	; 0
+ 1ee:	80 81       	ld	r24, Z
+ 1f0:	82 60       	ori	r24, 0x02	; 2
+ 1f2:	80 83       	st	Z, r24
 #endif
 
 	// enable RX and TX and set interrupts on rx complete
 	UCSR0B = (1 << RXEN0) | (1 << TXEN0) | (1 << RXCIE0);
- 1f6:	88 e9       	ldi	r24, 0x98	; 152
- 1f8:	80 93 c1 00 	sts	0x00C1, r24	; 0x8000c1 <__TEXT_REGION_LENGTH__+0x7e00c1>
+ 1f4:	88 e9       	ldi	r24, 0x98	; 152
+ 1f6:	80 93 c1 00 	sts	0x00C1, r24	; 0x8000c1 <__TEXT_REGION_LENGTH__+0x7e00c1>
 
 	// 8-bit, 1 stop bit, no parity, asynchronous UART
 	UCSR0C = (1 << UCSZ01) | (1 << UCSZ00) | (0 << USBS0) |
- 1fc:	86 e0       	ldi	r24, 0x06	; 6
- 1fe:	80 93 c2 00 	sts	0x00C2, r24	; 0x8000c2 <__TEXT_REGION_LENGTH__+0x7e00c2>
+ 1fa:	86 e0       	ldi	r24, 0x06	; 6
+ 1fc:	80 93 c2 00 	sts	0x00C2, r24	; 0x8000c2 <__TEXT_REGION_LENGTH__+0x7e00c2>
  * \retval struct ring_buffer a struct containing the ring buffer
  */
 static inline struct ring_buffer ring_buffer_init(uint8_t *buffer, uint8_t size)
 {
 	struct ring_buffer ring;
 	ring.write_offset = 0;
- 202:	1d 8a       	std	Y+21, r1	; 0x15
+ 200:	1d 8a       	std	Y+21, r1	; 0x15
 	ring.read_offset = 0;
- 204:	1e 8a       	std	Y+22, r1	; 0x16
+ 202:	1e 8a       	std	Y+22, r1	; 0x16
 	ring.size = size;
- 206:	84 e6       	ldi	r24, 0x64	; 100
- 208:	8f 8b       	std	Y+23, r24	; 0x17
+ 204:	84 e6       	ldi	r24, 0x64	; 100
+ 206:	8f 8b       	std	Y+23, r24	; 0x17
 	ring.buffer = buffer;
- 20a:	28 e1       	ldi	r18, 0x18	; 24
- 20c:	31 e0       	ldi	r19, 0x01	; 1
- 20e:	39 8f       	std	Y+25, r19	; 0x19
- 210:	28 8f       	std	Y+24, r18	; 0x18
+ 208:	28 e1       	ldi	r18, 0x18	; 24
+ 20a:	31 e0       	ldi	r19, 0x01	; 1
+ 20c:	39 8f       	std	Y+25, r19	; 0x19
+ 20e:	28 8f       	std	Y+24, r18	; 0x18
 	return ring;
- 212:	95 e0       	ldi	r25, 0x05	; 5
- 214:	fe 01       	movw	r30, r28
- 216:	75 96       	adiw	r30, 0x15	; 21
- 218:	de 01       	movw	r26, r28
- 21a:	50 96       	adiw	r26, 0x10	; 16
- 21c:	01 90       	ld	r0, Z+
- 21e:	0d 92       	st	X+, r0
- 220:	9a 95       	dec	r25
- 222:	e1 f7       	brne	.-8      	; 0x21c <main+0x50>
- 224:	95 e0       	ldi	r25, 0x05	; 5
- 226:	fe 01       	movw	r30, r28
- 228:	70 96       	adiw	r30, 0x10	; 16
- 22a:	de 01       	movw	r26, r28
- 22c:	1b 96       	adiw	r26, 0x0b	; 11
- 22e:	01 90       	ld	r0, Z+
- 230:	0d 92       	st	X+, r0
- 232:	9a 95       	dec	r25
- 234:	e1 f7       	brne	.-8      	; 0x22e <main+0x62>
+ 210:	95 e0       	ldi	r25, 0x05	; 5
+ 212:	fe 01       	movw	r30, r28
+ 214:	75 96       	adiw	r30, 0x15	; 21
+ 216:	de 01       	movw	r26, r28
+ 218:	11 96       	adiw	r26, 0x01	; 1
+ 21a:	01 90       	ld	r0, Z+
+ 21c:	0d 92       	st	X+, r0
+ 21e:	9a 95       	dec	r25
+ 220:	e1 f7       	brne	.-8      	; 0x21a <uart_init+0x4e>
+ 222:	95 e0       	ldi	r25, 0x05	; 5
+ 224:	fe 01       	movw	r30, r28
+ 226:	31 96       	adiw	r30, 0x01	; 1
+ 228:	de 01       	movw	r26, r28
+ 22a:	16 96       	adiw	r26, 0x06	; 6
+ 22c:	01 90       	ld	r0, Z+
+ 22e:	0d 92       	st	X+, r0
+ 230:	9a 95       	dec	r25
+ 232:	e1 f7       	brne	.-8      	; 0x22c <uart_init+0x60>
 			(0 << UPM01) | (0 << UPM00) | (0 << UMSEL01) |
 			(0 << UMSEL00);
 
 	// initialize the in and out buffer for the UART
 	ring_buffer_out = ring_buffer_init(out_buffer, BUFFER_SIZE);
- 236:	95 e0       	ldi	r25, 0x05	; 5
- 238:	fe 01       	movw	r30, r28
- 23a:	3b 96       	adiw	r30, 0x0b	; 11
- 23c:	a5 ee       	ldi	r26, 0xE5	; 229
- 23e:	b1 e0       	ldi	r27, 0x01	; 1
- 240:	01 90       	ld	r0, Z+
- 242:	0d 92       	st	X+, r0
- 244:	9a 95       	dec	r25
- 246:	e1 f7       	brne	.-8      	; 0x240 <main+0x74>
+ 234:	95 e0       	ldi	r25, 0x05	; 5
+ 236:	fe 01       	movw	r30, r28
+ 238:	36 96       	adiw	r30, 0x06	; 6
+ 23a:	a5 ee       	ldi	r26, 0xE5	; 229
+ 23c:	b1 e0       	ldi	r27, 0x01	; 1
+ 23e:	01 90       	ld	r0, Z+
+ 240:	0d 92       	st	X+, r0
+ 242:	9a 95       	dec	r25
+ 244:	e1 f7       	brne	.-8      	; 0x23e <uart_init+0x72>
  * \retval struct ring_buffer a struct containing the ring buffer
  */
 static inline struct ring_buffer ring_buffer_init(uint8_t *buffer, uint8_t size)
 {
 	struct ring_buffer ring;
 	ring.write_offset = 0;
- 248:	1d 8a       	std	Y+21, r1	; 0x15
+ 246:	1d 8a       	std	Y+21, r1	; 0x15
 	ring.read_offset = 0;
- 24a:	1e 8a       	std	Y+22, r1	; 0x16
+ 248:	1e 8a       	std	Y+22, r1	; 0x16
 	ring.size = size;
- 24c:	8f 8b       	std	Y+23, r24	; 0x17
+ 24a:	8f 8b       	std	Y+23, r24	; 0x17
 	ring.buffer = buffer;
- 24e:	8c e7       	ldi	r24, 0x7C	; 124
- 250:	91 e0       	ldi	r25, 0x01	; 1
- 252:	99 8f       	std	Y+25, r25	; 0x19
- 254:	88 8f       	std	Y+24, r24	; 0x18
+ 24c:	8c e7       	ldi	r24, 0x7C	; 124
+ 24e:	91 e0       	ldi	r25, 0x01	; 1
+ 250:	99 8f       	std	Y+25, r25	; 0x19
+ 252:	88 8f       	std	Y+24, r24	; 0x18
 	return ring;
- 256:	85 e0       	ldi	r24, 0x05	; 5
- 258:	fe 01       	movw	r30, r28
- 25a:	75 96       	adiw	r30, 0x15	; 21
- 25c:	de 01       	movw	r26, r28
- 25e:	16 96       	adiw	r26, 0x06	; 6
- 260:	01 90       	ld	r0, Z+
- 262:	0d 92       	st	X+, r0
- 264:	8a 95       	dec	r24
- 266:	e1 f7       	brne	.-8      	; 0x260 <main+0x94>
- 268:	85 e0       	ldi	r24, 0x05	; 5
- 26a:	fe 01       	movw	r30, r28
- 26c:	36 96       	adiw	r30, 0x06	; 6
- 26e:	de 01       	movw	r26, r28
- 270:	11 96       	adiw	r26, 0x01	; 1
- 272:	01 90       	ld	r0, Z+
- 274:	0d 92       	st	X+, r0
- 276:	8a 95       	dec	r24
- 278:	e1 f7       	brne	.-8      	; 0x272 <main+0xa6>
+ 254:	85 e0       	ldi	r24, 0x05	; 5
+ 256:	fe 01       	movw	r30, r28
+ 258:	75 96       	adiw	r30, 0x15	; 21
+ 25a:	de 01       	movw	r26, r28
+ 25c:	1b 96       	adiw	r26, 0x0b	; 11
+ 25e:	01 90       	ld	r0, Z+
+ 260:	0d 92       	st	X+, r0
+ 262:	8a 95       	dec	r24
+ 264:	e1 f7       	brne	.-8      	; 0x25e <uart_init+0x92>
+ 266:	85 e0       	ldi	r24, 0x05	; 5
+ 268:	fe 01       	movw	r30, r28
+ 26a:	3b 96       	adiw	r30, 0x0b	; 11
+ 26c:	de 01       	movw	r26, r28
+ 26e:	50 96       	adiw	r26, 0x10	; 16
+ 270:	01 90       	ld	r0, Z+
+ 272:	0d 92       	st	X+, r0
+ 274:	8a 95       	dec	r24
+ 276:	e1 f7       	brne	.-8      	; 0x270 <uart_init+0xa4>
 	ring_buffer_in = ring_buffer_init(in_buffer, BUFFER_SIZE);
- 27a:	85 e0       	ldi	r24, 0x05	; 5
- 27c:	fe 01       	movw	r30, r28
- 27e:	31 96       	adiw	r30, 0x01	; 1
- 280:	a0 ee       	ldi	r26, 0xE0	; 224
- 282:	b1 e0       	ldi	r27, 0x01	; 1
- 284:	01 90       	ld	r0, Z+
- 286:	0d 92       	st	X+, r0
- 288:	8a 95       	dec	r24
- 28a:	e1 f7       	brne	.-8      	; 0x284 <main+0xb8>
+ 278:	85 e0       	ldi	r24, 0x05	; 5
+ 27a:	fe 01       	movw	r30, r28
+ 27c:	70 96       	adiw	r30, 0x10	; 16
+ 27e:	a0 ee       	ldi	r26, 0xE0	; 224
+ 280:	b1 e0       	ldi	r27, 0x01	; 1
+ 282:	01 90       	ld	r0, Z+
+ 284:	0d 92       	st	X+, r0
+ 286:	8a 95       	dec	r24
+ 288:	e1 f7       	brne	.-8      	; 0x282 <uart_init+0xb6>
+}
+ 28a:	69 96       	adiw	r28, 0x19	; 25
+ 28c:	0f b6       	in	r0, 0x3f	; 63
+ 28e:	f8 94       	cli
+ 290:	de bf       	out	0x3e, r29	; 62
+ 292:	0f be       	out	0x3f, r0	; 63
+ 294:	cd bf       	out	0x3d, r28	; 61
+ 296:	df 91       	pop	r29
+ 298:	cf 91       	pop	r28
+ 29a:	08 95       	ret
 
-	uint8_t data = 0;
-
-	cli();
-	uart_init();
-	sei();
- 28c:	78 94       	sei
- 28e:	40 e0       	ldi	r20, 0x00	; 0
- 290:	20 e0       	ldi	r18, 0x00	; 0
- 292:	30 e0       	ldi	r19, 0x00	; 0
- * \retval true   if the buffer is empty
- * \retval false  if there is still data in the buffer
- */
-static inline bool ring_buffer_is_empty(const struct ring_buffer *ring)
-{
-	return (ring->read_offset == ring->write_offset);
- 294:	e5 ee       	ldi	r30, 0xE5	; 229
- 296:	f1 e0       	ldi	r31, 0x01	; 1
-{
-	// Disable interrupts to get exclusive access to ring_buffer_out.
-	cli();
-	if (ring_buffer_is_empty(&ring_buffer_out)) {
-		// First data in buffer, enable data ready interrupt
-		UCSR0B |=  (1 << UDRIE0);
- 298:	0f 2e       	mov	r0, r31
- 29a:	f1 ec       	ldi	r31, 0xC1	; 193
- 29c:	ef 2e       	mov	r14, r31
- 29e:	f1 2c       	mov	r15, r1
- 2a0:	f0 2d       	mov	r31, r0
- *
- * \returns next offset or 0 if we are wrapping
- */
-static inline uint8_t get_next(uint8_t cur_offset, uint8_t size)
-{
-	return (cur_offset == (size - 1) ? 0 : cur_offset + 1);
- 2a2:	50 e0       	ldi	r21, 0x00	; 0
- * \retval true   if the buffer is empty
- * \retval false  if there is still data in the buffer
- */
-static inline bool ring_buffer_is_empty(const struct ring_buffer *ring)
-{
-	return (ring->read_offset == ring->write_offset);
- 2a4:	91 81       	ldd	r25, Z+1	; 0x01
- 2a6:	80 81       	ld	r24, Z
-
-static inline void send_str(char msg[])
-{
-	uint8_t cnt = 0;
-	for (cnt = 0; cnt < strlen(msg); cnt++) {
-		while(!ring_buffer_is_empty(&ring_buffer_out)) {
- 2a8:	98 13       	cpse	r25, r24
- 2aa:	fc cf       	rjmp	.-8      	; 0x2a4 <main+0xd8>
-			;
-		}
-		uart_putchar(msg[cnt]);
- 2ac:	20 50       	subi	r18, 0x00	; 0
- 2ae:	3f 4f       	sbci	r19, 0xFF	; 255
- 2b0:	d9 01       	movw	r26, r18
- 2b2:	6c 91       	ld	r22, X
- *
- */
-static inline void uart_putchar(uint8_t data)
-{
-	// Disable interrupts to get exclusive access to ring_buffer_out.
-	cli();
- 2b4:	f8 94       	cli
- 2b6:	91 81       	ldd	r25, Z+1	; 0x01
- 2b8:	80 81       	ld	r24, Z
-	if (ring_buffer_is_empty(&ring_buffer_out)) {
- 2ba:	98 13       	cpse	r25, r24
- 2bc:	04 c0       	rjmp	.+8      	; 0x2c6 <main+0xfa>
-		// First data in buffer, enable data ready interrupt
-		UCSR0B |=  (1 << UDRIE0);
- 2be:	d7 01       	movw	r26, r14
- 2c0:	8c 91       	ld	r24, X
- 2c2:	80 62       	ori	r24, 0x20	; 32
- 2c4:	8c 93       	st	X, r24
- * \retval true  if the buffer is full
- * \retval false if there is space available in the ring buffer
- */
-static inline bool ring_buffer_is_full(const struct ring_buffer *ring)
-{
-	return (ring->read_offset == ring_buffer_get_next_write(ring));
- 2c6:	91 81       	ldd	r25, Z+1	; 0x01
- *
- * \returns the next write offset in the ring buffer
- */
-static inline uint8_t ring_buffer_get_next_write(const struct ring_buffer *ring)
-{
-	return get_next(ring->write_offset, ring->size);
- 2c8:	80 81       	ld	r24, Z
- *
- * \returns next offset or 0 if we are wrapping
- */
-static inline uint8_t get_next(uint8_t cur_offset, uint8_t size)
-{
-	return (cur_offset == (size - 1) ? 0 : cur_offset + 1);
- 2ca:	08 2f       	mov	r16, r24
- 2cc:	10 e0       	ldi	r17, 0x00	; 0
- 2ce:	22 81       	ldd	r18, Z+2	; 0x02
- 2d0:	30 e0       	ldi	r19, 0x00	; 0
- 2d2:	21 50       	subi	r18, 0x01	; 1
- 2d4:	31 09       	sbc	r19, r1
- 2d6:	02 17       	cp	r16, r18
- 2d8:	13 07       	cpc	r17, r19
- 2da:	11 f0       	breq	.+4      	; 0x2e0 <main+0x114>
- 2dc:	8f 5f       	subi	r24, 0xFF	; 255
- 2de:	01 c0       	rjmp	.+2      	; 0x2e2 <main+0x116>
- 2e0:	85 2f       	mov	r24, r21
- * \param data the byte to put to the buffer
- *
- */
-static inline void ring_buffer_put(struct ring_buffer *ring, uint8_t data)
-{
-	Assert(!ring_buffer_is_full(ring));
- 2e2:	98 13       	cpse	r25, r24
- 2e4:	01 c0       	rjmp	.+2      	; 0x2e8 <main+0x11c>
- 2e6:	ff cf       	rjmp	.-2      	; 0x2e6 <main+0x11a>
-	ring->buffer[ring->write_offset] = data;
- 2e8:	20 81       	ld	r18, Z
- 2ea:	83 81       	ldd	r24, Z+3	; 0x03
- 2ec:	94 81       	ldd	r25, Z+4	; 0x04
- 2ee:	82 0f       	add	r24, r18
- 2f0:	91 1d       	adc	r25, r1
- 2f2:	dc 01       	movw	r26, r24
- 2f4:	6c 93       	st	X, r22
- *
- * \returns the next write offset in the ring buffer
- */
-static inline uint8_t ring_buffer_get_next_write(const struct ring_buffer *ring)
-{
-	return get_next(ring->write_offset, ring->size);
- 2f6:	80 81       	ld	r24, Z
- *
- * \returns next offset or 0 if we are wrapping
- */
-static inline uint8_t get_next(uint8_t cur_offset, uint8_t size)
-{
-	return (cur_offset == (size - 1) ? 0 : cur_offset + 1);
- 2f8:	68 2f       	mov	r22, r24
- 2fa:	70 e0       	ldi	r23, 0x00	; 0
- 2fc:	22 81       	ldd	r18, Z+2	; 0x02
- 2fe:	30 e0       	ldi	r19, 0x00	; 0
- 300:	21 50       	subi	r18, 0x01	; 1
- 302:	31 09       	sbc	r19, r1
- 304:	62 17       	cp	r22, r18
- 306:	73 07       	cpc	r23, r19
- 308:	11 f0       	breq	.+4      	; 0x30e <main+0x142>
- 30a:	8f 5f       	subi	r24, 0xFF	; 255
- 30c:	01 c0       	rjmp	.+2      	; 0x310 <main+0x144>
- 30e:	85 2f       	mov	r24, r21
- */
-static inline void ring_buffer_put(struct ring_buffer *ring, uint8_t data)
-{
-	Assert(!ring_buffer_is_full(ring));
-	ring->buffer[ring->write_offset] = data;
-	ring->write_offset = ring_buffer_get_next_write(ring);
- 310:	80 83       	st	Z, r24
-	}
-	// Put data in buffer
-	ring_buffer_put(&ring_buffer_out, data);
-
-	// Re-enable interrupts
-	sei();
- 312:	78 94       	sei
+0000029c <send_confirmation_msg>:
+	return !ring_buffer_is_empty(&ring_buffer_in);
 }
 
-static inline void send_str(char msg[])
-{
-	uint8_t cnt = 0;
-	for (cnt = 0; cnt < strlen(msg); cnt++) {
- 314:	4f 5f       	subi	r20, 0xFF	; 255
- 316:	24 2f       	mov	r18, r20
- 318:	30 e0       	ldi	r19, 0x00	; 0
- 31a:	2b 30       	cpi	r18, 0x0B	; 11
- 31c:	31 05       	cpc	r19, r1
- 31e:	08 f4       	brcc	.+2      	; 0x322 <main+0x156>
- 320:	c1 cf       	rjmp	.-126    	; 0x2a4 <main+0xd8>
- * \returns next data byte in buffer
- */
-static inline uint8_t ring_buffer_get(struct ring_buffer *ring)
-{
-	Assert(!ring_buffer_is_empty(ring));
-	uint8_t data = ring->buffer[ring->read_offset];
- 322:	0f 2e       	mov	r0, r31
- 324:	f0 ee       	ldi	r31, 0xE0	; 224
- 326:	6f 2e       	mov	r6, r31
- 328:	f1 e0       	ldi	r31, 0x01	; 1
- 32a:	7f 2e       	mov	r7, r31
- 32c:	f0 2d       	mov	r31, r0
- *
- * \returns next offset or 0 if we are wrapping
- */
-static inline uint8_t get_next(uint8_t cur_offset, uint8_t size)
-{
-	return (cur_offset == (size - 1) ? 0 : cur_offset + 1);
- 32e:	20 e0       	ldi	r18, 0x00	; 0
- 330:	12 2f       	mov	r17, r18
- 332:	66 e1       	ldi	r22, 0x16	; 22
- 334:	71 e0       	ldi	r23, 0x01	; 1
- * \retval true   if the buffer is empty
- * \retval false  if there is still data in the buffer
- */
-static inline bool ring_buffer_is_empty(const struct ring_buffer *ring)
-{
-	return (ring->read_offset == ring->write_offset);
- 336:	e5 ee       	ldi	r30, 0xE5	; 229
- 338:	f1 e0       	ldi	r31, 0x01	; 1
-{
-	// Disable interrupts to get exclusive access to ring_buffer_out.
-	cli();
-	if (ring_buffer_is_empty(&ring_buffer_out)) {
-		// First data in buffer, enable data ready interrupt
-		UCSR0B |=  (1 << UDRIE0);
- 33a:	81 ec       	ldi	r24, 0xC1	; 193
- 33c:	90 e0       	ldi	r25, 0x00	; 0
- *
- */
-static inline void ring_buffer_put(struct ring_buffer *ring, uint8_t data)
-{
-	Assert(!ring_buffer_is_full(ring));
-	ring->buffer[ring->write_offset] = data;
- 33e:	0d e5       	ldi	r16, 0x5D	; 93
- * \returns next data byte in buffer
- */
-static inline uint8_t ring_buffer_get(struct ring_buffer *ring)
-{
-	Assert(!ring_buffer_is_empty(ring));
-	uint8_t data = ring->buffer[ring->read_offset];
- 340:	d3 01       	movw	r26, r6
- 342:	13 96       	adiw	r26, 0x03	; 3
- 344:	ed 90       	ld	r14, X+
- 346:	fc 90       	ld	r15, X
- 348:	14 97       	sbiw	r26, 0x04	; 4
- *
- * \returns next offset or 0 if we are wrapping
- */
-static inline uint8_t get_next(uint8_t cur_offset, uint8_t size)
-{
-	return (cur_offset == (size - 1) ? 0 : cur_offset + 1);
- 34a:	12 96       	adiw	r26, 0x02	; 2
- 34c:	4c 91       	ld	r20, X
- 34e:	50 e0       	ldi	r21, 0x00	; 0
- 350:	41 50       	subi	r20, 0x01	; 1
- 352:	51 09       	sbc	r21, r1
- * \retval true   if the buffer is empty
- * \retval false  if there is still data in the buffer
- */
-static inline bool ring_buffer_is_empty(const struct ring_buffer *ring)
-{
-	return (ring->read_offset == ring->write_offset);
- 354:	d3 01       	movw	r26, r6
- 356:	11 96       	adiw	r26, 0x01	; 1
- 358:	dc 90       	ld	r13, X
- 35a:	11 97       	sbiw	r26, 0x01	; 1
- 35c:	3c 91       	ld	r19, X
-}
 
-static inline uint8_t get_char(void)
-{	
-	uint8_t data = '\0';
-	if (uart_char_waiting()) {
- 35e:	d3 16       	cp	r13, r19
- 360:	c9 f3       	breq	.-14     	; 0x354 <main+0x188>
- 362:	11 96       	adiw	r26, 0x01	; 1
- 364:	dc 90       	ld	r13, X
- 366:	11 97       	sbiw	r26, 0x01	; 1
- 368:	3c 91       	ld	r19, X
- *
- * \returns next data byte in buffer
- */
-static inline uint8_t ring_buffer_get(struct ring_buffer *ring)
+extern void send_confirmation_msg(uint8_t data)
 {
-	Assert(!ring_buffer_is_empty(ring));
- 36a:	d3 12       	cpse	r13, r19
- 36c:	01 c0       	rjmp	.+2      	; 0x370 <main+0x1a4>
- 36e:	ff cf       	rjmp	.-2      	; 0x36e <main+0x1a2>
-	uint8_t data = ring->buffer[ring->read_offset];
- 370:	d3 01       	movw	r26, r6
- 372:	11 96       	adiw	r26, 0x01	; 1
- 374:	3c 91       	ld	r19, X
- 376:	67 01       	movw	r12, r14
- 378:	c3 0e       	add	r12, r19
- 37a:	d1 1c       	adc	r13, r1
- 37c:	d6 01       	movw	r26, r12
- 37e:	bc 90       	ld	r11, X
- *
- * \returns the next read offset in the ring buffer
- */
-static inline uint8_t ring_buffer_get_next_read(const struct ring_buffer *ring)
-{
-	return get_next(ring->read_offset, ring->size);
- 380:	d3 01       	movw	r26, r6
- 382:	11 96       	adiw	r26, 0x01	; 1
- 384:	3c 91       	ld	r19, X
- *
- * \returns next offset or 0 if we are wrapping
- */
-static inline uint8_t get_next(uint8_t cur_offset, uint8_t size)
-{
-	return (cur_offset == (size - 1) ? 0 : cur_offset + 1);
- 386:	c3 2e       	mov	r12, r19
- 388:	d1 2c       	mov	r13, r1
- 38a:	c4 16       	cp	r12, r20
- 38c:	d5 06       	cpc	r13, r21
- 38e:	11 f0       	breq	.+4      	; 0x394 <main+0x1c8>
- 390:	3f 5f       	subi	r19, 0xFF	; 255
- 392:	01 c0       	rjmp	.+2      	; 0x396 <main+0x1ca>
- 394:	31 2f       	mov	r19, r17
- */
-static inline uint8_t ring_buffer_get(struct ring_buffer *ring)
-{
-	Assert(!ring_buffer_is_empty(ring));
-	uint8_t data = ring->buffer[ring->read_offset];
-	ring->read_offset = ring_buffer_get_next_read(ring);
- 396:	d3 01       	movw	r26, r6
- 398:	11 96       	adiw	r26, 0x01	; 1
- 39a:	3c 93       	st	X, r19
-	uart_init();
-	sei();
-	send_str("HELLO WORLD");
-	while(1) {
-		data = get_char(); // THIS IS THE RECEIVED CHARACTER
-		if (data != '\0') {
- 39c:	bb 20       	and	r11, r11
- 39e:	d1 f2       	breq	.-76     	; 0x354 <main+0x188>
- 3a0:	4c e0       	ldi	r20, 0x0C	; 12
- 3a2:	51 e0       	ldi	r21, 0x01	; 1
+ 29c:	ef 92       	push	r14
+ 29e:	ff 92       	push	r15
+ 2a0:	0f 93       	push	r16
+ 2a2:	1f 93       	push	r17
+ 2a4:	cf 93       	push	r28
+ 2a6:	df 93       	push	r29
+ 2a8:	a0 e0       	ldi	r26, 0x00	; 0
+ 2aa:	b1 e0       	ldi	r27, 0x01	; 1
+ 2ac:	6a e0       	ldi	r22, 0x0A	; 10
+ 2ae:	71 e0       	ldi	r23, 0x01	; 1
  * \retval true   if the buffer is empty
  * \retval false  if there is still data in the buffer
  */
 static inline bool ring_buffer_is_empty(const struct ring_buffer *ring)
 {
 	return (ring->read_offset == ring->write_offset);
- 3a4:	f1 80       	ldd	r15, Z+1	; 0x01
- 3a6:	30 81       	ld	r19, Z
-
-static inline void send_confirmation_msg(uint8_t data)
+ 2b0:	e5 ee       	ldi	r30, 0xE5	; 229
+ 2b2:	f1 e0       	ldi	r31, 0x01	; 1
+ *
+ * \returns next offset or 0 if we are wrapping
+ */
+static inline uint8_t get_next(uint8_t cur_offset, uint8_t size)
 {
+	return (cur_offset == (size - 1) ? 0 : cur_offset + 1);
+ 2b4:	40 e0       	ldi	r20, 0x00	; 0
+ * \retval true   if the buffer is empty
+ * \retval false  if there is still data in the buffer
+ */
+static inline bool ring_buffer_is_empty(const struct ring_buffer *ring)
+{
+	return (ring->read_offset == ring->write_offset);
+ 2b6:	21 81       	ldd	r18, Z+1	; 0x01
+ 2b8:	90 81       	ld	r25, Z
 	uint8_t cnt = 0;
 	for (cnt = 0; cnt < strlen(test_string); cnt++) {
 		while(!ring_buffer_is_empty(&ring_buffer_out)) {
- 3a8:	f3 12       	cpse	r15, r19
- 3aa:	fc cf       	rjmp	.-8      	; 0x3a4 <main+0x1d8>
+ 2ba:	29 13       	cpse	r18, r25
+ 2bc:	fc cf       	rjmp	.-8      	; 0x2b6 <send_confirmation_msg+0x1a>
 			;
 		}
 		uart_putchar(test_string[cnt]);
- 3ac:	da 01       	movw	r26, r20
- 3ae:	ad 90       	ld	r10, X+
- 3b0:	ad 01       	movw	r20, r26
+ 2be:	1d 91       	ld	r17, X+
  *
  */
 static inline void uart_putchar(uint8_t data)
 {
 	// Disable interrupts to get exclusive access to ring_buffer_out.
 	cli();
- 3b2:	f8 94       	cli
- 3b4:	f1 80       	ldd	r15, Z+1	; 0x01
- 3b6:	30 81       	ld	r19, Z
+ 2c0:	f8 94       	cli
+ 2c2:	21 81       	ldd	r18, Z+1	; 0x01
+ 2c4:	90 81       	ld	r25, Z
 	if (ring_buffer_is_empty(&ring_buffer_out)) {
- 3b8:	f3 12       	cpse	r15, r19
- 3ba:	04 c0       	rjmp	.+8      	; 0x3c4 <main+0x1f8>
+ 2c6:	29 13       	cpse	r18, r25
+ 2c8:	05 c0       	rjmp	.+10     	; 0x2d4 <send_confirmation_msg+0x38>
 		// First data in buffer, enable data ready interrupt
 		UCSR0B |=  (1 << UDRIE0);
- 3bc:	dc 01       	movw	r26, r24
- 3be:	3c 91       	ld	r19, X
- 3c0:	30 62       	ori	r19, 0x20	; 32
- 3c2:	3c 93       	st	X, r19
+ 2ca:	c1 ec       	ldi	r28, 0xC1	; 193
+ 2cc:	d0 e0       	ldi	r29, 0x00	; 0
+ 2ce:	98 81       	ld	r25, Y
+ 2d0:	90 62       	ori	r25, 0x20	; 32
+ 2d2:	98 83       	st	Y, r25
  * \retval true  if the buffer is full
  * \retval false if there is space available in the ring buffer
  */
 static inline bool ring_buffer_is_full(const struct ring_buffer *ring)
 {
 	return (ring->read_offset == ring_buffer_get_next_write(ring));
- 3c4:	91 80       	ldd	r9, Z+1	; 0x01
+ 2d4:	01 81       	ldd	r16, Z+1	; 0x01
  *
  * \returns the next write offset in the ring buffer
  */
 static inline uint8_t ring_buffer_get_next_write(const struct ring_buffer *ring)
 {
 	return get_next(ring->write_offset, ring->size);
- 3c6:	30 81       	ld	r19, Z
+ 2d6:	90 81       	ld	r25, Z
  *
  * \returns next offset or 0 if we are wrapping
  */
 static inline uint8_t get_next(uint8_t cur_offset, uint8_t size)
 {
 	return (cur_offset == (size - 1) ? 0 : cur_offset + 1);
- 3c8:	c3 2e       	mov	r12, r19
- 3ca:	d1 2c       	mov	r13, r1
- 3cc:	e2 80       	ldd	r14, Z+2	; 0x02
- 3ce:	f1 2c       	mov	r15, r1
- 3d0:	b1 e0       	ldi	r27, 0x01	; 1
- 3d2:	eb 1a       	sub	r14, r27
- 3d4:	f1 08       	sbc	r15, r1
- 3d6:	ce 14       	cp	r12, r14
- 3d8:	df 04       	cpc	r13, r15
- 3da:	11 f0       	breq	.+4      	; 0x3e0 <main+0x214>
- 3dc:	3f 5f       	subi	r19, 0xFF	; 255
- 3de:	01 c0       	rjmp	.+2      	; 0x3e2 <main+0x216>
- 3e0:	31 2f       	mov	r19, r17
+ 2d8:	e9 2e       	mov	r14, r25
+ 2da:	f1 2c       	mov	r15, r1
+ 2dc:	22 81       	ldd	r18, Z+2	; 0x02
+ 2de:	30 e0       	ldi	r19, 0x00	; 0
+ 2e0:	21 50       	subi	r18, 0x01	; 1
+ 2e2:	31 09       	sbc	r19, r1
+ 2e4:	e2 16       	cp	r14, r18
+ 2e6:	f3 06       	cpc	r15, r19
+ 2e8:	11 f0       	breq	.+4      	; 0x2ee <send_confirmation_msg+0x52>
+ 2ea:	9f 5f       	subi	r25, 0xFF	; 255
+ 2ec:	01 c0       	rjmp	.+2      	; 0x2f0 <send_confirmation_msg+0x54>
+ 2ee:	94 2f       	mov	r25, r20
  * \param data the byte to put to the buffer
  *
  */
 static inline void ring_buffer_put(struct ring_buffer *ring, uint8_t data)
 {
 	Assert(!ring_buffer_is_full(ring));
- 3e2:	93 12       	cpse	r9, r19
- 3e4:	01 c0       	rjmp	.+2      	; 0x3e8 <main+0x21c>
- 3e6:	ff cf       	rjmp	.-2      	; 0x3e6 <main+0x21a>
+ 2f0:	09 13       	cpse	r16, r25
+ 2f2:	01 c0       	rjmp	.+2      	; 0x2f6 <send_confirmation_msg+0x5a>
+ 2f4:	ff cf       	rjmp	.-2      	; 0x2f4 <send_confirmation_msg+0x58>
 	ring->buffer[ring->write_offset] = data;
- 3e8:	30 81       	ld	r19, Z
- 3ea:	e3 80       	ldd	r14, Z+3	; 0x03
- 3ec:	f4 80       	ldd	r15, Z+4	; 0x04
- 3ee:	e3 0e       	add	r14, r19
- 3f0:	f1 1c       	adc	r15, r1
- 3f2:	d7 01       	movw	r26, r14
- 3f4:	ac 92       	st	X, r10
+ 2f6:	90 81       	ld	r25, Z
+ 2f8:	23 81       	ldd	r18, Z+3	; 0x03
+ 2fa:	34 81       	ldd	r19, Z+4	; 0x04
+ 2fc:	29 0f       	add	r18, r25
+ 2fe:	31 1d       	adc	r19, r1
+ 300:	e9 01       	movw	r28, r18
+ 302:	18 83       	st	Y, r17
  *
  * \returns the next write offset in the ring buffer
  */
 static inline uint8_t ring_buffer_get_next_write(const struct ring_buffer *ring)
 {
 	return get_next(ring->write_offset, ring->size);
- 3f6:	30 81       	ld	r19, Z
+ 304:	90 81       	ld	r25, Z
  *
  * \returns next offset or 0 if we are wrapping
  */
 static inline uint8_t get_next(uint8_t cur_offset, uint8_t size)
 {
 	return (cur_offset == (size - 1) ? 0 : cur_offset + 1);
- 3f8:	c3 2e       	mov	r12, r19
- 3fa:	d1 2c       	mov	r13, r1
- 3fc:	e2 80       	ldd	r14, Z+2	; 0x02
- 3fe:	f1 2c       	mov	r15, r1
- 400:	b1 e0       	ldi	r27, 0x01	; 1
- 402:	eb 1a       	sub	r14, r27
- 404:	f1 08       	sbc	r15, r1
- 406:	ce 14       	cp	r12, r14
- 408:	df 04       	cpc	r13, r15
- 40a:	11 f0       	breq	.+4      	; 0x410 <__LOCK_REGION_LENGTH__+0x10>
- 40c:	3f 5f       	subi	r19, 0xFF	; 255
- 40e:	01 c0       	rjmp	.+2      	; 0x412 <__LOCK_REGION_LENGTH__+0x12>
- 410:	31 2f       	mov	r19, r17
+ 306:	09 2f       	mov	r16, r25
+ 308:	10 e0       	ldi	r17, 0x00	; 0
+ 30a:	22 81       	ldd	r18, Z+2	; 0x02
+ 30c:	30 e0       	ldi	r19, 0x00	; 0
+ 30e:	21 50       	subi	r18, 0x01	; 1
+ 310:	31 09       	sbc	r19, r1
+ 312:	02 17       	cp	r16, r18
+ 314:	13 07       	cpc	r17, r19
+ 316:	11 f0       	breq	.+4      	; 0x31c <send_confirmation_msg+0x80>
+ 318:	9f 5f       	subi	r25, 0xFF	; 255
+ 31a:	01 c0       	rjmp	.+2      	; 0x31e <send_confirmation_msg+0x82>
+ 31c:	94 2f       	mov	r25, r20
  */
 static inline void ring_buffer_put(struct ring_buffer *ring, uint8_t data)
 {
 	Assert(!ring_buffer_is_full(ring));
 	ring->buffer[ring->write_offset] = data;
 	ring->write_offset = ring_buffer_get_next_write(ring);
- 412:	30 83       	st	Z, r19
+ 31e:	90 83       	st	Z, r25
 	}
 	// Put data in buffer
 	ring_buffer_put(&ring_buffer_out, data);
 
 	// Re-enable interrupts
 	sei();
- 414:	78 94       	sei
+ 320:	78 94       	sei
 
 
-static inline void send_confirmation_msg(uint8_t data)
+extern void send_confirmation_msg(uint8_t data)
 {
 	uint8_t cnt = 0;
 	for (cnt = 0; cnt < strlen(test_string); cnt++) {
- 416:	46 17       	cp	r20, r22
- 418:	57 07       	cpc	r21, r23
- 41a:	21 f6       	brne	.-120    	; 0x3a4 <main+0x1d8>
+ 322:	6a 17       	cp	r22, r26
+ 324:	7b 07       	cpc	r23, r27
+ 326:	39 f6       	brne	.-114    	; 0x2b6 <send_confirmation_msg+0x1a>
  * \retval true   if the buffer is empty
  * \retval false  if there is still data in the buffer
  */
 static inline bool ring_buffer_is_empty(const struct ring_buffer *ring)
 {
 	return (ring->read_offset == ring->write_offset);
- 41c:	41 81       	ldd	r20, Z+1	; 0x01
- 41e:	30 81       	ld	r19, Z
+ 328:	e5 ee       	ldi	r30, 0xE5	; 229
+ 32a:	f1 e0       	ldi	r31, 0x01	; 1
+ 32c:	21 81       	ldd	r18, Z+1	; 0x01
+ 32e:	90 81       	ld	r25, Z
 		while(!ring_buffer_is_empty(&ring_buffer_out)) {
 			;
 		}
 		uart_putchar(test_string[cnt]);
 	}
 	while(!ring_buffer_is_empty(&ring_buffer_out)) {
- 420:	43 13       	cpse	r20, r19
- 422:	fc cf       	rjmp	.-8      	; 0x41c <__LOCK_REGION_LENGTH__+0x1c>
+ 330:	29 13       	cpse	r18, r25
+ 332:	fc cf       	rjmp	.-8      	; 0x32c <send_confirmation_msg+0x90>
  *
  */
 static inline void uart_putchar(uint8_t data)
 {
 	// Disable interrupts to get exclusive access to ring_buffer_out.
 	cli();
- 424:	f8 94       	cli
- 426:	41 81       	ldd	r20, Z+1	; 0x01
- 428:	30 81       	ld	r19, Z
+ 334:	f8 94       	cli
+ 336:	e5 ee       	ldi	r30, 0xE5	; 229
+ 338:	f1 e0       	ldi	r31, 0x01	; 1
+ 33a:	21 81       	ldd	r18, Z+1	; 0x01
+ 33c:	90 81       	ld	r25, Z
 	if (ring_buffer_is_empty(&ring_buffer_out)) {
- 42a:	43 13       	cpse	r20, r19
- 42c:	04 c0       	rjmp	.+8      	; 0x436 <__LOCK_REGION_LENGTH__+0x36>
+ 33e:	29 13       	cpse	r18, r25
+ 340:	05 c0       	rjmp	.+10     	; 0x34c <send_confirmation_msg+0xb0>
 		// First data in buffer, enable data ready interrupt
 		UCSR0B |=  (1 << UDRIE0);
- 42e:	dc 01       	movw	r26, r24
- 430:	3c 91       	ld	r19, X
- 432:	30 62       	ori	r19, 0x20	; 32
- 434:	3c 93       	st	X, r19
+ 342:	e1 ec       	ldi	r30, 0xC1	; 193
+ 344:	f0 e0       	ldi	r31, 0x00	; 0
+ 346:	90 81       	ld	r25, Z
+ 348:	90 62       	ori	r25, 0x20	; 32
+ 34a:	90 83       	st	Z, r25
  * \retval true  if the buffer is full
  * \retval false if there is space available in the ring buffer
  */
 static inline bool ring_buffer_is_full(const struct ring_buffer *ring)
 {
 	return (ring->read_offset == ring_buffer_get_next_write(ring));
- 436:	d1 80       	ldd	r13, Z+1	; 0x01
+ 34c:	e5 ee       	ldi	r30, 0xE5	; 229
+ 34e:	f1 e0       	ldi	r31, 0x01	; 1
+ 350:	41 81       	ldd	r20, Z+1	; 0x01
  *
  * \returns the next write offset in the ring buffer
  */
 static inline uint8_t ring_buffer_get_next_write(const struct ring_buffer *ring)
 {
 	return get_next(ring->write_offset, ring->size);
- 438:	30 81       	ld	r19, Z
+ 352:	90 81       	ld	r25, Z
  *
  * \returns next offset or 0 if we are wrapping
  */
 static inline uint8_t get_next(uint8_t cur_offset, uint8_t size)
 {
 	return (cur_offset == (size - 1) ? 0 : cur_offset + 1);
- 43a:	e3 2e       	mov	r14, r19
- 43c:	f1 2c       	mov	r15, r1
- 43e:	42 81       	ldd	r20, Z+2	; 0x02
- 440:	50 e0       	ldi	r21, 0x00	; 0
- 442:	41 50       	subi	r20, 0x01	; 1
- 444:	51 09       	sbc	r21, r1
- 446:	e4 16       	cp	r14, r20
- 448:	f5 06       	cpc	r15, r21
- 44a:	11 f0       	breq	.+4      	; 0x450 <__LOCK_REGION_LENGTH__+0x50>
- 44c:	3f 5f       	subi	r19, 0xFF	; 255
- 44e:	01 c0       	rjmp	.+2      	; 0x452 <__LOCK_REGION_LENGTH__+0x52>
- 450:	32 2f       	mov	r19, r18
+ 354:	69 2f       	mov	r22, r25
+ 356:	70 e0       	ldi	r23, 0x00	; 0
+ 358:	22 81       	ldd	r18, Z+2	; 0x02
+ 35a:	30 e0       	ldi	r19, 0x00	; 0
+ 35c:	21 50       	subi	r18, 0x01	; 1
+ 35e:	31 09       	sbc	r19, r1
+ 360:	62 17       	cp	r22, r18
+ 362:	73 07       	cpc	r23, r19
+ 364:	11 f0       	breq	.+4      	; 0x36a <send_confirmation_msg+0xce>
+ 366:	9f 5f       	subi	r25, 0xFF	; 255
+ 368:	01 c0       	rjmp	.+2      	; 0x36c <send_confirmation_msg+0xd0>
+ 36a:	90 e0       	ldi	r25, 0x00	; 0
  * \param data the byte to put to the buffer
  *
  */
 static inline void ring_buffer_put(struct ring_buffer *ring, uint8_t data)
 {
 	Assert(!ring_buffer_is_full(ring));
- 452:	d3 12       	cpse	r13, r19
- 454:	01 c0       	rjmp	.+2      	; 0x458 <__LOCK_REGION_LENGTH__+0x58>
- 456:	ff cf       	rjmp	.-2      	; 0x456 <__LOCK_REGION_LENGTH__+0x56>
+ 36c:	49 13       	cpse	r20, r25
+ 36e:	01 c0       	rjmp	.+2      	; 0x372 <send_confirmation_msg+0xd6>
+ 370:	ff cf       	rjmp	.-2      	; 0x370 <send_confirmation_msg+0xd4>
 	ring->buffer[ring->write_offset] = data;
- 458:	30 81       	ld	r19, Z
- 45a:	43 81       	ldd	r20, Z+3	; 0x03
- 45c:	54 81       	ldd	r21, Z+4	; 0x04
- 45e:	43 0f       	add	r20, r19
- 460:	51 1d       	adc	r21, r1
- 462:	da 01       	movw	r26, r20
- 464:	bc 92       	st	X, r11
+ 372:	e5 ee       	ldi	r30, 0xE5	; 229
+ 374:	f1 e0       	ldi	r31, 0x01	; 1
+ 376:	90 81       	ld	r25, Z
+ 378:	a3 81       	ldd	r26, Z+3	; 0x03
+ 37a:	b4 81       	ldd	r27, Z+4	; 0x04
+ 37c:	a9 0f       	add	r26, r25
+ 37e:	b1 1d       	adc	r27, r1
+ 380:	8c 93       	st	X, r24
  *
  * \returns the next write offset in the ring buffer
  */
 static inline uint8_t ring_buffer_get_next_write(const struct ring_buffer *ring)
 {
 	return get_next(ring->write_offset, ring->size);
- 466:	30 81       	ld	r19, Z
+ 382:	80 81       	ld	r24, Z
  *
  * \returns next offset or 0 if we are wrapping
  */
 static inline uint8_t get_next(uint8_t cur_offset, uint8_t size)
 {
 	return (cur_offset == (size - 1) ? 0 : cur_offset + 1);
- 468:	e3 2e       	mov	r14, r19
- 46a:	f1 2c       	mov	r15, r1
- 46c:	42 81       	ldd	r20, Z+2	; 0x02
- 46e:	50 e0       	ldi	r21, 0x00	; 0
- 470:	41 50       	subi	r20, 0x01	; 1
- 472:	51 09       	sbc	r21, r1
- 474:	e4 16       	cp	r14, r20
- 476:	f5 06       	cpc	r15, r21
- 478:	11 f0       	breq	.+4      	; 0x47e <__LOCK_REGION_LENGTH__+0x7e>
- 47a:	3f 5f       	subi	r19, 0xFF	; 255
- 47c:	01 c0       	rjmp	.+2      	; 0x480 <__LOCK_REGION_LENGTH__+0x80>
- 47e:	32 2f       	mov	r19, r18
+ 384:	48 2f       	mov	r20, r24
+ 386:	50 e0       	ldi	r21, 0x00	; 0
+ 388:	22 81       	ldd	r18, Z+2	; 0x02
+ 38a:	30 e0       	ldi	r19, 0x00	; 0
+ 38c:	21 50       	subi	r18, 0x01	; 1
+ 38e:	31 09       	sbc	r19, r1
+ 390:	42 17       	cp	r20, r18
+ 392:	53 07       	cpc	r21, r19
+ 394:	11 f0       	breq	.+4      	; 0x39a <send_confirmation_msg+0xfe>
+ 396:	8f 5f       	subi	r24, 0xFF	; 255
+ 398:	01 c0       	rjmp	.+2      	; 0x39c <send_confirmation_msg+0x100>
+ 39a:	80 e0       	ldi	r24, 0x00	; 0
  */
 static inline void ring_buffer_put(struct ring_buffer *ring, uint8_t data)
 {
 	Assert(!ring_buffer_is_full(ring));
 	ring->buffer[ring->write_offset] = data;
 	ring->write_offset = ring_buffer_get_next_write(ring);
- 480:	30 83       	st	Z, r19
+ 39c:	80 93 e5 01 	sts	0x01E5, r24	; 0x8001e5 <ring_buffer_out>
 	}
 	// Put data in buffer
 	ring_buffer_put(&ring_buffer_out, data);
 
 	// Re-enable interrupts
 	sei();
- 482:	78 94       	sei
+ 3a0:	78 94       	sei
  * \retval true   if the buffer is empty
  * \retval false  if there is still data in the buffer
  */
 static inline bool ring_buffer_is_empty(const struct ring_buffer *ring)
 {
 	return (ring->read_offset == ring->write_offset);
- 484:	41 81       	ldd	r20, Z+1	; 0x01
- 486:	30 81       	ld	r19, Z
+ 3a2:	e5 ee       	ldi	r30, 0xE5	; 229
+ 3a4:	f1 e0       	ldi	r31, 0x01	; 1
+ 3a6:	91 81       	ldd	r25, Z+1	; 0x01
+ 3a8:	80 81       	ld	r24, Z
 	while(!ring_buffer_is_empty(&ring_buffer_out)) {
 		;
 	}
 	uart_putchar(data);
 	for (cnt = 0; cnt < strlen(test_string2); cnt++) {
 		while(!ring_buffer_is_empty(&ring_buffer_out)) {
- 488:	43 13       	cpse	r20, r19
- 48a:	fc cf       	rjmp	.-8      	; 0x484 <__LOCK_REGION_LENGTH__+0x84>
+ 3aa:	98 13       	cpse	r25, r24
+ 3ac:	fc cf       	rjmp	.-8      	; 0x3a6 <send_confirmation_msg+0x10a>
  *
  */
 static inline void uart_putchar(uint8_t data)
 {
 	// Disable interrupts to get exclusive access to ring_buffer_out.
 	cli();
- 48c:	f8 94       	cli
- 48e:	41 81       	ldd	r20, Z+1	; 0x01
- 490:	30 81       	ld	r19, Z
+ 3ae:	f8 94       	cli
+ 3b0:	e5 ee       	ldi	r30, 0xE5	; 229
+ 3b2:	f1 e0       	ldi	r31, 0x01	; 1
+ 3b4:	91 81       	ldd	r25, Z+1	; 0x01
+ 3b6:	80 81       	ld	r24, Z
 	if (ring_buffer_is_empty(&ring_buffer_out)) {
- 492:	43 13       	cpse	r20, r19
- 494:	04 c0       	rjmp	.+8      	; 0x49e <__LOCK_REGION_LENGTH__+0x9e>
+ 3b8:	98 13       	cpse	r25, r24
+ 3ba:	05 c0       	rjmp	.+10     	; 0x3c6 <send_confirmation_msg+0x12a>
 		// First data in buffer, enable data ready interrupt
 		UCSR0B |=  (1 << UDRIE0);
- 496:	dc 01       	movw	r26, r24
- 498:	3c 91       	ld	r19, X
- 49a:	30 62       	ori	r19, 0x20	; 32
- 49c:	3c 93       	st	X, r19
+ 3bc:	e1 ec       	ldi	r30, 0xC1	; 193
+ 3be:	f0 e0       	ldi	r31, 0x00	; 0
+ 3c0:	80 81       	ld	r24, Z
+ 3c2:	80 62       	ori	r24, 0x20	; 32
+ 3c4:	80 83       	st	Z, r24
  * \retval true  if the buffer is full
  * \retval false if there is space available in the ring buffer
  */
 static inline bool ring_buffer_is_full(const struct ring_buffer *ring)
 {
 	return (ring->read_offset == ring_buffer_get_next_write(ring));
- 49e:	d1 80       	ldd	r13, Z+1	; 0x01
+ 3c6:	e5 ee       	ldi	r30, 0xE5	; 229
+ 3c8:	f1 e0       	ldi	r31, 0x01	; 1
+ 3ca:	91 81       	ldd	r25, Z+1	; 0x01
  *
  * \returns the next write offset in the ring buffer
  */
 static inline uint8_t ring_buffer_get_next_write(const struct ring_buffer *ring)
 {
 	return get_next(ring->write_offset, ring->size);
- 4a0:	30 81       	ld	r19, Z
+ 3cc:	80 81       	ld	r24, Z
  *
  * \returns next offset or 0 if we are wrapping
  */
 static inline uint8_t get_next(uint8_t cur_offset, uint8_t size)
 {
 	return (cur_offset == (size - 1) ? 0 : cur_offset + 1);
- 4a2:	e3 2e       	mov	r14, r19
- 4a4:	f1 2c       	mov	r15, r1
- 4a6:	42 81       	ldd	r20, Z+2	; 0x02
- 4a8:	50 e0       	ldi	r21, 0x00	; 0
- 4aa:	41 50       	subi	r20, 0x01	; 1
- 4ac:	51 09       	sbc	r21, r1
- 4ae:	e4 16       	cp	r14, r20
- 4b0:	f5 06       	cpc	r15, r21
- 4b2:	11 f0       	breq	.+4      	; 0x4b8 <__LOCK_REGION_LENGTH__+0xb8>
- 4b4:	3f 5f       	subi	r19, 0xFF	; 255
- 4b6:	01 c0       	rjmp	.+2      	; 0x4ba <__LOCK_REGION_LENGTH__+0xba>
- 4b8:	32 2f       	mov	r19, r18
+ 3ce:	48 2f       	mov	r20, r24
+ 3d0:	50 e0       	ldi	r21, 0x00	; 0
+ 3d2:	22 81       	ldd	r18, Z+2	; 0x02
+ 3d4:	30 e0       	ldi	r19, 0x00	; 0
+ 3d6:	21 50       	subi	r18, 0x01	; 1
+ 3d8:	31 09       	sbc	r19, r1
+ 3da:	42 17       	cp	r20, r18
+ 3dc:	53 07       	cpc	r21, r19
+ 3de:	11 f0       	breq	.+4      	; 0x3e4 <send_confirmation_msg+0x148>
+ 3e0:	8f 5f       	subi	r24, 0xFF	; 255
+ 3e2:	01 c0       	rjmp	.+2      	; 0x3e6 <send_confirmation_msg+0x14a>
+ 3e4:	80 e0       	ldi	r24, 0x00	; 0
  * \param data the byte to put to the buffer
  *
  */
 static inline void ring_buffer_put(struct ring_buffer *ring, uint8_t data)
 {
 	Assert(!ring_buffer_is_full(ring));
- 4ba:	d3 12       	cpse	r13, r19
- 4bc:	01 c0       	rjmp	.+2      	; 0x4c0 <__LOCK_REGION_LENGTH__+0xc0>
- 4be:	ff cf       	rjmp	.-2      	; 0x4be <__LOCK_REGION_LENGTH__+0xbe>
+ 3e6:	98 13       	cpse	r25, r24
+ 3e8:	01 c0       	rjmp	.+2      	; 0x3ec <send_confirmation_msg+0x150>
+ 3ea:	ff cf       	rjmp	.-2      	; 0x3ea <send_confirmation_msg+0x14e>
 	ring->buffer[ring->write_offset] = data;
- 4c0:	30 81       	ld	r19, Z
- 4c2:	43 81       	ldd	r20, Z+3	; 0x03
- 4c4:	54 81       	ldd	r21, Z+4	; 0x04
- 4c6:	43 0f       	add	r20, r19
- 4c8:	51 1d       	adc	r21, r1
- 4ca:	da 01       	movw	r26, r20
- 4cc:	0c 93       	st	X, r16
+ 3ec:	e5 ee       	ldi	r30, 0xE5	; 229
+ 3ee:	f1 e0       	ldi	r31, 0x01	; 1
+ 3f0:	80 81       	ld	r24, Z
+ 3f2:	a3 81       	ldd	r26, Z+3	; 0x03
+ 3f4:	b4 81       	ldd	r27, Z+4	; 0x04
+ 3f6:	a8 0f       	add	r26, r24
+ 3f8:	b1 1d       	adc	r27, r1
+ 3fa:	8d e5       	ldi	r24, 0x5D	; 93
+ 3fc:	8c 93       	st	X, r24
  *
  * \returns the next write offset in the ring buffer
  */
 static inline uint8_t ring_buffer_get_next_write(const struct ring_buffer *ring)
 {
 	return get_next(ring->write_offset, ring->size);
- 4ce:	30 81       	ld	r19, Z
+ 3fe:	80 81       	ld	r24, Z
  *
  * \returns next offset or 0 if we are wrapping
  */
 static inline uint8_t get_next(uint8_t cur_offset, uint8_t size)
 {
 	return (cur_offset == (size - 1) ? 0 : cur_offset + 1);
- 4d0:	e3 2e       	mov	r14, r19
- 4d2:	f1 2c       	mov	r15, r1
- 4d4:	42 81       	ldd	r20, Z+2	; 0x02
- 4d6:	50 e0       	ldi	r21, 0x00	; 0
- 4d8:	41 50       	subi	r20, 0x01	; 1
- 4da:	51 09       	sbc	r21, r1
- 4dc:	e4 16       	cp	r14, r20
- 4de:	f5 06       	cpc	r15, r21
- 4e0:	11 f0       	breq	.+4      	; 0x4e6 <__LOCK_REGION_LENGTH__+0xe6>
- 4e2:	3f 5f       	subi	r19, 0xFF	; 255
- 4e4:	01 c0       	rjmp	.+2      	; 0x4e8 <__LOCK_REGION_LENGTH__+0xe8>
- 4e6:	32 2f       	mov	r19, r18
+ 400:	48 2f       	mov	r20, r24
+ 402:	50 e0       	ldi	r21, 0x00	; 0
+ 404:	22 81       	ldd	r18, Z+2	; 0x02
+ 406:	30 e0       	ldi	r19, 0x00	; 0
+ 408:	21 50       	subi	r18, 0x01	; 1
+ 40a:	31 09       	sbc	r19, r1
+ 40c:	42 17       	cp	r20, r18
+ 40e:	53 07       	cpc	r21, r19
+ 410:	11 f0       	breq	.+4      	; 0x416 <__LOCK_REGION_LENGTH__+0x16>
+ 412:	8f 5f       	subi	r24, 0xFF	; 255
+ 414:	01 c0       	rjmp	.+2      	; 0x418 <__LOCK_REGION_LENGTH__+0x18>
+ 416:	80 e0       	ldi	r24, 0x00	; 0
  */
 static inline void ring_buffer_put(struct ring_buffer *ring, uint8_t data)
 {
 	Assert(!ring_buffer_is_full(ring));
 	ring->buffer[ring->write_offset] = data;
 	ring->write_offset = ring_buffer_get_next_write(ring);
- 4e8:	30 83       	st	Z, r19
+ 418:	80 93 e5 01 	sts	0x01E5, r24	; 0x8001e5 <ring_buffer_out>
 	}
 	// Put data in buffer
 	ring_buffer_put(&ring_buffer_out, data);
 
 	// Re-enable interrupts
 	sei();
- 4ea:	78 94       	sei
- 4ec:	29 cf       	rjmp	.-430    	; 0x340 <main+0x174>
+ 41c:	78 94       	sei
+		while(!ring_buffer_is_empty(&ring_buffer_out)) {
+			;
+		}
+		uart_putchar(test_string2[cnt]);
+	}
+}
+ 41e:	df 91       	pop	r29
+ 420:	cf 91       	pop	r28
+ 422:	1f 91       	pop	r17
+ 424:	0f 91       	pop	r16
+ 426:	ff 90       	pop	r15
+ 428:	ef 90       	pop	r14
+ 42a:	08 95       	ret
 
-000004ee <_exit>:
- 4ee:	f8 94       	cli
+0000042c <send_str>:
 
-000004f0 <__stop_program>:
- 4f0:	ff cf       	rjmp	.-2      	; 0x4f0 <__stop_program>
+extern void send_str(char msg[])
+{
+ 42c:	0f 93       	push	r16
+ 42e:	1f 93       	push	r17
+ 430:	cf 93       	push	r28
+ 432:	df 93       	push	r29
+ 434:	ac 01       	movw	r20, r24
+	uint8_t cnt = 0;
+	for (cnt = 0; cnt < strlen(msg); cnt++) {
+ 436:	10 e0       	ldi	r17, 0x00	; 0
+ * \retval true   if the buffer is empty
+ * \retval false  if there is still data in the buffer
+ */
+static inline bool ring_buffer_is_empty(const struct ring_buffer *ring)
+{
+	return (ring->read_offset == ring->write_offset);
+ 438:	e5 ee       	ldi	r30, 0xE5	; 229
+ 43a:	f1 e0       	ldi	r31, 0x01	; 1
+{
+	// Disable interrupts to get exclusive access to ring_buffer_out.
+	cli();
+	if (ring_buffer_is_empty(&ring_buffer_out)) {
+		// First data in buffer, enable data ready interrupt
+		UCSR0B |=  (1 << UDRIE0);
+ 43c:	61 ec       	ldi	r22, 0xC1	; 193
+ 43e:	70 e0       	ldi	r23, 0x00	; 0
+ *
+ * \returns next offset or 0 if we are wrapping
+ */
+static inline uint8_t get_next(uint8_t cur_offset, uint8_t size)
+{
+	return (cur_offset == (size - 1) ? 0 : cur_offset + 1);
+ 440:	00 e0       	ldi	r16, 0x00	; 0
+}
+
+extern void send_str(char msg[])
+{
+	uint8_t cnt = 0;
+	for (cnt = 0; cnt < strlen(msg); cnt++) {
+ 442:	37 c0       	rjmp	.+110    	; 0x4b2 <send_str+0x86>
+ * \retval true   if the buffer is empty
+ * \retval false  if there is still data in the buffer
+ */
+static inline bool ring_buffer_is_empty(const struct ring_buffer *ring)
+{
+	return (ring->read_offset == ring->write_offset);
+ 444:	21 81       	ldd	r18, Z+1	; 0x01
+ 446:	90 81       	ld	r25, Z
+		while(!ring_buffer_is_empty(&ring_buffer_out)) {
+ 448:	29 13       	cpse	r18, r25
+ 44a:	fc cf       	rjmp	.-8      	; 0x444 <send_str+0x18>
+			;
+		}
+		uart_putchar(msg[cnt]);
+ 44c:	c4 0f       	add	r28, r20
+ 44e:	d5 1f       	adc	r29, r21
+ 450:	98 81       	ld	r25, Y
+ *
+ */
+static inline void uart_putchar(uint8_t data)
+{
+	// Disable interrupts to get exclusive access to ring_buffer_out.
+	cli();
+ 452:	f8 94       	cli
+ 454:	21 81       	ldd	r18, Z+1	; 0x01
+ 456:	80 81       	ld	r24, Z
+	if (ring_buffer_is_empty(&ring_buffer_out)) {
+ 458:	28 13       	cpse	r18, r24
+ 45a:	04 c0       	rjmp	.+8      	; 0x464 <send_str+0x38>
+		// First data in buffer, enable data ready interrupt
+		UCSR0B |=  (1 << UDRIE0);
+ 45c:	db 01       	movw	r26, r22
+ 45e:	8c 91       	ld	r24, X
+ 460:	80 62       	ori	r24, 0x20	; 32
+ 462:	8c 93       	st	X, r24
+ * \retval true  if the buffer is full
+ * \retval false if there is space available in the ring buffer
+ */
+static inline bool ring_buffer_is_full(const struct ring_buffer *ring)
+{
+	return (ring->read_offset == ring_buffer_get_next_write(ring));
+ 464:	a1 81       	ldd	r26, Z+1	; 0x01
+ *
+ * \returns the next write offset in the ring buffer
+ */
+static inline uint8_t ring_buffer_get_next_write(const struct ring_buffer *ring)
+{
+	return get_next(ring->write_offset, ring->size);
+ 466:	80 81       	ld	r24, Z
+ *
+ * \returns next offset or 0 if we are wrapping
+ */
+static inline uint8_t get_next(uint8_t cur_offset, uint8_t size)
+{
+	return (cur_offset == (size - 1) ? 0 : cur_offset + 1);
+ 468:	c8 2f       	mov	r28, r24
+ 46a:	d0 e0       	ldi	r29, 0x00	; 0
+ 46c:	22 81       	ldd	r18, Z+2	; 0x02
+ 46e:	30 e0       	ldi	r19, 0x00	; 0
+ 470:	21 50       	subi	r18, 0x01	; 1
+ 472:	31 09       	sbc	r19, r1
+ 474:	c2 17       	cp	r28, r18
+ 476:	d3 07       	cpc	r29, r19
+ 478:	11 f0       	breq	.+4      	; 0x47e <send_str+0x52>
+ 47a:	8f 5f       	subi	r24, 0xFF	; 255
+ 47c:	01 c0       	rjmp	.+2      	; 0x480 <send_str+0x54>
+ 47e:	80 2f       	mov	r24, r16
+ * \param data the byte to put to the buffer
+ *
+ */
+static inline void ring_buffer_put(struct ring_buffer *ring, uint8_t data)
+{
+	Assert(!ring_buffer_is_full(ring));
+ 480:	a8 13       	cpse	r26, r24
+ 482:	01 c0       	rjmp	.+2      	; 0x486 <send_str+0x5a>
+ 484:	ff cf       	rjmp	.-2      	; 0x484 <send_str+0x58>
+	ring->buffer[ring->write_offset] = data;
+ 486:	80 81       	ld	r24, Z
+ 488:	a3 81       	ldd	r26, Z+3	; 0x03
+ 48a:	b4 81       	ldd	r27, Z+4	; 0x04
+ 48c:	a8 0f       	add	r26, r24
+ 48e:	b1 1d       	adc	r27, r1
+ 490:	9c 93       	st	X, r25
+ *
+ * \returns the next write offset in the ring buffer
+ */
+static inline uint8_t ring_buffer_get_next_write(const struct ring_buffer *ring)
+{
+	return get_next(ring->write_offset, ring->size);
+ 492:	90 81       	ld	r25, Z
+ *
+ * \returns next offset or 0 if we are wrapping
+ */
+static inline uint8_t get_next(uint8_t cur_offset, uint8_t size)
+{
+	return (cur_offset == (size - 1) ? 0 : cur_offset + 1);
+ 494:	a9 2f       	mov	r26, r25
+ 496:	b0 e0       	ldi	r27, 0x00	; 0
+ 498:	22 81       	ldd	r18, Z+2	; 0x02
+ 49a:	30 e0       	ldi	r19, 0x00	; 0
+ 49c:	21 50       	subi	r18, 0x01	; 1
+ 49e:	31 09       	sbc	r19, r1
+ 4a0:	a2 17       	cp	r26, r18
+ 4a2:	b3 07       	cpc	r27, r19
+ 4a4:	11 f0       	breq	.+4      	; 0x4aa <send_str+0x7e>
+ 4a6:	9f 5f       	subi	r25, 0xFF	; 255
+ 4a8:	01 c0       	rjmp	.+2      	; 0x4ac <send_str+0x80>
+ 4aa:	90 2f       	mov	r25, r16
+ */
+static inline void ring_buffer_put(struct ring_buffer *ring, uint8_t data)
+{
+	Assert(!ring_buffer_is_full(ring));
+	ring->buffer[ring->write_offset] = data;
+	ring->write_offset = ring_buffer_get_next_write(ring);
+ 4ac:	90 83       	st	Z, r25
+	}
+	// Put data in buffer
+	ring_buffer_put(&ring_buffer_out, data);
+
+	// Re-enable interrupts
+	sei();
+ 4ae:	78 94       	sei
+}
+
+extern void send_str(char msg[])
+{
+	uint8_t cnt = 0;
+	for (cnt = 0; cnt < strlen(msg); cnt++) {
+ 4b0:	1f 5f       	subi	r17, 0xFF	; 255
+ 4b2:	c1 2f       	mov	r28, r17
+ 4b4:	d0 e0       	ldi	r29, 0x00	; 0
+ 4b6:	da 01       	movw	r26, r20
+ 4b8:	0d 90       	ld	r0, X+
+ 4ba:	00 20       	and	r0, r0
+ 4bc:	e9 f7       	brne	.-6      	; 0x4b8 <send_str+0x8c>
+ 4be:	11 97       	sbiw	r26, 0x01	; 1
+ 4c0:	a4 1b       	sub	r26, r20
+ 4c2:	b5 0b       	sbc	r27, r21
+ 4c4:	ca 17       	cp	r28, r26
+ 4c6:	db 07       	cpc	r29, r27
+ 4c8:	08 f4       	brcc	.+2      	; 0x4cc <send_str+0xa0>
+ 4ca:	bc cf       	rjmp	.-136    	; 0x444 <send_str+0x18>
+		while(!ring_buffer_is_empty(&ring_buffer_out)) {
+			;
+		}
+		uart_putchar(msg[cnt]);
+	}
+}
+ 4cc:	df 91       	pop	r29
+ 4ce:	cf 91       	pop	r28
+ 4d0:	1f 91       	pop	r17
+ 4d2:	0f 91       	pop	r16
+ 4d4:	08 95       	ret
+
+000004d6 <get_char>:
+ * \retval true   if the buffer is empty
+ * \retval false  if there is still data in the buffer
+ */
+static inline bool ring_buffer_is_empty(const struct ring_buffer *ring)
+{
+	return (ring->read_offset == ring->write_offset);
+ 4d6:	e0 ee       	ldi	r30, 0xE0	; 224
+ 4d8:	f1 e0       	ldi	r31, 0x01	; 1
+ 4da:	91 81       	ldd	r25, Z+1	; 0x01
+ 4dc:	80 81       	ld	r24, Z
+
+extern uint8_t get_char(void)
+{	
+	uint8_t data = '\0';
+	if (uart_char_waiting()) {
+ 4de:	98 17       	cp	r25, r24
+ 4e0:	e9 f0       	breq	.+58     	; 0x51c <get_char+0x46>
+ 4e2:	91 81       	ldd	r25, Z+1	; 0x01
+ 4e4:	80 81       	ld	r24, Z
+ *
+ * \returns next data byte in buffer
+ */
+static inline uint8_t ring_buffer_get(struct ring_buffer *ring)
+{
+	Assert(!ring_buffer_is_empty(ring));
+ 4e6:	98 13       	cpse	r25, r24
+ 4e8:	01 c0       	rjmp	.+2      	; 0x4ec <get_char+0x16>
+ 4ea:	ff cf       	rjmp	.-2      	; 0x4ea <get_char+0x14>
+	uint8_t data = ring->buffer[ring->read_offset];
+ 4ec:	e0 ee       	ldi	r30, 0xE0	; 224
+ 4ee:	f1 e0       	ldi	r31, 0x01	; 1
+ 4f0:	81 81       	ldd	r24, Z+1	; 0x01
+ 4f2:	a3 81       	ldd	r26, Z+3	; 0x03
+ 4f4:	b4 81       	ldd	r27, Z+4	; 0x04
+ 4f6:	a8 0f       	add	r26, r24
+ 4f8:	b1 1d       	adc	r27, r1
+ 4fa:	8c 91       	ld	r24, X
+ *
+ * \returns the next read offset in the ring buffer
+ */
+static inline uint8_t ring_buffer_get_next_read(const struct ring_buffer *ring)
+{
+	return get_next(ring->read_offset, ring->size);
+ 4fc:	91 81       	ldd	r25, Z+1	; 0x01
+ *
+ * \returns next offset or 0 if we are wrapping
+ */
+static inline uint8_t get_next(uint8_t cur_offset, uint8_t size)
+{
+	return (cur_offset == (size - 1) ? 0 : cur_offset + 1);
+ 4fe:	49 2f       	mov	r20, r25
+ 500:	50 e0       	ldi	r21, 0x00	; 0
+ 502:	22 81       	ldd	r18, Z+2	; 0x02
+ 504:	30 e0       	ldi	r19, 0x00	; 0
+ 506:	21 50       	subi	r18, 0x01	; 1
+ 508:	31 09       	sbc	r19, r1
+ 50a:	42 17       	cp	r20, r18
+ 50c:	53 07       	cpc	r21, r19
+ 50e:	11 f0       	breq	.+4      	; 0x514 <get_char+0x3e>
+ 510:	9f 5f       	subi	r25, 0xFF	; 255
+ 512:	01 c0       	rjmp	.+2      	; 0x516 <get_char+0x40>
+ 514:	90 e0       	ldi	r25, 0x00	; 0
+ */
+static inline uint8_t ring_buffer_get(struct ring_buffer *ring)
+{
+	Assert(!ring_buffer_is_empty(ring));
+	uint8_t data = ring->buffer[ring->read_offset];
+	ring->read_offset = ring_buffer_get_next_read(ring);
+ 516:	90 93 e1 01 	sts	0x01E1, r25	; 0x8001e1 <ring_buffer_in+0x1>
+ 51a:	08 95       	ret
+	}
+}
+
+extern uint8_t get_char(void)
+{	
+	uint8_t data = '\0';
+ 51c:	80 e0       	ldi	r24, 0x00	; 0
+	if (uart_char_waiting()) {
+		data = uart_getchar(); // THIS IS THE RECEIVED CHARACTER
+	}
+	return data;
+}
+ 51e:	08 95       	ret
+
+00000520 <main>:
+{
+
+	uint8_t data = 0;
+
+	cli();
+	uart_init();
+ 520:	f8 94       	cli
+	sei();
+ 522:	54 de       	rcall	.-856    	; 0x1cc <uart_init>
+	send_str("HELLO WORLD");
+ 524:	78 94       	sei
+ 526:	8b e0       	ldi	r24, 0x0B	; 11
+	while(1) {
+		data = get_char(); // THIS IS THE RECEIVED CHARACTER
+ 528:	91 e0       	ldi	r25, 0x01	; 1
+		if (data != '\0') {
+ 52a:	80 df       	rcall	.-256    	; 0x42c <send_str>
+ 52c:	d4 df       	rcall	.-88     	; 0x4d6 <get_char>
+			send_confirmation_msg(data);
+ 52e:	88 23       	and	r24, r24
+ 530:	e9 f3       	breq	.-6      	; 0x52c <main+0xc>
+ 532:	b4 de       	rcall	.-664    	; 0x29c <send_confirmation_msg>
+ 534:	fb cf       	rjmp	.-10     	; 0x52c <main+0xc>
+
+00000536 <_exit>:
+ 536:	f8 94       	cli
+
+00000538 <__stop_program>:
+ 538:	ff cf       	rjmp	.-2      	; 0x538 <__stop_program>

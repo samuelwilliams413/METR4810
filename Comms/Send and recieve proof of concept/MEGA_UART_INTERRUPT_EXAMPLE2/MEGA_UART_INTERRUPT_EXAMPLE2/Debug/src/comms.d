@@ -1,5 +1,4 @@
-src/mega_uart_interrupt_example.d src/mega_uart_interrupt_example.o: \
- ../src/mega_uart_interrupt_example.c \
+src/comms.d src/comms.o: ../src/comms.c \
  d:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h \
  d:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h \
  ../src/ASF/mega/utils/compiler.h \
