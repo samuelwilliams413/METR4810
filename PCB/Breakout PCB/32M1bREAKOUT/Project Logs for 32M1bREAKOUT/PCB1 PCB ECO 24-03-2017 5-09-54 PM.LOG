@@ -1,0 +1,7 @@
+Added Component: Designator=P?(HDR1X14)
+Added Component: Designator=P?(HDR1X8)
+Added Pin To Net: NetName=5V Pin=P?-1
+Added Pin To Net: NetName=5V Pin=P?-1
+Added Member To Class: ClassName=Sheet3 Member=Component P? Header 12
+Added Member To Class: ClassName=Sheet3 Member=Component P? Header 12
+Added Member To Class: ClassName=Sheet3 Member=Component P? Header 14
