@@ -1,0 +1,12 @@
+Output: NC Drill Files
+Type  : NC Drill
+From  : Project [PCB_METR4810.PrjPcb]
+   Generated File[METR4810_PCBLayout.TXT]
+   Generated File[METR4810_PCBLayout.LDP]
+   Generated File[METR4810_PCBLayout.DRR]
+
+
+Files Generated   : 3
+Documents Printed : 0
+
+Finished Output Generation At 9:22:31 AM On 6/04/2017

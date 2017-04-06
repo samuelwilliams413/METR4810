@@ -1,0 +1,21 @@
+Removed Pin From Net: NetName=VCC Pin=P9-2
+Removed Pin From Net: NetName=REV DIR 1 Pin=P9-5
+Removed Pin From Net: NetName=REV DIR 2 Pin=P9-11
+Removed Pin From Net: NetName=GND Pin=P9-13
+Removed Pin From Net: NetName=S1-IN4 Pin=U1-22
+Removed Pin From Net: NetName=S1-IN3 Pin=U1-23
+Removed Pin From Net: NetName=S1-IN2 Pin=U1-24
+Removed Pin From Net: NetName=S1-IN1 Pin=U1-25
+Removed Member From Class: ClassName=METR4810_Schematic Member=P9
+Added Pin To Net: NetName=REV DIR 1 Pin=U1-20
+Added Pin To Net: NetName=REV DIR 2 Pin=U1-22
+Added Pin To Net: NetName=S1-IN4 Pin=U1-23
+Added Pin To Net: NetName=S1-IN3 Pin=U1-24
+Added Pin To Net: NetName=S1-IN2 Pin=U1-25
+Added Pin To Net: NetName=S1-IN1 Pin=U1-26
+Added Pin To Net: NetName=FOR DIR 1 Pin=P5-3
+Added Pin To Net: NetName=FOR DIR 1 Pin=U1-19
+Added Net: Name=FOR DIR 1
+Added Pin To Net: NetName=FOR DIR 2 Pin=P5-4
+Added Pin To Net: NetName=FOR DIR 2 Pin=U1-21
+Added Net: Name=FOR DIR 2
