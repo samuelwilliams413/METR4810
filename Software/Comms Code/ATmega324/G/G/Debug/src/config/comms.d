@@ -1,4 +1,4 @@
-src/main.d src/main.o: ../src/main.c ../src/asf.h \
+src/config/comms.d src/config/comms.o: ../src/config/comms.c ../src/asf.h \
  ../src/ASF/common/boards/user_board/user_board.h \
  ../src/config/conf_board.h ../src/ASF/common/boards/board.h \
  ../src/ASF/mega/utils/compiler.h \
@@ -25,7 +25,8 @@ src/main.d src/main.o: ../src/main.c ../src/asf.h \
  d:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
  d:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  d:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
- ../src/config/comms.h
+ d:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h \
+ ../src/config/comms.h ../src/config/ring_buffer.h
 
 ../src/asf.h:
 
@@ -85,4 +86,8 @@ d:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 d:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h:
 
+d:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h:
+
 ../src/config/comms.h:
+
+../src/config/ring_buffer.h:
