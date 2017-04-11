@@ -1,4 +1,10 @@
- // _ASSERT_ENABLE_ is used for enabling assert, typical for debug purposes
+#include <asf.h>
+#define F_CPU 8000000L                    // set the CPU clock
+#include <avr/io.h>
+#include <util/delay.h>
+
+#define BAUD 9600                           // define baud
+#define BAUD_PRESCALLER 51    // set baudrate value for UBRR
 #define _ASSERT_ENABLE_
 #include <string.h>
 #include "compiler.h"
@@ -10,17 +16,7 @@
  */
 #define BUFFER_SIZE 100
 
-// set the correct BAUD and F_CPU defines before including setbaud.h
-#include "conf_clock.h"
-#include "conf_uart.h"
 
-/**
- * \name avr_libc_inc avr libc include files
- * @{
- */
-#include <util/setbaud.h>
-#include <avr/interrupt.h>
-//! @}
 
 #include "ring_buffer.h"
 
@@ -30,62 +26,17 @@ uint8_t in_buffer[BUFFER_SIZE];
 
 // the string we send and receive on UART
 const char test_string[] = "Received:[";
-const char test_string2[] = "]";
+const char test_string2[] = "]\n";
 const char test_string3[] = "LALALALALAL";
 
-//! ring buffer to use for the UART transmission
-struct ring_buffer ring_buffer_out;
-//! ring buffer to use for the UART reception
-struct ring_buffer ring_buffer_in;
 
-/**
- * \brief UART data register empty interrupt handler
- *
- * This handler is called each time the UART data register is available for
- * sending data.
- */
-ISR(UART0_DATA_EMPTY_IRQ)
-{
-	// if there is data in the ring buffer, fetch it and send it
-	if (!ring_buffer_is_empty(&ring_buffer_out)) {
-		UDR0 = ring_buffer_get(&ring_buffer_out);
-	}
-	else {
-		// no more data to send, turn off data ready interrupt
-		UCSR0B &= ~(1 << UDRIE0);
-	}
-}
 
-/**
- * \brief Data RX interrupt handler
- *
- * This is the handler for UART receive data
- */
-ISR(UART0_RX_IRQ)
-{
-	ring_buffer_put(&ring_buffer_in, UDR0);
-}
-
-/**
- * \brief Initialize the UART with correct baud rate settings
- *
- * This function will initialize the UART baud rate registers with the correct
- * values using the AVR libc setbaud utility. In addition set the UART to
- * 8-bit, 1 stop and no parity.
- */
 extern void uart_init(void)
-{
-#if defined UBRR0H
-	// get the values from the setbaud tool
-	UBRR0H = UBRRH_VALUE;
-	UBRR0L = UBRRL_VALUE;
-#else
-#error "Device is not supported by the driver"
-#endif
-
-#if USE_2X
-	UCSR0A |= (1 << U2X0);
-#endif
+{	
+	UBRR0H = (uint8_t)(BAUD_PRESCALLER>>8);
+	UBRR0L = (uint8_t)(BAUD_PRESCALLER);
+	UCSR0B = (1<<RXEN0)|(1<<TXEN0);
+	UCSR0C = (3<<UCSZ00)|(1<<USBS0);
 
 	// enable RX and TX and set interrupts on rx complete
 	UCSR0B = (1 << RXEN0) | (1 << TXEN0) | (1 << RXCIE0);
@@ -95,9 +46,6 @@ extern void uart_init(void)
 			(0 << UPM01) | (0 << UPM00) | (0 << UMSEL01) |
 			(0 << UMSEL00);
 
-	// initialize the in and out buffer for the UART
-	ring_buffer_out = ring_buffer_init(out_buffer, BUFFER_SIZE);
-	ring_buffer_in = ring_buffer_init(in_buffer, BUFFER_SIZE);
 }
 
 /**
@@ -108,17 +56,8 @@ extern void uart_init(void)
  */
 static inline void uart_putchar(uint8_t data)
 {
-	// Disable interrupts to get exclusive access to ring_buffer_out.
-	cli();
-	if (ring_buffer_is_empty(&ring_buffer_out)) {
-		// First data in buffer, enable data ready interrupt
-		UCSR0B |=  (1 << UDRIE0);
-	}
-	// Put data in buffer
-	ring_buffer_put(&ring_buffer_out, data);
-
-	// Re-enable interrupts
-	sei();
+		while(!(UCSR0A & (1<<UDRE0)));
+		UDR0 = data;
 }
 
 /**
@@ -128,63 +67,33 @@ static inline void uart_putchar(uint8_t data)
  */
 static inline uint8_t uart_getchar(void)
 {
-	return ring_buffer_get(&ring_buffer_in);
-}
-
-
-/**
- * \brief Function to check if we have a char waiting in the UART receive buffer
- *
- * \retval true if data is waiting
- * \retval false if no data is waiting
- */
-static inline bool uart_char_waiting(void)
-{
-	return !ring_buffer_is_empty(&ring_buffer_in);
+		while(!(UCSR0A & (1<<RXC0)));
+		return UDR0;
 }
 
 
 extern void send_confirmation_msg(uint8_t data)
 {
-	uint8_t cnt = 0;
-	for (cnt = 0; cnt < strlen(test_string); cnt++) {
-		while(!ring_buffer_is_empty(&ring_buffer_out)) {
-			;
-		}
-		uart_putchar(test_string[cnt]);
-	}
-	while(!ring_buffer_is_empty(&ring_buffer_out)) {
-		;
-	}
-	uart_putchar(data);
-	for (cnt = 0; cnt < strlen(test_string2); cnt++) {
-		while(!ring_buffer_is_empty(&ring_buffer_out)) {
-			;
-		}
-		uart_putchar(test_string2[cnt]);
+	if((data > 32) && (data < 126)) {
+		send_str(test_string);
+		uart_putchar(data);
+		send_str(test_string2);
+		uart_putchar('\r');
 	}
 }
 
-extern void send_str(char msg[])
+extern void send_str(char* StringPtr)
 {
-	uint8_t cnt = 0;
-	for (cnt = 0; cnt < strlen(msg); cnt++) {
-		while(!ring_buffer_is_empty(&ring_buffer_out)) {
-			;
+		while(*StringPtr != 0x00) {
+			uart_putchar(*StringPtr);
+			StringPtr++;
 		}
-		uart_putchar(msg[cnt]);
-	}
-	while(!ring_buffer_is_empty(&ring_buffer_out)) {
-		;
-	}
-	uart_putchar('\r');
+		
 }
 
 extern uint8_t get_char(void)
 {	
 	uint8_t data = '\0';
-	if (uart_char_waiting()) {
-		data = uart_getchar(); // THIS IS THE RECEIVED CHARACTER
-	}
+	data = uart_getchar();
 	return data;
 }
