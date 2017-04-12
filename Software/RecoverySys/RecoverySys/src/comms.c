@@ -32,7 +32,7 @@ const char test_string3[] = "LALALALALAL";
 
 
 extern void uart_init(void)
-{	
+{
 	UBRR0H = (uint8_t)(BAUD_PRESCALLER>>8);
 	UBRR0L = (uint8_t)(BAUD_PRESCALLER);
 	UCSR0B = (1<<RXEN0)|(1<<TXEN0);
@@ -78,7 +78,6 @@ extern void send_confirmation_msg(uint8_t data)
 		send_str(test_string);
 		uart_putchar(data);
 		send_str(test_string2);
-		uart_putchar('\r');
 	}
 }
 
@@ -88,11 +87,12 @@ extern void send_str(char* StringPtr)
 			uart_putchar(*StringPtr);
 			StringPtr++;
 		}
-		
+    uart_putchar('\r');
+
 }
 
 extern uint8_t get_char(void)
-{	
+{
 	uint8_t data = '\0';
 	data = uart_getchar();
 	return data;
