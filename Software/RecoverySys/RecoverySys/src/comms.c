@@ -6,9 +6,10 @@
 #define BAUD 9600                           // define baud
 #define BAUD_PRESCALLER 51    // set baudrate value for UBRR
 #define _ASSERT_ENABLE_
-#include <string.h>
+#include "string.h"
 #include "compiler.h"
 #include "comms.h"
+#include "stdio.h"
 
 /**
  * \def BUFFER_SIZE
@@ -16,7 +17,7 @@
  */
 #define BUFFER_SIZE 100
 
-
+volatile unsigned char value;  
 
 #include "ring_buffer.h"
 
@@ -24,15 +25,10 @@
 uint8_t out_buffer[BUFFER_SIZE];
 uint8_t in_buffer[BUFFER_SIZE];
 
-// the string we send and receive on UART
-const char test_string[] = "Received:[";
-const char test_string2[] = "]\n";
-const char test_string3[] = "LALALALALAL";
-
-
 
 extern void uart_init(void)
-{
+{	
+	
 	UBRR0H = (uint8_t)(BAUD_PRESCALLER>>8);
 	UBRR0L = (uint8_t)(BAUD_PRESCALLER);
 	UCSR0B = (1<<RXEN0)|(1<<TXEN0);
@@ -46,6 +42,7 @@ extern void uart_init(void)
 			(0 << UPM01) | (0 << UPM00) | (0 << UMSEL01) |
 			(0 << UMSEL00);
 
+	sei();
 }
 
 /**
@@ -67,18 +64,23 @@ static inline void uart_putchar(uint8_t data)
  */
 static inline uint8_t uart_getchar(void)
 {
-		while(!(UCSR0A & (1<<RXC0)));
-		return UDR0;
+		unsigned char temp = value;
+		value = '\0';
+		return temp;
 }
 
 
 extern void send_confirmation_msg(uint8_t data)
 {
-	if((data > 32) && (data < 126)) {
-		send_str(test_string);
-		uart_putchar(data);
-		send_str(test_string2);
+	// the string we send and receive on UART
+	char buffer [30];
+	
+	if (data == '\0') {
+		sprintf (buffer, "Received: '\\0'(0)\n");
+	} else {
+		sprintf (buffer, "Received: %c(%d)\n", data, data);
 	}
+	send_str(buffer);
 }
 
 extern void send_str(char* StringPtr)
@@ -87,13 +89,18 @@ extern void send_str(char* StringPtr)
 			uart_putchar(*StringPtr);
 			StringPtr++;
 		}
-    uart_putchar('\r');
-
+		uart_putchar('\r');
 }
 
 extern uint8_t get_char(void)
-{
+{	
 	uint8_t data = '\0';
 	data = uart_getchar();
 	return data;
+}
+
+ISR (USART0_RX_vect)
+{
+	/* Put data into buffer, sends the data */
+	value = UDR0;
 }
