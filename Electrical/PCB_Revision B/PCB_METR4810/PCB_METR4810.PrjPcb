@@ -276,6 +276,23 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
+[Document15]
+DocumentPath=METR4810_PCB_b_Layout.PcbDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=QYITCDJO
+
 [GeneratedDocument1]
 DocumentPath=Project Outputs for PCB_METR4810\7April_PCB.DRR
 DItemRevisionGUID=
@@ -337,62 +354,66 @@ DocumentPath=Project Outputs for PCB_METR4810\Design Rule Check - 7April_PCB.htm
 DItemRevisionGUID=
 
 [GeneratedDocument16]
-DocumentPath=Project Outputs for PCB_METR4810\Design Rule Check - METR4810_PCBLayout.html
+DocumentPath=Project Outputs for PCB_METR4810\Design Rule Check - METR4810_PCB_b_Layout.html
 DItemRevisionGUID=
 
 [GeneratedDocument17]
-DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCBLayout.DRR
+DocumentPath=Project Outputs for PCB_METR4810\Design Rule Check - METR4810_PCBLayout.html
 DItemRevisionGUID=
 
 [GeneratedDocument18]
-DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCBLayout.EXTREP
+DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCBLayout.DRR
 DItemRevisionGUID=
 
 [GeneratedDocument19]
-DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCBLayout.GBL
+DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCBLayout.EXTREP
 DItemRevisionGUID=
 
 [GeneratedDocument20]
-DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCBLayout.GBP
+DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCBLayout.GBL
 DItemRevisionGUID=
 
 [GeneratedDocument21]
-DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCBLayout.GBS
+DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCBLayout.GBP
 DItemRevisionGUID=
 
 [GeneratedDocument22]
-DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCBLayout.GKO
+DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCBLayout.GBS
 DItemRevisionGUID=
 
 [GeneratedDocument23]
-DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCBLayout.GTL
+DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCBLayout.GKO
 DItemRevisionGUID=
 
 [GeneratedDocument24]
-DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCBLayout.GTO
+DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCBLayout.GTL
 DItemRevisionGUID=
 
 [GeneratedDocument25]
-DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCBLayout.GTP
+DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCBLayout.GTO
 DItemRevisionGUID=
 
 [GeneratedDocument26]
-DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCBLayout.GTS
+DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCBLayout.GTP
 DItemRevisionGUID=
 
 [GeneratedDocument27]
-DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCBLayout.LDP
+DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCBLayout.GTS
 DItemRevisionGUID=
 
 [GeneratedDocument28]
-DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCBLayout.REP
+DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCBLayout.LDP
 DItemRevisionGUID=
 
 [GeneratedDocument29]
-DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCBLayout.RUL
+DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCBLayout.REP
 DItemRevisionGUID=
 
 [GeneratedDocument30]
+DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCBLayout.RUL
+DItemRevisionGUID=
+
+[GeneratedDocument31]
 DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCBLayout.TXT
 DItemRevisionGUID=
 
@@ -447,7 +468,7 @@ OutputDir=
 [OutputGroup1]
 Name=Netlist Outputs
 Description=
-TargetPrinter=Virtual Printer
+TargetPrinter=Microsoft Print to PDF
 PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate=1|PrintJobKind=1|PrintWhat=1
 OutputType1=CadnetixNetlist
 OutputName1=Cadnetix Netlist
@@ -568,7 +589,7 @@ OutputDefault23=0
 [OutputGroup2]
 Name=Simulator Outputs
 Description=
-TargetPrinter=Virtual Printer
+TargetPrinter=Microsoft Print to PDF
 PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate=1|PrintJobKind=1|PrintWhat=1
 OutputType1=AdvSimNetlist
 OutputName1=Mixed Sim
@@ -699,7 +720,7 @@ PageOptions19=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|Print
 [OutputGroup4]
 Name=Assembly Outputs
 Description=
-TargetPrinter=Virtual Printer
+TargetPrinter=Microsoft Print to PDF
 PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate=1|PrintJobKind=1|PrintWhat=1
 OutputType1=Assembly
 OutputName1=Assembly Drawings
@@ -721,7 +742,7 @@ OutputDefault3=0
 [OutputGroup5]
 Name=Fabrication Outputs
 Description=
-TargetPrinter=Virtual Printer
+TargetPrinter=Microsoft Print to PDF
 PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate=1|PrintJobKind=1|PrintWhat=1
 OutputType1=CompositeDrill
 OutputName1=Composite Drill Drawing
@@ -797,7 +818,7 @@ Configuration12_Item1=AddToAllLayerClasses.Set= |AddToAllPlots.Set=SerializeLaye
 [OutputGroup6]
 Name=Report Outputs
 Description=
-TargetPrinter=Virtual Printer
+TargetPrinter=Microsoft Print to PDF
 PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate=1|PrintJobKind=1|PrintWhat=1
 OutputType1=BOM_PartType
 OutputName1=Bill of Materials
@@ -834,7 +855,7 @@ OutputDefault6=0
 [OutputGroup7]
 Name=Other Outputs
 Description=
-TargetPrinter=Virtual Printer
+TargetPrinter=Microsoft Print to PDF
 PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate=1|PrintJobKind=1|PrintWhat=1
 OutputType1=Text Print
 OutputName1=Text Print
@@ -1014,7 +1035,7 @@ PageOptions29=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|Print
 [OutputGroup8]
 Name=Validation Outputs
 Description=
-TargetPrinter=Virtual Printer
+TargetPrinter=Microsoft Print to PDF
 PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate=1|PrintJobKind=1|PrintWhat=1
 OutputType1=Component states check
 OutputName1=Vault's components states check
@@ -1053,7 +1074,7 @@ OutputDefault6=0
 [OutputGroup9]
 Name=Export Outputs
 Description=
-TargetPrinter=Virtual Printer
+TargetPrinter=Microsoft Print to PDF
 PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate=1|PrintJobKind=1|PrintWhat=1
 OutputType1=AutoCAD dwg/dxf PCB
 OutputName1=AutoCAD dwg/dxf File PCB

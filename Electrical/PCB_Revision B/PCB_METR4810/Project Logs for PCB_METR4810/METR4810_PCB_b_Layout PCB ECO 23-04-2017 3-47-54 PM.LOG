@@ -1,0 +1,24 @@
+Removed Pin From Net: NetName=BAT Pin=P4-1
+Removed Pin From Net: NetName=GND Pin=P4-2
+Removed Pin From Net: NetName=VCC Pin=P8-1
+Removed Pin From Net: NetName=CAM_POW Pin=P8-2
+Removed Pin From Net: NetName=GND Pin=P8-3
+Removed Pin From Net: NetName=CAM_SIG Pin=P8-4
+Removed Pin From Net: NetName=TXD_3.3V Pin=P8-5
+Removed Pin From Net: NetName=BAT Pin=P8-6
+Removed Pin From Net: NetName=RXD Pin=P8-7
+Removed Pin From Net: NetName=GND Pin=P8-8
+Removed Member From Class: ClassName=METR4810_Schematic Member=P4
+Removed Member From Class: ClassName=METR4810_Schematic Member=P8
+Added Component: Designator=P?(HDR2X5)
+Added Pin To Net: NetName=BAT Pin=P?-1
+Added Pin To Net: NetName=GND Pin=P?-2
+Added Pin To Net: NetName=VCC Pin=P?-3
+Added Pin To Net: NetName=CAM_POW Pin=P?-4
+Added Pin To Net: NetName=GND Pin=P?-5
+Added Pin To Net: NetName=CAM_SIG Pin=P?-6
+Added Pin To Net: NetName=TXD_3.3V Pin=P?-7
+Added Pin To Net: NetName=BAT Pin=P?-8
+Added Pin To Net: NetName=RXD Pin=P?-9
+Added Pin To Net: NetName=GND Pin=P?-10
+Added Member To Class: ClassName=METR4810_Schematic Member=Component P? Header 5X2
