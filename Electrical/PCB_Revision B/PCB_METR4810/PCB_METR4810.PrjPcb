@@ -293,6 +293,40 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=QYITCDJO
 
+[Document16]
+DocumentPath=CAMtastic6.Cam
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
+
+[Document17]
+DocumentPath=CAMtastic7.Cam
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
+
 [GeneratedDocument1]
 DocumentPath=Project Outputs for PCB_METR4810\7April_PCB.DRR
 DItemRevisionGUID=
@@ -362,58 +396,114 @@ DocumentPath=Project Outputs for PCB_METR4810\Design Rule Check - METR4810_PCBLa
 DItemRevisionGUID=
 
 [GeneratedDocument18]
-DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCBLayout.DRR
+DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCB_b_Layout.DRR
 DItemRevisionGUID=
 
 [GeneratedDocument19]
-DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCBLayout.EXTREP
+DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCB_b_Layout.EXTREP
 DItemRevisionGUID=
 
 [GeneratedDocument20]
-DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCBLayout.GBL
+DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCB_b_Layout.GBL
 DItemRevisionGUID=
 
 [GeneratedDocument21]
-DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCBLayout.GBP
+DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCB_b_Layout.GBP
 DItemRevisionGUID=
 
 [GeneratedDocument22]
-DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCBLayout.GBS
+DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCB_b_Layout.GBS
 DItemRevisionGUID=
 
 [GeneratedDocument23]
-DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCBLayout.GKO
+DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCB_b_Layout.GKO
 DItemRevisionGUID=
 
 [GeneratedDocument24]
-DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCBLayout.GTL
+DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCB_b_Layout.GTL
 DItemRevisionGUID=
 
 [GeneratedDocument25]
-DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCBLayout.GTO
+DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCB_b_Layout.GTO
 DItemRevisionGUID=
 
 [GeneratedDocument26]
-DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCBLayout.GTP
+DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCB_b_Layout.GTP
 DItemRevisionGUID=
 
 [GeneratedDocument27]
-DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCBLayout.GTS
+DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCB_b_Layout.GTS
 DItemRevisionGUID=
 
 [GeneratedDocument28]
-DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCBLayout.LDP
+DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCB_b_Layout.LDP
 DItemRevisionGUID=
 
 [GeneratedDocument29]
-DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCBLayout.REP
+DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCB_b_Layout.REP
 DItemRevisionGUID=
 
 [GeneratedDocument30]
-DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCBLayout.RUL
+DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCB_b_Layout.RUL
 DItemRevisionGUID=
 
 [GeneratedDocument31]
+DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCB_b_Layout.TXT
+DItemRevisionGUID=
+
+[GeneratedDocument32]
+DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCBLayout.DRR
+DItemRevisionGUID=
+
+[GeneratedDocument33]
+DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCBLayout.EXTREP
+DItemRevisionGUID=
+
+[GeneratedDocument34]
+DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCBLayout.GBL
+DItemRevisionGUID=
+
+[GeneratedDocument35]
+DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCBLayout.GBP
+DItemRevisionGUID=
+
+[GeneratedDocument36]
+DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCBLayout.GBS
+DItemRevisionGUID=
+
+[GeneratedDocument37]
+DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCBLayout.GKO
+DItemRevisionGUID=
+
+[GeneratedDocument38]
+DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCBLayout.GTL
+DItemRevisionGUID=
+
+[GeneratedDocument39]
+DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCBLayout.GTO
+DItemRevisionGUID=
+
+[GeneratedDocument40]
+DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCBLayout.GTP
+DItemRevisionGUID=
+
+[GeneratedDocument41]
+DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCBLayout.GTS
+DItemRevisionGUID=
+
+[GeneratedDocument42]
+DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCBLayout.LDP
+DItemRevisionGUID=
+
+[GeneratedDocument43]
+DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCBLayout.REP
+DItemRevisionGUID=
+
+[GeneratedDocument44]
+DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCBLayout.RUL
+DItemRevisionGUID=
+
+[GeneratedDocument45]
 DocumentPath=Project Outputs for PCB_METR4810\METR4810_PCBLayout.TXT
 DItemRevisionGUID=
 
