@@ -10,7 +10,12 @@
 #include "compiler.h"
 #include "comms.h"
 #include "stdio.h"
-
+#include <avr/io.h>
+#include <util/delay.h>
+#include "stepper.h"
+#include "dcMotor.h"
+#include "servo.h"
+#include "timer2b.h"
 /**
  * \def BUFFER_SIZE
  * \brief The size of the UART buffer

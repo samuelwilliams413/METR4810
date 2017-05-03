@@ -32,16 +32,31 @@ LIB_DEP:=
 LINKER_SCRIPT_DEP:=
 
 # Every subdirectory with source files must be described here
-SUBDIRS := 
+SUBDIRS :=  \
+../src/ \
+../src/ASF/ \
+../src/ASF/common/ \
+../src/ASF/common/boards/ \
+../src/ASF/common/boards/user_board/ \
+../src/ASF/common/utils/ \
+../src/ASF/common/utils/interrupt/ \
+../src/ASF/common/utils/make/ \
+../src/ASF/mega/ \
+../src/ASF/mega/utils/ \
+../src/ASF/mega/utils/assembler/ \
+../src/ASF/mega/utils/preprocessor/ \
+../src/config/
 
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
-../dcMotor.c \
-../main.c \
-../servo.c \
-../stepper.c \
-../timer2a.c
+../src/ASF/common/boards/user_board/init.c \
+../src/comms.c \
+../src/dcMotor.c \
+../src/main.c \
+../src/servo.c \
+../src/stepper.c \
+../src/timer2a.c
 
 
 PREPROCESSING_SRCS += 
@@ -51,32 +66,40 @@ ASM_SRCS +=
 
 
 OBJS +=  \
-dcMotor.o \
-main.o \
-servo.o \
-stepper.o \
-timer2a.o
+src/ASF/common/boards/user_board/init.o \
+src/comms.o \
+src/dcMotor.o \
+src/main.o \
+src/servo.o \
+src/stepper.o \
+src/timer2a.o
 
 OBJS_AS_ARGS +=  \
-dcMotor.o \
-main.o \
-servo.o \
-stepper.o \
-timer2a.o
+src/ASF/common/boards/user_board/init.o \
+src/comms.o \
+src/dcMotor.o \
+src/main.o \
+src/servo.o \
+src/stepper.o \
+src/timer2a.o
 
 C_DEPS +=  \
-dcMotor.d \
-main.d \
-servo.d \
-stepper.d \
-timer2a.d
+src/ASF/common/boards/user_board/init.d \
+src/comms.d \
+src/dcMotor.d \
+src/main.d \
+src/servo.d \
+src/stepper.d \
+src/timer2a.d
 
 C_DEPS_AS_ARGS +=  \
-dcMotor.d \
-main.d \
-servo.d \
-stepper.d \
-timer2a.d
+src/ASF/common/boards/user_board/init.d \
+src/comms.d \
+src/dcMotor.d \
+src/main.d \
+src/servo.d \
+src/stepper.d \
+src/timer2a.d
 
 OUTPUT_FILE_PATH +=Stepper324A.elf
 
@@ -103,10 +126,21 @@ LINKER_SCRIPT_DEP+=
 
 
 
-./%.o: .././%.c
+
+
+
+
+src/ASF/common/boards/user_board/%.o: ../src/ASF/common/boards/user_board/%.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
-	$(QUOTE)D:\Programs\Atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"D:\Programs\Atmel\7.0\Packs\atmel\ATmega_DFP\1.0.106\include" -I"D:\Programs\Atmel\7.0\Packs\Atmel\ATmega_DFP\1.0.106\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega324a -B "D:\Programs\Atmel\7.0\Packs\Atmel\ATmega_DFP\1.0.106\gcc\dev\atmega324a" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)D:\Programs\Atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -DDEBUG -DBOARD=USER_BOARD  -I"D:\Programs\Atmel\7.0\Packs\atmel\ATmega_DFP\1.0.106\include" -I"D:\Programs\Atmel\7.0\Packs\Atmel\ATmega_DFP\1.0.106\include" -I"../src/ASF/common/boards/user_board" -I"../src/ASF/common/boards" -I"../src/ASF/mega/utils/preprocessor" -I"../src/ASF/mega/utils" -I"../src/ASF/common/utils" -I"../src" -I"../src/config"  -O1 -fdata-sections -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g3 -Wall -mmcu=atmega324a -B "D:\Programs\Atmel\7.0\Packs\Atmel\ATmega_DFP\1.0.106\gcc\dev\atmega324a" -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+src/%.o: ../src/%.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)D:\Programs\Atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -DDEBUG -DBOARD=USER_BOARD  -I"D:\Programs\Atmel\7.0\Packs\atmel\ATmega_DFP\1.0.106\include" -I"D:\Programs\Atmel\7.0\Packs\Atmel\ATmega_DFP\1.0.106\include" -I"../src/ASF/common/boards/user_board" -I"../src/ASF/common/boards" -I"../src/ASF/mega/utils/preprocessor" -I"../src/ASF/mega/utils" -I"../src/ASF/common/utils" -I"../src" -I"../src/config"  -O1 -fdata-sections -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g3 -Wall -mmcu=atmega324a -B "D:\Programs\Atmel\7.0\Packs\Atmel\ATmega_DFP\1.0.106\gcc\dev\atmega324a" -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
@@ -135,7 +169,7 @@ all: $(OUTPUT_FILE_PATH) $(ADDITIONAL_DEPENDENCIES)
 $(OUTPUT_FILE_PATH): $(OBJS) $(USER_OBJS) $(OUTPUT_FILE_DEP) $(LIB_DEP) $(LINKER_SCRIPT_DEP)
 	@echo Building target: $@
 	@echo Invoking: AVR/GNU Linker : 5.4.0
-	$(QUOTE)D:\Programs\Atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE) -o$(OUTPUT_FILE_PATH_AS_ARGS) $(OBJS_AS_ARGS) $(USER_OBJS) $(LIBS) -Wl,-Map="Stepper324A.map" -Wl,--start-group -Wl,-lm  -Wl,--end-group -Wl,--gc-sections -mmcu=atmega324a -B "D:\Programs\Atmel\7.0\Packs\Atmel\ATmega_DFP\1.0.106\gcc\dev\atmega324a"  
+	$(QUOTE)D:\Programs\Atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE) -o$(OUTPUT_FILE_PATH_AS_ARGS) $(OBJS_AS_ARGS) $(USER_OBJS) $(LIBS) -Wl,-Map="Stepper324A.map" -Wl,--start-group -Wl,-lm  -Wl,--end-group -Wl,--gc-sections -mmcu=atmega324a -B "D:\Programs\Atmel\7.0\Packs\Atmel\ATmega_DFP\1.0.106\gcc\dev\atmega324a" -Wl,--relax  
 	@echo Finished building target: $@
 	"D:\Programs\Atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-objcopy.exe" -O ihex -R .eeprom -R .fuse -R .lock -R .signature -R .user_signatures  "Stepper324A.elf" "Stepper324A.hex"
 	"D:\Programs\Atmel\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-objcopy.exe" -j .eeprom  --set-section-flags=.eeprom=alloc,load --change-section-lma .eeprom=0  --no-change-warnings -O ihex "Stepper324A.elf" "Stepper324A.eep" || exit 0
