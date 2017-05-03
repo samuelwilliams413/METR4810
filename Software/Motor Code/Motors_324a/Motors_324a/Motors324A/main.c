@@ -24,12 +24,13 @@ int main() {
 	servo_init();
 	while (1) {
 		//SERVO ANGLE POSITION//
-		move_servo(135);   //135 degree
+		move_servo1(1);   //135 degree
+		move_servo2(1);
 		// STEPPER ANGLE MOVEMENT//
-		full_step_back(DEGREE*90);
-		full_step_forward(DEGREE*90);
-		//DC MOTOR ACTUATION//
-		counterclockwiseB(0xff);
+ 		full_step_back(DEGREE*90);
+// 		full_step_forward(DEGREE*90);
+// 		//DC MOTOR ACTUATION//
+// 		counterclockwiseB(0xff);
 		
 		
 	}
