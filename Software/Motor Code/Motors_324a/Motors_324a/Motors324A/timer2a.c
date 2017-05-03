@@ -2,7 +2,7 @@
 #include <avr/interrupt.h>
 
 
-#include "timer2.h"
+#include "timer2b.h"
 // Motor Control Functions -- pwm is an 8-bit value
 
 static volatile uint32_t clock_ticks;
@@ -26,7 +26,7 @@ uint32_t get_clock_ticks(void){
 }
 // Motor Initialization routine -- this function must be called
 //  before you use any of the above functions
-void servo_init()
+void timer_init()
 {
 	sei();
 	//Configure TIMER2

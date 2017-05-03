@@ -3,29 +3,31 @@ Stepper324A.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .data         00000000  00800100  00800100  00000230  2**0
+  0 .data         00000000  00800100  00800100  0000020e  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  1 .text         000001dc  00000000  00000000  00000054  2**1
+  1 .text         0000019a  00000000  00000000  00000074  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .comment      00000030  00000000  00000000  00000230  2**0
+  2 .bss          00000004  00800100  00800100  0000020e  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  0000020e  2**0
                   CONTENTS, READONLY
-  3 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00000260  2**2
+  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00000240  2**2
                   CONTENTS, READONLY
-  4 .debug_aranges 000000a8  00000000  00000000  000002a0  2**0
+  5 .debug_aranges 000000b0  00000000  00000000  00000280  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_info   000006c7  00000000  00000000  00000348  2**0
+  6 .debug_info   00000426  00000000  00000000  00000330  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_abbrev 000002c6  00000000  00000000  00000a0f  2**0
+  7 .debug_abbrev 00000224  00000000  00000000  00000756  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_line   0000059c  00000000  00000000  00000cd5  2**0
+  8 .debug_line   0000038d  00000000  00000000  0000097a  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_frame  00000128  00000000  00000000  00001274  2**2
+  9 .debug_frame  00000110  00000000  00000000  00000d08  2**2
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_str    00000276  00000000  00000000  0000139c  2**0
+ 10 .debug_str    00000238  00000000  00000000  00000e18  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_loc    000003de  00000000  00000000  00001612  2**0
+ 11 .debug_loc    000000b3  00000000  00000000  00001050  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_ranges 00000068  00000000  00000000  000019f0  2**0
+ 12 .debug_ranges 00000070  00000000  00000000  00001103  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -40,7 +42,7 @@ Disassembly of section .text:
   18:	0c 94 50 00 	jmp	0xa0	; 0xa0 <__bad_interrupt>
   1c:	0c 94 50 00 	jmp	0xa0	; 0xa0 <__bad_interrupt>
   20:	0c 94 50 00 	jmp	0xa0	; 0xa0 <__bad_interrupt>
-  24:	0c 94 50 00 	jmp	0xa0	; 0xa0 <__bad_interrupt>
+  24:	0c 94 a6 00 	jmp	0x14c	; 0x14c <__vector_9>
   28:	0c 94 50 00 	jmp	0xa0	; 0xa0 <__bad_interrupt>
   2c:	0c 94 50 00 	jmp	0xa0	; 0xa0 <__bad_interrupt>
   30:	0c 94 50 00 	jmp	0xa0	; 0xa0 <__bad_interrupt>
@@ -81,288 +83,215 @@ Disassembly of section .text:
   90:	1d 92       	st	X+, r1
 
 00000092 <.do_clear_bss_start>:
-  92:	a0 30       	cpi	r26, 0x00	; 0
+  92:	a4 30       	cpi	r26, 0x04	; 4
   94:	b2 07       	cpc	r27, r18
   96:	e1 f7       	brne	.-8      	; 0x90 <.do_clear_bss_loop>
-  98:	0e 94 5c 00 	call	0xb8	; 0xb8 <main>
-  9c:	0c 94 ec 00 	jmp	0x1d8	; 0x1d8 <_exit>
+  98:	0e 94 62 00 	call	0xc4	; 0xc4 <main>
+  9c:	0c 94 cb 00 	jmp	0x196	; 0x196 <_exit>
 
 000000a0 <__bad_interrupt>:
   a0:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
 
-000000a4 <motor_initB>:
+000000a4 <clockwiseB>:
+// Motor Control Functions -- pwm is an 8-bit value
+//  (i.e. ranges from 0 to 255)
+
+void clockwiseB(uint16_t pwm)
+{
+	OCR0A = 0;
+  a4:	17 bc       	out	0x27, r1	; 39
+	OCR0B = pwm;
+  a6:	88 bd       	out	0x28, r24	; 40
+  a8:	08 95       	ret
+
+000000aa <counterclockwiseB>:
+}
+
+void counterclockwiseB(uint16_t pwm)
+{
+	OCR0A = pwm;
+  aa:	87 bd       	out	0x27, r24	; 39
+	OCR0B = 0;
+  ac:	18 bc       	out	0x28, r1	; 40
+  ae:	08 95       	ret
+
+000000b0 <motor_initB>:
 void motor_initB()
 {
 	// configure for inverted PWM output on motor control pins:
 	//  set OCxx on compare match, clear on timer overflow
 	//  Timer0 count up from 0 to 255
 	TCCR0A = 0b11110001;
-  a4:	81 ef       	ldi	r24, 0xF1	; 241
-  a6:	84 bd       	out	0x24, r24	; 36
+  b0:	81 ef       	ldi	r24, 0xF1	; 241
+  b2:	84 bd       	out	0x24, r24	; 36
 	
 	// use the system clock/8 (=2.5 MHz) as the timer clock
 	TCCR0B = 0b00001010;
-  a8:	8a e0       	ldi	r24, 0x0A	; 10
-  aa:	85 bd       	out	0x25, r24	; 37
+  b4:	8a e0       	ldi	r24, 0x0A	; 10
+  b6:	85 bd       	out	0x25, r24	; 37
 	
 	// initialize all PWMs to 0% duty cycle (braking)
 	OCR0A =  0;
-  ac:	17 bc       	out	0x27, r1	; 39
+  b8:	17 bc       	out	0x27, r1	; 39
 	OCR0B  = 0;
-  ae:	18 bc       	out	0x28, r1	; 40
+  ba:	18 bc       	out	0x28, r1	; 40
 	// set PWM pins as digital outputs (the PWM signals will not
 	// appear on the lines if they are digital inputs)
 	DDRB |= (1 << PORTB3) | (1 << PORTB4);
-  b0:	84 b1       	in	r24, 0x04	; 4
-  b2:	88 61       	ori	r24, 0x18	; 24
-  b4:	84 b9       	out	0x04, r24	; 4
-  b6:	08 95       	ret
+  bc:	84 b1       	in	r24, 0x04	; 4
+  be:	88 61       	ori	r24, 0x18	; 24
+  c0:	84 b9       	out	0x04, r24	; 4
+  c2:	08 95       	ret
 
-000000b8 <main>:
+000000c4 <main>:
 
 	
 int main() {
 	 // set port D to output
 
 	DDRA = 0x00;
-  b8:	11 b8       	out	0x01, r1	; 1
+  c4:	11 b8       	out	0x01, r1	; 1
 	DDRD = 0xff;
-  ba:	8f ef       	ldi	r24, 0xFF	; 255
-  bc:	8a b9       	out	0x0a, r24	; 10
+  c6:	8f ef       	ldi	r24, 0xFF	; 255
+  c8:	8a b9       	out	0x0a, r24	; 10
 	motor_initB();
-  be:	0e 94 52 00 	call	0xa4	; 0xa4 <motor_initB>
+  ca:	0e 94 58 00 	call	0xb0	; 0xb0 <motor_initB>
 	servo_init();
-  c2:	0e 94 88 00 	call	0x110	; 0x110 <servo_init>
+  ce:	0e 94 92 00 	call	0x124	; 0x124 <servo_init>
 	while (1) {
 		//SERVO ANGLE POSITION//
 		move_servo1(1);   //135 degree
-  c6:	81 e0       	ldi	r24, 0x01	; 1
-  c8:	90 e0       	ldi	r25, 0x00	; 0
-  ca:	0e 94 70 00 	call	0xe0	; 0xe0 <move_servo1>
+  d2:	81 e0       	ldi	r24, 0x01	; 1
+  d4:	90 e0       	ldi	r25, 0x00	; 0
+  d6:	0e 94 7a 00 	call	0xf4	; 0xf4 <move_servo1>
 		move_servo2(1);
-  ce:	81 e0       	ldi	r24, 0x01	; 1
-  d0:	90 e0       	ldi	r25, 0x00	; 0
-  d2:	0e 94 7c 00 	call	0xf8	; 0xf8 <move_servo2>
+  da:	81 e0       	ldi	r24, 0x01	; 1
+  dc:	90 e0       	ldi	r25, 0x00	; 0
+  de:	0e 94 86 00 	call	0x10c	; 0x10c <move_servo2>
 		// STEPPER ANGLE MOVEMENT//
- 		full_step_back(DEGREE*90);
-  d6:	89 e1       	ldi	r24, 0x19	; 25
-  d8:	90 e0       	ldi	r25, 0x00	; 0
-  da:	0e 94 9c 00 	call	0x138	; 0x138 <full_step_back>
-  de:	f3 cf       	rjmp	.-26     	; 0xc6 <main+0xe>
+ 		//full_step_back(DEGREE*90);
+// 		full_step_forward(DEGREE*90);
+// 		//DC MOTOR ACTUATION//
+ 		counterclockwiseB(0x00);
+  e2:	80 e0       	ldi	r24, 0x00	; 0
+  e4:	90 e0       	ldi	r25, 0x00	; 0
+  e6:	0e 94 55 00 	call	0xaa	; 0xaa <counterclockwiseB>
+		clockwiseB(0x00);
+  ea:	80 e0       	ldi	r24, 0x00	; 0
+  ec:	90 e0       	ldi	r25, 0x00	; 0
+  ee:	0e 94 52 00 	call	0xa4	; 0xa4 <clockwiseB>
+  f2:	ef cf       	rjmp	.-34     	; 0xd2 <main+0xe>
 
-000000e0 <move_servo1>:
+000000f4 <move_servo1>:
 #include "servo.h"
 // Motor Control Functions -- pwm is an 16-bit value
 
 void move_servo1(uint16_t angle)
 {
 	OCR1A = (2500/180)*angle;
-  e0:	2d e0       	ldi	r18, 0x0D	; 13
-  e2:	ac 01       	movw	r20, r24
-  e4:	24 9f       	mul	r18, r20
-  e6:	c0 01       	movw	r24, r0
-  e8:	25 9f       	mul	r18, r21
-  ea:	90 0d       	add	r25, r0
-  ec:	11 24       	eor	r1, r1
-  ee:	90 93 89 00 	sts	0x0089, r25	; 0x800089 <__TEXT_REGION_LENGTH__+0x7e0089>
-  f2:	80 93 88 00 	sts	0x0088, r24	; 0x800088 <__TEXT_REGION_LENGTH__+0x7e0088>
-  f6:	08 95       	ret
+  f4:	2d e0       	ldi	r18, 0x0D	; 13
+  f6:	ac 01       	movw	r20, r24
+  f8:	24 9f       	mul	r18, r20
+  fa:	c0 01       	movw	r24, r0
+  fc:	25 9f       	mul	r18, r21
+  fe:	90 0d       	add	r25, r0
+ 100:	11 24       	eor	r1, r1
+ 102:	90 93 89 00 	sts	0x0089, r25	; 0x800089 <__TEXT_REGION_LENGTH__+0x7e0089>
+ 106:	80 93 88 00 	sts	0x0088, r24	; 0x800088 <__TEXT_REGION_LENGTH__+0x7e0088>
+ 10a:	08 95       	ret
 
-000000f8 <move_servo2>:
+0000010c <move_servo2>:
 }
 
 void move_servo2(uint16_t angle)
 {
 	
 	OCR1B = (2500/180)*angle;;
-  f8:	2d e0       	ldi	r18, 0x0D	; 13
-  fa:	ac 01       	movw	r20, r24
-  fc:	24 9f       	mul	r18, r20
-  fe:	c0 01       	movw	r24, r0
- 100:	25 9f       	mul	r18, r21
- 102:	90 0d       	add	r25, r0
- 104:	11 24       	eor	r1, r1
- 106:	90 93 8b 00 	sts	0x008B, r25	; 0x80008b <__TEXT_REGION_LENGTH__+0x7e008b>
- 10a:	80 93 8a 00 	sts	0x008A, r24	; 0x80008a <__TEXT_REGION_LENGTH__+0x7e008a>
- 10e:	08 95       	ret
+ 10c:	2d e0       	ldi	r18, 0x0D	; 13
+ 10e:	ac 01       	movw	r20, r24
+ 110:	24 9f       	mul	r18, r20
+ 112:	c0 01       	movw	r24, r0
+ 114:	25 9f       	mul	r18, r21
+ 116:	90 0d       	add	r25, r0
+ 118:	11 24       	eor	r1, r1
+ 11a:	90 93 8b 00 	sts	0x008B, r25	; 0x80008b <__TEXT_REGION_LENGTH__+0x7e008b>
+ 11e:	80 93 8a 00 	sts	0x008A, r24	; 0x80008a <__TEXT_REGION_LENGTH__+0x7e008a>
+ 122:	08 95       	ret
 
-00000110 <servo_init>:
+00000124 <servo_init>:
 //  before you use any of the above functions
 void servo_init()
 {
 	
 	//Configure TIMER1
 	TCCR1A|=(1<<COM1A1)|(1<<COM1B1)|(1<<WGM11);        //NON Inverted PWM
- 110:	e0 e8       	ldi	r30, 0x80	; 128
- 112:	f0 e0       	ldi	r31, 0x00	; 0
- 114:	80 81       	ld	r24, Z
- 116:	82 6a       	ori	r24, 0xA2	; 162
- 118:	80 83       	st	Z, r24
+ 124:	e0 e8       	ldi	r30, 0x80	; 128
+ 126:	f0 e0       	ldi	r31, 0x00	; 0
+ 128:	80 81       	ld	r24, Z
+ 12a:	82 6a       	ori	r24, 0xA2	; 162
+ 12c:	80 83       	st	Z, r24
 	TCCR1B|=(1<<WGM13)|(1<<WGM12)|(0<<CS11)|(1<<CS10); //PRESCALER=64 MODE 14(FAST PWM)
- 11a:	e1 e8       	ldi	r30, 0x81	; 129
- 11c:	f0 e0       	ldi	r31, 0x00	; 0
- 11e:	80 81       	ld	r24, Z
- 120:	89 61       	ori	r24, 0x19	; 25
- 122:	80 83       	st	Z, r24
+ 12e:	e1 e8       	ldi	r30, 0x81	; 129
+ 130:	f0 e0       	ldi	r31, 0x00	; 0
+ 132:	80 81       	ld	r24, Z
+ 134:	89 61       	ori	r24, 0x19	; 25
+ 136:	80 83       	st	Z, r24
 	ICR1=19999;  //fPWM=50Hz (Period = 20ms Standard).
- 124:	8f e1       	ldi	r24, 0x1F	; 31
- 126:	9e e4       	ldi	r25, 0x4E	; 78
- 128:	90 93 87 00 	sts	0x0087, r25	; 0x800087 <__TEXT_REGION_LENGTH__+0x7e0087>
- 12c:	80 93 86 00 	sts	0x0086, r24	; 0x800086 <__TEXT_REGION_LENGTH__+0x7e0086>
+ 138:	8f e1       	ldi	r24, 0x1F	; 31
+ 13a:	9e e4       	ldi	r25, 0x4E	; 78
+ 13c:	90 93 87 00 	sts	0x0087, r25	; 0x800087 <__TEXT_REGION_LENGTH__+0x7e0087>
+ 140:	80 93 86 00 	sts	0x0086, r24	; 0x800086 <__TEXT_REGION_LENGTH__+0x7e0086>
 
 	// set PWM pins as digital outputs (the PWM signals will not
 	// appear on the lines if they are digital inputs)
 	DDRD |= (1 << PORTD5)|(1<<PORTD4);
- 130:	8a b1       	in	r24, 0x0a	; 10
- 132:	80 63       	ori	r24, 0x30	; 48
- 134:	8a b9       	out	0x0a, r24	; 10
- 136:	08 95       	ret
+ 144:	8a b1       	in	r24, 0x0a	; 10
+ 146:	80 63       	ori	r24, 0x30	; 48
+ 148:	8a b9       	out	0x0a, r24	; 10
+ 14a:	08 95       	ret
 
-00000138 <full_step_back>:
-		// 		PORTC = 0b001001000;
-		// 		_delay_ms(DELAY);
-		
-	}
+0000014c <__vector_9>:
+
+
 }
-void full_step_back (int num_step) {
- 138:	cf 93       	push	r28
- 13a:	df 93       	push	r29
-	for (int i = 0; i < num_step; ++i)
- 13c:	18 16       	cp	r1, r24
- 13e:	19 06       	cpc	r1, r25
- 140:	0c f0       	brlt	.+2      	; 0x144 <full_step_back+0xc>
- 142:	47 c0       	rjmp	.+142    	; 0x1d2 <full_step_back+0x9a>
- 144:	20 e0       	ldi	r18, 0x00	; 0
- 146:	30 e0       	ldi	r19, 0x00	; 0
-	{
-		
-		PORTC = 0b00100100;
- 148:	b4 e2       	ldi	r27, 0x24	; 36
-		_delay_ms(DELAY);
-		PORTC = 0b00100000;
- 14a:	a0 e2       	ldi	r26, 0x20	; 32
-		_delay_ms(DELAY);
-		PORTC = 0b00110000;
- 14c:	f0 e3       	ldi	r31, 0x30	; 48
-		_delay_ms(DELAY);
-		PORTC = 0b00010000;
- 14e:	e0 e1       	ldi	r30, 0x10	; 16
-		_delay_ms(DELAY);
-		PORTC = 0b00011000;
- 150:	78 e1       	ldi	r23, 0x18	; 24
-		_delay_ms(DELAY);
-		PORTC = 0b00001000;
- 152:	68 e0       	ldi	r22, 0x08	; 8
-		_delay_ms(DELAY);
-		PORTC = 0b00001100;
- 154:	5c e0       	ldi	r21, 0x0C	; 12
-		_delay_ms(DELAY);
-		PORTC = 0b00000100;
- 156:	44 e0       	ldi	r20, 0x04	; 4
-}
-void full_step_back (int num_step) {
-	for (int i = 0; i < num_step; ++i)
-	{
-		
-		PORTC = 0b00100100;
- 158:	b8 b9       	out	0x08, r27	; 8
-	#else
-		//round up by default
-		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
-	#endif
 
-	__builtin_avr_delay_cycles(__ticks_dc);
- 15a:	c9 ef       	ldi	r28, 0xF9	; 249
- 15c:	d0 e0       	ldi	r29, 0x00	; 0
- 15e:	21 97       	sbiw	r28, 0x01	; 1
- 160:	f1 f7       	brne	.-4      	; 0x15e <full_step_back+0x26>
- 162:	00 c0       	rjmp	.+0      	; 0x164 <full_step_back+0x2c>
- 164:	00 00       	nop
-		_delay_ms(DELAY);
-		PORTC = 0b00100000;
- 166:	a8 b9       	out	0x08, r26	; 8
- 168:	c9 ef       	ldi	r28, 0xF9	; 249
- 16a:	d0 e0       	ldi	r29, 0x00	; 0
- 16c:	21 97       	sbiw	r28, 0x01	; 1
- 16e:	f1 f7       	brne	.-4      	; 0x16c <full_step_back+0x34>
- 170:	00 c0       	rjmp	.+0      	; 0x172 <full_step_back+0x3a>
- 172:	00 00       	nop
-		_delay_ms(DELAY);
-		PORTC = 0b00110000;
- 174:	f8 b9       	out	0x08, r31	; 8
- 176:	c9 ef       	ldi	r28, 0xF9	; 249
- 178:	d0 e0       	ldi	r29, 0x00	; 0
- 17a:	21 97       	sbiw	r28, 0x01	; 1
- 17c:	f1 f7       	brne	.-4      	; 0x17a <full_step_back+0x42>
- 17e:	00 c0       	rjmp	.+0      	; 0x180 <full_step_back+0x48>
- 180:	00 00       	nop
-		_delay_ms(DELAY);
-		PORTC = 0b00010000;
- 182:	e8 b9       	out	0x08, r30	; 8
- 184:	c9 ef       	ldi	r28, 0xF9	; 249
- 186:	d0 e0       	ldi	r29, 0x00	; 0
- 188:	21 97       	sbiw	r28, 0x01	; 1
- 18a:	f1 f7       	brne	.-4      	; 0x188 <full_step_back+0x50>
- 18c:	00 c0       	rjmp	.+0      	; 0x18e <full_step_back+0x56>
- 18e:	00 00       	nop
-		_delay_ms(DELAY);
-		PORTC = 0b00011000;
- 190:	78 b9       	out	0x08, r23	; 8
- 192:	c9 ef       	ldi	r28, 0xF9	; 249
- 194:	d0 e0       	ldi	r29, 0x00	; 0
- 196:	21 97       	sbiw	r28, 0x01	; 1
- 198:	f1 f7       	brne	.-4      	; 0x196 <full_step_back+0x5e>
- 19a:	00 c0       	rjmp	.+0      	; 0x19c <full_step_back+0x64>
- 19c:	00 00       	nop
-		_delay_ms(DELAY);
-		PORTC = 0b00001000;
- 19e:	68 b9       	out	0x08, r22	; 8
- 1a0:	c9 ef       	ldi	r28, 0xF9	; 249
- 1a2:	d0 e0       	ldi	r29, 0x00	; 0
- 1a4:	21 97       	sbiw	r28, 0x01	; 1
- 1a6:	f1 f7       	brne	.-4      	; 0x1a4 <full_step_back+0x6c>
- 1a8:	00 c0       	rjmp	.+0      	; 0x1aa <full_step_back+0x72>
- 1aa:	00 00       	nop
-		_delay_ms(DELAY);
-		PORTC = 0b00001100;
- 1ac:	58 b9       	out	0x08, r21	; 8
- 1ae:	c9 ef       	ldi	r28, 0xF9	; 249
- 1b0:	d0 e0       	ldi	r29, 0x00	; 0
- 1b2:	21 97       	sbiw	r28, 0x01	; 1
- 1b4:	f1 f7       	brne	.-4      	; 0x1b2 <full_step_back+0x7a>
- 1b6:	00 c0       	rjmp	.+0      	; 0x1b8 <full_step_back+0x80>
- 1b8:	00 00       	nop
-		_delay_ms(DELAY);
-		PORTC = 0b00000100;
- 1ba:	48 b9       	out	0x08, r20	; 8
- 1bc:	c9 ef       	ldi	r28, 0xF9	; 249
- 1be:	d0 e0       	ldi	r29, 0x00	; 0
- 1c0:	21 97       	sbiw	r28, 0x01	; 1
- 1c2:	f1 f7       	brne	.-4      	; 0x1c0 <full_step_back+0x88>
- 1c4:	00 c0       	rjmp	.+0      	; 0x1c6 <full_step_back+0x8e>
- 1c6:	00 00       	nop
-		// 		_delay_ms(DELAY);
-		
-	}
-}
-void full_step_back (int num_step) {
-	for (int i = 0; i < num_step; ++i)
- 1c8:	2f 5f       	subi	r18, 0xFF	; 255
- 1ca:	3f 4f       	sbci	r19, 0xFF	; 255
- 1cc:	82 17       	cp	r24, r18
- 1ce:	93 07       	cpc	r25, r19
- 1d0:	19 f6       	brne	.-122    	; 0x158 <full_step_back+0x20>
-		_delay_ms(DELAY);
-		PORTC = 0b00000100;
-		_delay_ms(DELAY);
-		
-	}
- 1d2:	df 91       	pop	r29
- 1d4:	cf 91       	pop	r28
- 1d6:	08 95       	ret
+ISR (TIMER2_COMPA_vect)
+{
+ 14c:	1f 92       	push	r1
+ 14e:	0f 92       	push	r0
+ 150:	0f b6       	in	r0, 0x3f	; 63
+ 152:	0f 92       	push	r0
+ 154:	11 24       	eor	r1, r1
+ 156:	8f 93       	push	r24
+ 158:	9f 93       	push	r25
+ 15a:	af 93       	push	r26
+ 15c:	bf 93       	push	r27
+	// action to be done every 250 usec
+	 //TIFR0 &= ~(1<<OCF0A);
+	clock_ticks++;
+ 15e:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <_edata>
+ 162:	90 91 01 01 	lds	r25, 0x0101	; 0x800101 <_edata+0x1>
+ 166:	a0 91 02 01 	lds	r26, 0x0102	; 0x800102 <_edata+0x2>
+ 16a:	b0 91 03 01 	lds	r27, 0x0103	; 0x800103 <_edata+0x3>
+ 16e:	01 96       	adiw	r24, 0x01	; 1
+ 170:	a1 1d       	adc	r26, r1
+ 172:	b1 1d       	adc	r27, r1
+ 174:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
+ 178:	90 93 01 01 	sts	0x0101, r25	; 0x800101 <_edata+0x1>
+ 17c:	a0 93 02 01 	sts	0x0102, r26	; 0x800102 <_edata+0x2>
+ 180:	b0 93 03 01 	sts	0x0103, r27	; 0x800103 <_edata+0x3>
+ 184:	bf 91       	pop	r27
+ 186:	af 91       	pop	r26
+ 188:	9f 91       	pop	r25
+ 18a:	8f 91       	pop	r24
+ 18c:	0f 90       	pop	r0
+ 18e:	0f be       	out	0x3f, r0	; 63
+ 190:	0f 90       	pop	r0
+ 192:	1f 90       	pop	r1
+ 194:	18 95       	reti
 
-000001d8 <_exit>:
- 1d8:	f8 94       	cli
+00000196 <_exit>:
+ 196:	f8 94       	cli
 
-000001da <__stop_program>:
- 1da:	ff cf       	rjmp	.-2      	; 0x1da <__stop_program>
+00000198 <__stop_program>:
+ 198:	ff cf       	rjmp	.-2      	; 0x198 <__stop_program>

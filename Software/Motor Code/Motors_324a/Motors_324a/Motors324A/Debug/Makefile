@@ -40,7 +40,8 @@ C_SRCS +=  \
 ../dcMotor.c \
 ../main.c \
 ../servo.c \
-../stepper.c
+../stepper.c \
+../timer2a.c
 
 
 PREPROCESSING_SRCS += 
@@ -53,25 +54,29 @@ OBJS +=  \
 dcMotor.o \
 main.o \
 servo.o \
-stepper.o
+stepper.o \
+timer2a.o
 
 OBJS_AS_ARGS +=  \
 dcMotor.o \
 main.o \
 servo.o \
-stepper.o
+stepper.o \
+timer2a.o
 
 C_DEPS +=  \
 dcMotor.d \
 main.d \
 servo.d \
-stepper.d
+stepper.d \
+timer2a.d
 
 C_DEPS_AS_ARGS +=  \
 dcMotor.d \
 main.d \
 servo.d \
-stepper.d
+stepper.d \
+timer2a.d
 
 OUTPUT_FILE_PATH +=Stepper324A.elf
 
@@ -87,6 +92,8 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
 
 
 

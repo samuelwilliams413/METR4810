@@ -13,6 +13,7 @@
 #include "stepper.h"
 #include "dcMotor.h"
 #include "servo.h"
+#include "timer2b.h"
 
 	
 int main() {
@@ -27,11 +28,11 @@ int main() {
 		move_servo1(1);   //135 degree
 		move_servo2(1);
 		// STEPPER ANGLE MOVEMENT//
- 		full_step_back(DEGREE*90);
+ 		//full_step_back(DEGREE*90);
 // 		full_step_forward(DEGREE*90);
 // 		//DC MOTOR ACTUATION//
-// 		counterclockwiseB(0xff);
-		
+ 		counterclockwiseB(0x00);
+		clockwiseB(0x00);
 		
 	}
 	
