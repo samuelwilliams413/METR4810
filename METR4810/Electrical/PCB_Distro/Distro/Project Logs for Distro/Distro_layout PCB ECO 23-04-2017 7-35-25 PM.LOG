@@ -1,0 +1,4 @@
+Added Pin To Net: NetName=MOTOR_1A Pin=P?-1
+Added Pin To Net: NetName=MOTOR_1B Pin=P?-3
+Added Pin To Net: NetName=MOTOR_2A Pin=P?-5
+Added Pin To Net: NetName=MOTOR_2B Pin=P?-7

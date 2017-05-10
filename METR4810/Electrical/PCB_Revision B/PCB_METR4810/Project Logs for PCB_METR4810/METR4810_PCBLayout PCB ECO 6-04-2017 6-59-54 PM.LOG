@@ -1,0 +1,19 @@
+Removed Pin From Net: NetName=VCC Pin=R10-2
+Removed Pin From Net: NetName=VCC Pin=R11-2
+Removed Pin From Net: NetName=VCC Pin=R12-2
+Change Component Designator: OldDesignator=P? NewDesignator=P1
+Change Component Designator: OldDesignator=P? NewDesignator=P5
+Change Component Designator: OldDesignator=P? NewDesignator=P9
+Added Component: Designator=Q?(SOT23-3)
+Added Pin To Net: NetName=VCC Pin=Q?-1
+Added Pin To Net: NetName=LO-BEAM Pin=Q?-2
+Added Pin To Net: NetName=LO-BEAM Pin=U1-35
+Added Net: Name=LO-BEAM
+Added Pin To Net: NetName=NetQ?_3 Pin=Q?-3
+Added Pin To Net: NetName=NetQ?_3 Pin=R10-2
+Added Pin To Net: NetName=NetQ?_3 Pin=R11-2
+Added Pin To Net: NetName=NetQ?_3 Pin=R12-2
+Added Net: Name=NetQ?_3
+Added Member To Class: ClassName=METR4810_Schematic Member=Component P1 Header 4
+Added Member To Class: ClassName=METR4810_Schematic Member=Component P9 Header 8
+Added Member To Class: ClassName=METR4810_Schematic Member=Component Q? MOSFET-P

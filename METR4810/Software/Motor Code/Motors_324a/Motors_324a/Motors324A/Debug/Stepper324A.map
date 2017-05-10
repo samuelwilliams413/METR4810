@@ -1,0 +1,894 @@
+Archive member included to satisfy reference by file (symbol)
+
+d:/programs/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+                              D:/Programs/Atmel/7.0/Packs/Atmel/ATmega_DFP/1.0.106/gcc/dev/atmega324a/avr5/crtatmega324a.o (exit)
+d:/programs/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_copy_data.o)
+                              src/comms.o (__do_copy_data)
+d:/programs/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_clear_bss.o)
+                              src/comms.o (__do_clear_bss)
+
+Allocating common symbols
+Common symbol       size              file
+
+present             0x4               src/stepper.o
+out_buffer          0x64              src/comms.o
+in_buffer           0x64              src/comms.o
+
+Discarded input sections
+
+ .data          0x00000000        0x0 D:/Programs/Atmel/7.0/Packs/Atmel/ATmega_DFP/1.0.106/gcc/dev/atmega324a/avr5/crtatmega324a.o
+ .bss           0x00000000        0x0 D:/Programs/Atmel/7.0/Packs/Atmel/ATmega_DFP/1.0.106/gcc/dev/atmega324a/avr5/crtatmega324a.o
+ .group         0x00000000        0x8 src/ASF/common/boards/user_board/init.o
+ .group         0x00000000        0x8 src/ASF/common/boards/user_board/init.o
+ .group         0x00000000        0x8 src/ASF/common/boards/user_board/init.o
+ .group         0x00000000        0x8 src/ASF/common/boards/user_board/init.o
+ .group         0x00000000        0x8 src/ASF/common/boards/user_board/init.o
+ .group         0x00000000        0x8 src/ASF/common/boards/user_board/init.o
+ .group         0x00000000        0x8 src/ASF/common/boards/user_board/init.o
+ .group         0x00000000        0x8 src/ASF/common/boards/user_board/init.o
+ .group         0x00000000        0x8 src/ASF/common/boards/user_board/init.o
+ .group         0x00000000        0x8 src/ASF/common/boards/user_board/init.o
+ .group         0x00000000        0x8 src/ASF/common/boards/user_board/init.o
+ .group         0x00000000        0x8 src/ASF/common/boards/user_board/init.o
+ .group         0x00000000        0x8 src/ASF/common/boards/user_board/init.o
+ .group         0x00000000        0x8 src/ASF/common/boards/user_board/init.o
+ .group         0x00000000        0x8 src/ASF/common/boards/user_board/init.o
+ .group         0x00000000        0x8 src/ASF/common/boards/user_board/init.o
+ .group         0x00000000        0x8 src/ASF/common/boards/user_board/init.o
+ .group         0x00000000        0x8 src/ASF/common/boards/user_board/init.o
+ .group         0x00000000        0x8 src/ASF/common/boards/user_board/init.o
+ .group         0x00000000        0x8 src/ASF/common/boards/user_board/init.o
+ .group         0x00000000        0x8 src/ASF/common/boards/user_board/init.o
+ .group         0x00000000        0x8 src/ASF/common/boards/user_board/init.o
+ .group         0x00000000        0x8 src/ASF/common/boards/user_board/init.o
+ .group         0x00000000        0x8 src/ASF/common/boards/user_board/init.o
+ .group         0x00000000        0x8 src/ASF/common/boards/user_board/init.o
+ .text          0x00000000        0x0 src/ASF/common/boards/user_board/init.o
+ .data          0x00000000        0x0 src/ASF/common/boards/user_board/init.o
+ .bss           0x00000000        0x0 src/ASF/common/boards/user_board/init.o
+ .group         0x00000000        0x8 src/comms.o
+ .group         0x00000000        0x8 src/comms.o
+ .group         0x00000000        0x8 src/comms.o
+ .group         0x00000000        0x8 src/comms.o
+ .group         0x00000000        0x8 src/comms.o
+ .group         0x00000000        0x8 src/comms.o
+ .group         0x00000000        0x8 src/comms.o
+ .group         0x00000000        0x8 src/comms.o
+ .group         0x00000000        0x8 src/comms.o
+ .group         0x00000000        0x8 src/comms.o
+ .group         0x00000000        0x8 src/comms.o
+ .group         0x00000000        0x8 src/comms.o
+ .group         0x00000000        0x8 src/comms.o
+ .group         0x00000000        0x8 src/comms.o
+ .group         0x00000000        0x8 src/comms.o
+ .group         0x00000000        0x8 src/comms.o
+ .group         0x00000000        0x8 src/comms.o
+ .group         0x00000000        0x8 src/comms.o
+ .group         0x00000000        0x8 src/comms.o
+ .group         0x00000000        0x8 src/comms.o
+ .group         0x00000000        0x8 src/comms.o
+ .group         0x00000000        0x8 src/comms.o
+ .group         0x00000000        0x8 src/comms.o
+ .group         0x00000000        0x8 src/comms.o
+ .group         0x00000000        0x8 src/comms.o
+ .group         0x00000000        0x8 src/comms.o
+ .group         0x00000000        0x8 src/comms.o
+ .group         0x00000000        0x8 src/comms.o
+ .text          0x00000000        0x0 src/comms.o
+ .data          0x00000000        0x0 src/comms.o
+ .bss           0x00000000        0x0 src/comms.o
+ .rodata.test_string3
+                0x00000000        0xc src/comms.o
+ .debug_macro   0x00000000      0xa4e src/comms.o
+ .debug_macro   0x00000000       0x10 src/comms.o
+ .debug_macro   0x00000000      0x1c9 src/comms.o
+ .debug_macro   0x00000000      0x2fc src/comms.o
+ .debug_macro   0x00000000       0x9e src/comms.o
+ .debug_macro   0x00000000     0x1283 src/comms.o
+ .debug_macro   0x00000000      0x171 src/comms.o
+ .debug_macro   0x00000000       0xbd src/comms.o
+ .debug_macro   0x00000000       0x34 src/comms.o
+ .debug_macro   0x00000000       0x18 src/comms.o
+ .debug_macro   0x00000000       0x6c src/comms.o
+ .debug_macro   0x00000000       0x22 src/comms.o
+ .debug_macro   0x00000000      0x16d src/comms.o
+ .debug_macro   0x00000000       0x1c src/comms.o
+ .debug_macro   0x00000000       0x35 src/comms.o
+ .debug_macro   0x00000000       0x66 src/comms.o
+ .debug_macro   0x00000000      0x5bf src/comms.o
+ .debug_macro   0x00000000       0x44 src/comms.o
+ .debug_macro   0x00000000       0x69 src/comms.o
+ .debug_macro   0x00000000       0x2c src/comms.o
+ .debug_macro   0x00000000       0x10 src/comms.o
+ .debug_macro   0x00000000       0xe2 src/comms.o
+ .debug_macro   0x00000000       0x40 src/comms.o
+ .debug_macro   0x00000000      0x100 src/comms.o
+ .debug_macro   0x00000000      0x265 src/comms.o
+ COMMON         0x00000000       0xc8 src/comms.o
+ .group         0x00000000        0x8 src/dcMotor.o
+ .group         0x00000000        0x8 src/dcMotor.o
+ .group         0x00000000        0x8 src/dcMotor.o
+ .group         0x00000000        0x8 src/dcMotor.o
+ .group         0x00000000        0x8 src/dcMotor.o
+ .group         0x00000000        0x8 src/dcMotor.o
+ .group         0x00000000        0x8 src/dcMotor.o
+ .group         0x00000000        0x8 src/dcMotor.o
+ .group         0x00000000        0x8 src/dcMotor.o
+ .group         0x00000000        0x8 src/dcMotor.o
+ .group         0x00000000        0x8 src/dcMotor.o
+ .text          0x00000000        0x0 src/dcMotor.o
+ .data          0x00000000        0x0 src/dcMotor.o
+ .bss           0x00000000        0x0 src/dcMotor.o
+ .text.motorRfbwd
+                0x00000000        0x8 src/dcMotor.o
+ .text.motorLbwd
+                0x00000000        0x8 src/dcMotor.o
+ .debug_macro   0x00000000      0xa4e src/dcMotor.o
+ .debug_macro   0x00000000       0x10 src/dcMotor.o
+ .debug_macro   0x00000000      0x1c9 src/dcMotor.o
+ .debug_macro   0x00000000      0x2fc src/dcMotor.o
+ .debug_macro   0x00000000       0x9e src/dcMotor.o
+ .debug_macro   0x00000000     0x1283 src/dcMotor.o
+ .debug_macro   0x00000000      0x171 src/dcMotor.o
+ .debug_macro   0x00000000       0xbd src/dcMotor.o
+ .debug_macro   0x00000000       0x34 src/dcMotor.o
+ .debug_macro   0x00000000       0x18 src/dcMotor.o
+ .debug_macro   0x00000000       0x6c src/dcMotor.o
+ .group         0x00000000        0x8 src/main.o
+ .group         0x00000000        0x8 src/main.o
+ .group         0x00000000        0x8 src/main.o
+ .group         0x00000000        0x8 src/main.o
+ .group         0x00000000        0x8 src/main.o
+ .group         0x00000000        0x8 src/main.o
+ .group         0x00000000        0x8 src/main.o
+ .group         0x00000000        0x8 src/main.o
+ .group         0x00000000        0x8 src/main.o
+ .group         0x00000000        0x8 src/main.o
+ .group         0x00000000        0x8 src/main.o
+ .group         0x00000000        0x8 src/main.o
+ .group         0x00000000        0x8 src/main.o
+ .group         0x00000000        0x8 src/main.o
+ .group         0x00000000        0x8 src/main.o
+ .group         0x00000000        0x8 src/main.o
+ .group         0x00000000        0x8 src/main.o
+ .group         0x00000000        0x8 src/main.o
+ .group         0x00000000        0x8 src/main.o
+ .group         0x00000000        0x8 src/main.o
+ .group         0x00000000        0x8 src/main.o
+ .group         0x00000000        0x8 src/main.o
+ .group         0x00000000        0x8 src/main.o
+ .group         0x00000000        0x8 src/main.o
+ .group         0x00000000        0x8 src/main.o
+ .group         0x00000000        0x8 src/main.o
+ .group         0x00000000        0x8 src/main.o
+ .group         0x00000000        0x8 src/main.o
+ .group         0x00000000        0x8 src/main.o
+ .group         0x00000000        0x8 src/main.o
+ .group         0x00000000        0x8 src/main.o
+ .text          0x00000000        0x0 src/main.o
+ .data          0x00000000        0x0 src/main.o
+ .bss           0x00000000        0x0 src/main.o
+ .debug_macro   0x00000000      0xa4e src/main.o
+ .debug_macro   0x00000000       0x10 src/main.o
+ .debug_macro   0x00000000      0x1c9 src/main.o
+ .debug_macro   0x00000000      0x2fc src/main.o
+ .debug_macro   0x00000000       0x9e src/main.o
+ .debug_macro   0x00000000     0x1283 src/main.o
+ .debug_macro   0x00000000      0x171 src/main.o
+ .debug_macro   0x00000000       0xbd src/main.o
+ .debug_macro   0x00000000       0x34 src/main.o
+ .debug_macro   0x00000000       0x18 src/main.o
+ .debug_macro   0x00000000       0x6c src/main.o
+ .debug_macro   0x00000000       0x22 src/main.o
+ .debug_macro   0x00000000      0x16d src/main.o
+ .debug_macro   0x00000000       0x1c src/main.o
+ .debug_macro   0x00000000       0x35 src/main.o
+ .debug_macro   0x00000000       0x66 src/main.o
+ .debug_macro   0x00000000      0x5bf src/main.o
+ .debug_macro   0x00000000       0x44 src/main.o
+ .debug_macro   0x00000000       0x69 src/main.o
+ .debug_macro   0x00000000       0x2c src/main.o
+ .debug_macro   0x00000000       0x10 src/main.o
+ .debug_macro   0x00000000       0xe2 src/main.o
+ .debug_macro   0x00000000       0x40 src/main.o
+ .debug_macro   0x00000000      0x100 src/main.o
+ .debug_macro   0x00000000      0x265 src/main.o
+ .debug_macro   0x00000000       0x10 src/main.o
+ .debug_macro   0x00000000      0x160 src/main.o
+ .group         0x00000000        0x8 src/servo.o
+ .group         0x00000000        0x8 src/servo.o
+ .group         0x00000000        0x8 src/servo.o
+ .group         0x00000000        0x8 src/servo.o
+ .group         0x00000000        0x8 src/servo.o
+ .group         0x00000000        0x8 src/servo.o
+ .group         0x00000000        0x8 src/servo.o
+ .group         0x00000000        0x8 src/servo.o
+ .group         0x00000000        0x8 src/servo.o
+ .group         0x00000000        0x8 src/servo.o
+ .group         0x00000000        0x8 src/servo.o
+ .text          0x00000000        0x0 src/servo.o
+ .data          0x00000000        0x0 src/servo.o
+ .bss           0x00000000        0x0 src/servo.o
+ .text.move_servo1
+                0x00000000        0xa src/servo.o
+ .text.move_servo2
+                0x00000000        0xa src/servo.o
+ .debug_macro   0x00000000      0xa4e src/servo.o
+ .debug_macro   0x00000000       0x10 src/servo.o
+ .debug_macro   0x00000000      0x1c9 src/servo.o
+ .debug_macro   0x00000000      0x2fc src/servo.o
+ .debug_macro   0x00000000       0x9e src/servo.o
+ .debug_macro   0x00000000     0x1283 src/servo.o
+ .debug_macro   0x00000000      0x171 src/servo.o
+ .debug_macro   0x00000000       0xbd src/servo.o
+ .debug_macro   0x00000000       0x34 src/servo.o
+ .debug_macro   0x00000000       0x18 src/servo.o
+ .debug_macro   0x00000000       0x6c src/servo.o
+ .group         0x00000000        0x8 src/stepper.o
+ .group         0x00000000        0x8 src/stepper.o
+ .group         0x00000000        0x8 src/stepper.o
+ .group         0x00000000        0x8 src/stepper.o
+ .group         0x00000000        0x8 src/stepper.o
+ .group         0x00000000        0x8 src/stepper.o
+ .group         0x00000000        0x8 src/stepper.o
+ .group         0x00000000        0x8 src/stepper.o
+ .group         0x00000000        0x8 src/stepper.o
+ .group         0x00000000        0x8 src/stepper.o
+ .group         0x00000000        0x8 src/stepper.o
+ .group         0x00000000        0x8 src/stepper.o
+ .group         0x00000000        0x8 src/stepper.o
+ .group         0x00000000        0x8 src/stepper.o
+ .group         0x00000000        0x8 src/stepper.o
+ .group         0x00000000        0x8 src/stepper.o
+ .group         0x00000000        0x8 src/stepper.o
+ .text          0x00000000        0x0 src/stepper.o
+ .data          0x00000000        0x0 src/stepper.o
+ .bss           0x00000000        0x0 src/stepper.o
+ .text.full_step_forward
+                0x00000000      0x28a src/stepper.o
+ .debug_macro   0x00000000      0xa4e src/stepper.o
+ .debug_macro   0x00000000       0x10 src/stepper.o
+ .debug_macro   0x00000000      0x1c9 src/stepper.o
+ .debug_macro   0x00000000      0x2fc src/stepper.o
+ .debug_macro   0x00000000       0x58 src/stepper.o
+ .debug_macro   0x00000000       0x10 src/stepper.o
+ .debug_macro   0x00000000       0xf2 src/stepper.o
+ .debug_macro   0x00000000     0x1283 src/stepper.o
+ .debug_macro   0x00000000      0x171 src/stepper.o
+ .debug_macro   0x00000000       0xbd src/stepper.o
+ .debug_macro   0x00000000       0x34 src/stepper.o
+ .debug_macro   0x00000000       0x18 src/stepper.o
+ .debug_macro   0x00000000       0x6c src/stepper.o
+ .debug_macro   0x00000000       0x10 src/stepper.o
+ COMMON         0x00000000        0x4 src/stepper.o
+ .group         0x00000000        0x8 src/timer2a.o
+ .group         0x00000000        0x8 src/timer2a.o
+ .group         0x00000000        0x8 src/timer2a.o
+ .group         0x00000000        0x8 src/timer2a.o
+ .group         0x00000000        0x8 src/timer2a.o
+ .group         0x00000000        0x8 src/timer2a.o
+ .group         0x00000000        0x8 src/timer2a.o
+ .group         0x00000000        0x8 src/timer2a.o
+ .group         0x00000000        0x8 src/timer2a.o
+ .group         0x00000000        0x8 src/timer2a.o
+ .group         0x00000000        0x8 src/timer2a.o
+ .group         0x00000000        0x8 src/timer2a.o
+ .text          0x00000000        0x0 src/timer2a.o
+ .data          0x00000000        0x0 src/timer2a.o
+ .bss           0x00000000        0x0 src/timer2a.o
+ .text.get_clock_ticks
+                0x00000000       0x1c src/timer2a.o
+ .debug_macro   0x00000000      0xa4e src/timer2a.o
+ .debug_macro   0x00000000       0x10 src/timer2a.o
+ .debug_macro   0x00000000      0x1c9 src/timer2a.o
+ .debug_macro   0x00000000      0x2fc src/timer2a.o
+ .debug_macro   0x00000000       0x9e src/timer2a.o
+ .debug_macro   0x00000000     0x1283 src/timer2a.o
+ .debug_macro   0x00000000      0x171 src/timer2a.o
+ .debug_macro   0x00000000       0xbd src/timer2a.o
+ .debug_macro   0x00000000       0x34 src/timer2a.o
+ .debug_macro   0x00000000       0x18 src/timer2a.o
+ .debug_macro   0x00000000       0x6c src/timer2a.o
+ .debug_macro   0x00000000       0x69 src/timer2a.o
+ .text          0x00000000        0x0 d:/programs/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+ .data          0x00000000        0x0 d:/programs/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+ .bss           0x00000000        0x0 d:/programs/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+ .text.libgcc.mul
+                0x00000000        0x0 d:/programs/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+ .text.libgcc.div
+                0x00000000        0x0 d:/programs/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x00000000        0x0 d:/programs/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 d:/programs/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 d:/programs/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 d:/programs/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 d:/programs/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+ .text          0x00000000        0x0 d:/programs/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_copy_data.o)
+ .data          0x00000000        0x0 d:/programs/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_copy_data.o)
+ .bss           0x00000000        0x0 d:/programs/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc.mul
+                0x00000000        0x0 d:/programs/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc.div
+                0x00000000        0x0 d:/programs/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc   0x00000000        0x0 d:/programs/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 d:/programs/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 d:/programs/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 d:/programs/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 d:/programs/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_copy_data.o)
+ .text          0x00000000        0x0 d:/programs/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_clear_bss.o)
+ .data          0x00000000        0x0 d:/programs/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_clear_bss.o)
+ .bss           0x00000000        0x0 d:/programs/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_clear_bss.o)
+ .text.libgcc.mul
+                0x00000000        0x0 d:/programs/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_clear_bss.o)
+ .text.libgcc.div
+                0x00000000        0x0 d:/programs/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_clear_bss.o)
+ .text.libgcc   0x00000000        0x0 d:/programs/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_clear_bss.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 d:/programs/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_clear_bss.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 d:/programs/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_clear_bss.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 d:/programs/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_clear_bss.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 d:/programs/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_clear_bss.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+text             0x00000000         0x00020000         xr
+data             0x00800060         0x0000ffa0         rw !x
+eeprom           0x00810000         0x00010000         rw !x
+fuse             0x00820000         0x00000400         rw !x
+lock             0x00830000         0x00000400         rw !x
+signature        0x00840000         0x00000400         rw !x
+user_signatures  0x00850000         0x00000400         rw !x
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+Address of section .data set to 0x800100
+LOAD D:/Programs/Atmel/7.0/Packs/Atmel/ATmega_DFP/1.0.106/gcc/dev/atmega324a/avr5/crtatmega324a.o
+LOAD src/ASF/common/boards/user_board/init.o
+LOAD src/comms.o
+LOAD src/dcMotor.o
+LOAD src/main.o
+LOAD src/servo.o
+LOAD src/stepper.o
+LOAD src/timer2a.o
+START GROUP
+LOAD d:/programs/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a
+END GROUP
+START GROUP
+LOAD d:/programs/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a
+LOAD d:/programs/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a
+LOAD d:/programs/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a
+LOAD D:/Programs/Atmel/7.0/Packs/Atmel/ATmega_DFP/1.0.106/gcc/dev/atmega324a/avr5\libatmega324a.a
+END GROUP
+                0x00020000                __TEXT_REGION_LENGTH__ = DEFINED (__TEXT_REGION_LENGTH__)?__TEXT_REGION_LENGTH__:0x20000
+                0x0000ffa0                __DATA_REGION_LENGTH__ = DEFINED (__DATA_REGION_LENGTH__)?__DATA_REGION_LENGTH__:0xffa0
+                0x00010000                __EEPROM_REGION_LENGTH__ = DEFINED (__EEPROM_REGION_LENGTH__)?__EEPROM_REGION_LENGTH__:0x10000
+                0x00000400                __FUSE_REGION_LENGTH__ = DEFINED (__FUSE_REGION_LENGTH__)?__FUSE_REGION_LENGTH__:0x400
+                0x00000400                __LOCK_REGION_LENGTH__ = DEFINED (__LOCK_REGION_LENGTH__)?__LOCK_REGION_LENGTH__:0x400
+                0x00000400                __SIGNATURE_REGION_LENGTH__ = DEFINED (__SIGNATURE_REGION_LENGTH__)?__SIGNATURE_REGION_LENGTH__:0x400
+                0x00000400                __USER_SIGNATURE_REGION_LENGTH__ = DEFINED (__USER_SIGNATURE_REGION_LENGTH__)?__USER_SIGNATURE_REGION_LENGTH__:0x400
+
+.hash
+ *(.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.init
+ *(.rel.init)
+
+.rela.init
+ *(.rela.init)
+
+.rel.text
+ *(.rel.text)
+ *(.rel.text.*)
+ *(.rel.gnu.linkonce.t*)
+
+.rela.text
+ *(.rela.text)
+ *(.rela.text.*)
+ *(.rela.gnu.linkonce.t*)
+
+.rel.fini
+ *(.rel.fini)
+
+.rela.fini
+ *(.rela.fini)
+
+.rel.rodata
+ *(.rel.rodata)
+ *(.rel.rodata.*)
+ *(.rel.gnu.linkonce.r*)
+
+.rela.rodata
+ *(.rela.rodata)
+ *(.rela.rodata.*)
+ *(.rela.gnu.linkonce.r*)
+
+.rel.data
+ *(.rel.data)
+ *(.rel.data.*)
+ *(.rel.gnu.linkonce.d*)
+
+.rela.data
+ *(.rela.data)
+ *(.rela.data.*)
+ *(.rela.gnu.linkonce.d*)
+
+.rel.ctors
+ *(.rel.ctors)
+
+.rela.ctors
+ *(.rela.ctors)
+
+.rel.dtors
+ *(.rel.dtors)
+
+.rela.dtors
+ *(.rela.dtors)
+
+.rel.got
+ *(.rel.got)
+
+.rela.got
+ *(.rela.got)
+
+.rel.bss
+ *(.rel.bss)
+
+.rela.bss
+ *(.rela.bss)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.text           0x00000000      0x318
+ *(.vectors)
+ .vectors       0x00000000       0x7c D:/Programs/Atmel/7.0/Packs/Atmel/ATmega_DFP/1.0.106/gcc/dev/atmega324a/avr5/crtatmega324a.o
+                0x00000000                __vector_default
+                0x00000000                __vectors
+ *(.vectors)
+ *(.progmem.gcc*)
+                0x0000007c                . = ALIGN (0x2)
+                0x0000007c                __trampolines_start = .
+ *(.trampolines)
+ .trampolines   0x0000007c        0x0 linker stubs
+ *(.trampolines*)
+                0x0000007c                __trampolines_end = .
+ *libprintf_flt.a:*(.progmem.data)
+ *libc.a:*(.progmem.data)
+ *(.progmem*)
+                0x0000007c                . = ALIGN (0x2)
+ *(.jumptables)
+ *(.jumptables*)
+ *(.lowtext)
+ *(.lowtext*)
+                0x0000007c                __ctors_start = .
+ *(.ctors)
+                0x0000007c                __ctors_end = .
+                0x0000007c                __dtors_start = .
+ *(.dtors)
+                0x0000007c                __dtors_end = .
+ SORT(*)(.ctors)
+ SORT(*)(.dtors)
+ *(.init0)
+ .init0         0x0000007c        0x0 D:/Programs/Atmel/7.0/Packs/Atmel/ATmega_DFP/1.0.106/gcc/dev/atmega324a/avr5/crtatmega324a.o
+                0x0000007c                __init
+ *(.init0)
+ *(.init1)
+ *(.init1)
+ *(.init2)
+ .init2         0x0000007c        0xc D:/Programs/Atmel/7.0/Packs/Atmel/ATmega_DFP/1.0.106/gcc/dev/atmega324a/avr5/crtatmega324a.o
+ *(.init2)
+ *(.init3)
+ *(.init3)
+ *(.init4)
+ .init4         0x00000088       0x16 d:/programs/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_copy_data.o)
+                0x00000088                __do_copy_data
+ .init4         0x0000009e       0x10 d:/programs/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_clear_bss.o)
+                0x0000009e                __do_clear_bss
+ *(.init4)
+ *(.init5)
+ *(.init5)
+ *(.init6)
+ *(.init6)
+ *(.init7)
+ *(.init7)
+ *(.init8)
+ *(.init8)
+ *(.init9)
+ .init9         0x000000ae        0x4 D:/Programs/Atmel/7.0/Packs/Atmel/ATmega_DFP/1.0.106/gcc/dev/atmega324a/avr5/crtatmega324a.o
+ *(.init9)
+ *(.text)
+ .text          0x000000b2        0x2 D:/Programs/Atmel/7.0/Packs/Atmel/ATmega_DFP/1.0.106/gcc/dev/atmega324a/avr5/crtatmega324a.o
+                0x000000b2                __vector_22
+                0x000000b2                __vector_28
+                0x000000b2                __vector_1
+                0x000000b2                __vector_24
+                0x000000b2                __vector_12
+                0x000000b2                __bad_interrupt
+                0x000000b2                __vector_6
+                0x000000b2                __vector_3
+                0x000000b2                __vector_23
+                0x000000b2                __vector_30
+                0x000000b2                __vector_25
+                0x000000b2                __vector_11
+                0x000000b2                __vector_13
+                0x000000b2                __vector_17
+                0x000000b2                __vector_19
+                0x000000b2                __vector_7
+                0x000000b2                __vector_27
+                0x000000b2                __vector_5
+                0x000000b2                __vector_4
+                0x000000b2                __vector_2
+                0x000000b2                __vector_21
+                0x000000b2                __vector_15
+                0x000000b2                __vector_29
+                0x000000b2                __vector_8
+                0x000000b2                __vector_26
+                0x000000b2                __vector_14
+                0x000000b2                __vector_10
+                0x000000b2                __vector_16
+                0x000000b2                __vector_18
+                0x000000b2                __vector_20
+                0x000000b4                . = ALIGN (0x2)
+ *(.text.*)
+ .text.board_init
+                0x000000b4        0x2 src/ASF/common/boards/user_board/init.o
+                0x000000b4                board_init
+ .text.uart_init
+                0x000000b6       0x24 src/comms.o
+                0x000000b6                uart_init
+ .text.send_str
+                0x000000da       0x3c src/comms.o
+                0x000000da                send_str
+ .text.send_confirmation_msg
+                0x00000116       0x2a src/comms.o
+                0x00000116                send_confirmation_msg
+ .text.get_char
+                0x00000140       0x2a src/comms.o
+                0x00000140                get_char
+ .text.motorRfwd
+                0x0000016a        0x6 src/dcMotor.o
+                0x0000016a                motorRfwd
+ .text.motorLfwd
+                0x00000170        0x6 src/dcMotor.o
+                0x00000170                motorLfwd
+ .text.motorR_stop
+                0x00000176        0x8 src/dcMotor.o
+                0x00000176                motorR_stop
+ .text.motorL_stop
+                0x0000017e        0x8 src/dcMotor.o
+                0x0000017e                motorL_stop
+ .text.motor_initB
+                0x00000186       0x1a src/dcMotor.o
+                0x00000186                motor_initB
+ .text.main     0x000001a0       0x36 src/main.o
+                0x000001a0                main
+ .text.servo_init
+                0x000001d6       0x28 src/servo.o
+                0x000001d6                servo_init
+ .text.full_step_back
+                0x000001fe       0xa0 src/stepper.o
+                0x000001fe                full_step_back
+ .text.timer_init
+                0x0000029e       0x2c src/timer2a.o
+                0x0000029e                timer_init
+ .text.__vector_9
+                0x000002ca       0x4a src/timer2a.o
+                0x000002ca                __vector_9
+                0x00000314                . = ALIGN (0x2)
+ *(.fini9)
+ .fini9         0x00000314        0x0 d:/programs/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+                0x00000314                _exit
+                0x00000314                exit
+ *(.fini9)
+ *(.fini8)
+ *(.fini8)
+ *(.fini7)
+ *(.fini7)
+ *(.fini6)
+ *(.fini6)
+ *(.fini5)
+ *(.fini5)
+ *(.fini4)
+ *(.fini4)
+ *(.fini3)
+ *(.fini3)
+ *(.fini2)
+ *(.fini2)
+ *(.fini1)
+ *(.fini1)
+ *(.fini0)
+ .fini0         0x00000314        0x4 d:/programs/atmel/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+ *(.fini0)
+                0x00000318                _etext = .
+
+.data           0x00800100        0xe load address 0x00000318
+                0x00800100                PROVIDE (__data_start, .)
+ *(.data)
+ *(.data*)
+ *(.rodata)
+ *(.rodata*)
+ .rodata.test_string2
+                0x00800100        0x3 src/comms.o
+                0x00800100                test_string2
+ .rodata.test_string
+                0x00800103        0xb src/comms.o
+                0x00800103                test_string
+ *(.gnu.linkonce.d*)
+                0x0080010e                . = ALIGN (0x2)
+                0x0080010e                _edata = .
+                0x0080010e                PROVIDE (__data_end, .)
+
+.bss            0x0080010e        0x4
+                0x0080010e                PROVIDE (__bss_start, .)
+ *(.bss)
+ *(.bss*)
+ .bss.clock_ticks
+                0x0080010e        0x4 src/timer2a.o
+ *(COMMON)
+                0x00800112                PROVIDE (__bss_end, .)
+                0x00000318                __data_load_start = LOADADDR (.data)
+                0x00000326                __data_load_end = (__data_load_start + SIZEOF (.data))
+
+.noinit         0x00800112        0x0
+                [!provide]                PROVIDE (__noinit_start, .)
+ *(.noinit*)
+                [!provide]                PROVIDE (__noinit_end, .)
+                0x00800112                _end = .
+                [!provide]                PROVIDE (__heap_start, .)
+
+.eeprom         0x00810000        0x0
+ *(.eeprom*)
+                0x00810000                __eeprom_end = .
+
+.fuse
+ *(.fuse)
+ *(.lfuse)
+ *(.hfuse)
+ *(.efuse)
+
+.lock
+ *(.lock*)
+
+.signature
+ *(.signature*)
+
+.user_signatures
+ *(.user_signatures*)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment        0x00000000       0x30
+ *(.comment)
+ .comment       0x00000000       0x30 src/ASF/common/boards/user_board/init.o
+                                 0x31 (size before relaxing)
+ .comment       0x00000030       0x31 src/comms.o
+ .comment       0x00000030       0x31 src/dcMotor.o
+ .comment       0x00000030       0x31 src/main.o
+ .comment       0x00000030       0x31 src/servo.o
+ .comment       0x00000030       0x31 src/stepper.o
+ .comment       0x00000030       0x31 src/timer2a.o
+
+.note.gnu.avr.deviceinfo
+                0x00000000       0x40
+ .note.gnu.avr.deviceinfo
+                0x00000000       0x40 D:/Programs/Atmel/7.0/Packs/Atmel/ATmega_DFP/1.0.106/gcc/dev/atmega324a/avr5/crtatmega324a.o
+
+.note.gnu.build-id
+ *(.note.gnu.build-id)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x00000000      0x150
+ *(.debug_aranges)
+ .debug_aranges
+                0x00000000       0x20 src/ASF/common/boards/user_board/init.o
+ .debug_aranges
+                0x00000020       0x38 src/comms.o
+ .debug_aranges
+                0x00000058       0x50 src/dcMotor.o
+ .debug_aranges
+                0x000000a8       0x20 src/main.o
+ .debug_aranges
+                0x000000c8       0x30 src/servo.o
+ .debug_aranges
+                0x000000f8       0x28 src/stepper.o
+ .debug_aranges
+                0x00000120       0x30 src/timer2a.o
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info     0x00000000      0xcb9
+ *(.debug_info .gnu.linkonce.wi.*)
+ .debug_info    0x00000000       0x7c src/ASF/common/boards/user_board/init.o
+ .debug_info    0x0000007c      0x2e4 src/comms.o
+ .debug_info    0x00000360      0x16c src/dcMotor.o
+ .debug_info    0x000004cc      0x234 src/main.o
+ .debug_info    0x00000700       0xec src/servo.o
+ .debug_info    0x000007ec      0x3bb src/stepper.o
+ .debug_info    0x00000ba7      0x112 src/timer2a.o
+
+.debug_abbrev   0x00000000      0x542
+ *(.debug_abbrev)
+ .debug_abbrev  0x00000000       0x47 src/ASF/common/boards/user_board/init.o
+ .debug_abbrev  0x00000047      0x16f src/comms.o
+ .debug_abbrev  0x000001b6       0x8c src/dcMotor.o
+ .debug_abbrev  0x00000242       0xbd src/main.o
+ .debug_abbrev  0x000002ff       0x7d src/servo.o
+ .debug_abbrev  0x0000037c      0x128 src/stepper.o
+ .debug_abbrev  0x000004a4       0x9e src/timer2a.o
+
+.debug_line     0x00000000     0x1895
+ *(.debug_line .debug_line.* .debug_line_end)
+ .debug_line    0x00000000      0x34a src/ASF/common/boards/user_board/init.o
+ .debug_line    0x0000034a      0x4bb src/comms.o
+ .debug_line    0x00000805      0x2b8 src/dcMotor.o
+ .debug_line    0x00000abd      0x47d src/main.o
+ .debug_line    0x00000f3a      0x22c src/servo.o
+ .debug_line    0x00001166      0x4c4 src/stepper.o
+ .debug_line    0x0000162a      0x26b src/timer2a.o
+
+.debug_frame    0x00000000      0x274
+ *(.debug_frame)
+ .debug_frame   0x00000000       0x24 src/ASF/common/boards/user_board/init.o
+ .debug_frame   0x00000024       0x70 src/comms.o
+ .debug_frame   0x00000094       0x84 src/dcMotor.o
+ .debug_frame   0x00000118       0x24 src/main.o
+ .debug_frame   0x0000013c       0x44 src/servo.o
+ .debug_frame   0x00000180       0x90 src/stepper.o
+ .debug_frame   0x00000210       0x64 src/timer2a.o
+
+.debug_str      0x00000000     0xf8f8
+ *(.debug_str)
+ .debug_str     0x00000000     0xec44 src/ASF/common/boards/user_board/init.o
+                               0xee01 (size before relaxing)
+ .debug_str     0x0000ec44      0x64a src/comms.o
+                               0xf41a (size before relaxing)
+ .debug_str     0x0000f28e       0x67 src/dcMotor.o
+                               0x67db (size before relaxing)
+ .debug_str     0x0000f2f5      0x513 src/main.o
+                               0xf737 (size before relaxing)
+ .debug_str     0x0000f808       0x2d src/servo.o
+                               0x67b5 (size before relaxing)
+ .debug_str     0x0000f835       0x87 src/stepper.o
+                               0x7216 (size before relaxing)
+ .debug_str     0x0000f8bc       0x3c src/timer2a.o
+                               0x6b52 (size before relaxing)
+
+.debug_loc      0x00000000      0x58c
+ *(.debug_loc)
+ .debug_loc     0x00000000      0x11b src/comms.o
+ .debug_loc     0x0000011b       0x4c src/dcMotor.o
+ .debug_loc     0x00000167      0x3c2 src/stepper.o
+ .debug_loc     0x00000529       0x63 src/timer2a.o
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+
+.debug_pubtypes
+ *(.debug_pubtypes)
+
+.debug_ranges   0x00000000       0xf8
+ *(.debug_ranges)
+ .debug_ranges  0x00000000       0x10 src/ASF/common/boards/user_board/init.o
+ .debug_ranges  0x00000010       0x40 src/comms.o
+ .debug_ranges  0x00000050       0x40 src/dcMotor.o
+ .debug_ranges  0x00000090       0x10 src/main.o
+ .debug_ranges  0x000000a0       0x20 src/servo.o
+ .debug_ranges  0x000000c0       0x18 src/stepper.o
+ .debug_ranges  0x000000d8       0x20 src/timer2a.o
+
+.debug_macro    0x00000000     0x3f72
+ *(.debug_macro)
+ .debug_macro   0x00000000      0x152 src/ASF/common/boards/user_board/init.o
+ .debug_macro   0x00000152      0xa4e src/ASF/common/boards/user_board/init.o
+ .debug_macro   0x00000ba0       0x10 src/ASF/common/boards/user_board/init.o
+ .debug_macro   0x00000bb0      0x1c9 src/ASF/common/boards/user_board/init.o
+ .debug_macro   0x00000d79      0x2fc src/ASF/common/boards/user_board/init.o
+ .debug_macro   0x00001075       0x9e src/ASF/common/boards/user_board/init.o
+ .debug_macro   0x00001113     0x1283 src/ASF/common/boards/user_board/init.o
+ .debug_macro   0x00002396      0x171 src/ASF/common/boards/user_board/init.o
+ .debug_macro   0x00002507       0xbd src/ASF/common/boards/user_board/init.o
+ .debug_macro   0x000025c4       0x34 src/ASF/common/boards/user_board/init.o
+ .debug_macro   0x000025f8       0x18 src/ASF/common/boards/user_board/init.o
+ .debug_macro   0x00002610       0x6c src/ASF/common/boards/user_board/init.o
+ .debug_macro   0x0000267c       0x22 src/ASF/common/boards/user_board/init.o
+ .debug_macro   0x0000269e      0x16d src/ASF/common/boards/user_board/init.o
+ .debug_macro   0x0000280b       0x1c src/ASF/common/boards/user_board/init.o
+ .debug_macro   0x00002827       0x35 src/ASF/common/boards/user_board/init.o
+ .debug_macro   0x0000285c       0x66 src/ASF/common/boards/user_board/init.o
+ .debug_macro   0x000028c2      0x5bf src/ASF/common/boards/user_board/init.o
+ .debug_macro   0x00002e81       0x44 src/ASF/common/boards/user_board/init.o
+ .debug_macro   0x00002ec5       0x69 src/ASF/common/boards/user_board/init.o
+ .debug_macro   0x00002f2e       0x2c src/ASF/common/boards/user_board/init.o
+ .debug_macro   0x00002f5a       0x10 src/ASF/common/boards/user_board/init.o
+ .debug_macro   0x00002f6a       0xe2 src/ASF/common/boards/user_board/init.o
+ .debug_macro   0x0000304c       0x40 src/ASF/common/boards/user_board/init.o
+ .debug_macro   0x0000308c      0x100 src/ASF/common/boards/user_board/init.o
+ .debug_macro   0x0000318c      0x265 src/ASF/common/boards/user_board/init.o
+ .debug_macro   0x000033f1      0x1b2 src/comms.o
+ .debug_macro   0x000035a3       0x10 src/comms.o
+ .debug_macro   0x000035b3      0x160 src/comms.o
+ .debug_macro   0x00003713       0x16 src/comms.o
+ .debug_macro   0x00003729       0x8b src/dcMotor.o
+ .debug_macro   0x000037b4      0x1b3 src/main.o
+ .debug_macro   0x00003967       0x58 src/main.o
+ .debug_macro   0x000039bf       0x10 src/main.o
+ .debug_macro   0x000039cf       0xf2 src/main.o
+ .debug_macro   0x00003ac1       0x10 src/main.o
+ .debug_macro   0x00003ad1       0x8b src/servo.o
+ .debug_macro   0x00003b5c       0xdb src/stepper.o
+ .debug_macro   0x00003c37      0x166 src/stepper.o
+ .debug_macro   0x00003d9d       0x97 src/stepper.o
+ .debug_macro   0x00003e34       0xaa src/stepper.o
+ .debug_macro   0x00003ede       0x94 src/timer2a.o
+OUTPUT(Stepper324A.elf elf32-avr)
+LOAD linker stubs

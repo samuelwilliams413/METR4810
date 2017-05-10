@@ -1,0 +1,37 @@
+Added Component: Designator=P?(HDR2X6)
+Added Component: Designator=P?(HDR1X3)
+Added Component: Designator=P?(HDR2X3)
+Added Component: Designator=P?(HDR2X4)
+Added Pin To Net: NetName=BAT Pin=P?-1
+Added Pin To Net: NetName=CAM_SIG Pin=P?-1
+Added Pin To Net: NetName=MOTOR_1A Pin=P?-1
+Added Pin To Net: NetName=PWM SV 1 Pin=P?-1
+Added Pin To Net: NetName=CAM_POW Pin=P?-2
+Added Pin To Net: NetName=GND Pin=P?-2
+Added Pin To Net: NetName=MOTOR_2A Pin=P?-2
+Added Pin To Net: NetName=PWM SV 2 Pin=P?-2
+Added Pin To Net: NetName=BAT Pin=P?-3
+Added Pin To Net: NetName=GND Pin=P?-3
+Added Pin To Net: NetName=MOTOR_1B Pin=P?-3
+Added Pin To Net: NetName=VCC Pin=P?-3
+Added Pin To Net: NetName=GND Pin=P?-4
+Added Pin To Net: NetName=MOTOR_2B Pin=P?-4
+Added Pin To Net: NetName=VCC Pin=P?-4
+Added Pin To Net: NetName=BAT Pin=P?-5
+Added Pin To Net: NetName=GND Pin=P?-5
+Added Pin To Net: NetName=MOTOR_1A Pin=P?-5
+Added Pin To Net: NetName=GND Pin=P?-6
+Added Pin To Net: NetName=GND Pin=P?-6
+Added Pin To Net: NetName=MOTOR_2A Pin=P?-6
+Added Pin To Net: NetName=BAT Pin=P?-7
+Added Pin To Net: NetName=MOTOR_1B Pin=P?-7
+Added Pin To Net: NetName=GND Pin=P?-8
+Added Pin To Net: NetName=MOTOR_2B Pin=P?-8
+Added Pin To Net: NetName=BAT Pin=P?-9
+Added Pin To Net: NetName=GND Pin=P?-10
+Added Pin To Net: NetName=BAT Pin=P?-11
+Added Pin To Net: NetName=GND Pin=P?-12
+Added Member To Class: ClassName=Distro_schematic Member=Component P? Header 6X2
+Added Member To Class: ClassName=Distro_schematic Member=Component P? Header 3
+Added Member To Class: ClassName=Distro_schematic Member=Component P? Header 3X2
+Added Member To Class: ClassName=Distro_schematic Member=Component P? Header 4X2

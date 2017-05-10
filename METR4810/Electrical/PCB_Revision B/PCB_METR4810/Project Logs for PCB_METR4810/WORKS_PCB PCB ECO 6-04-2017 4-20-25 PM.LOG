@@ -1,0 +1,23 @@
+Removed Pin From Net: NetName=DIR SV 1 Pin=P?-13
+Removed Pin From Net: NetName=DIR SV 2 Pin=P?-14
+Removed Pin From Net: NetName=DIR SV 1 Pin=U?-1
+Removed Pin From Net: NetName=DIR SV 1 Pin=U?-2
+Removed Member From Class: ClassName=METR4810_Schematic Member=U?
+Change Component Designator: OldDesignator=C? NewDesignator=C5
+Change Component Designator: OldDesignator=P? NewDesignator=P5
+Added Component: Designator=P?(HDR2X7)
+Added Pin To Net: NetName=DIR SV 1 Pin=P5-3
+Added Pin To Net: NetName=DIR SV 2 Pin=P5-4
+Added Pin To Net: NetName=DIR SV 1 Pin=P?-1
+Added Pin To Net: NetName=VCC Pin=P?-2
+Added Pin To Net: NetName=DIR SV 1 Pin=P?-3
+Added Pin To Net: NetName=DIR SV 2 Pin=P?-7
+Added Pin To Net: NetName=DIR SV 2 Pin=P?-9
+Added Pin To Net: NetName=GND Pin=P?-13
+Added Pin To Net: NetName=REV DIR 1 Pin=P5-13
+Added Pin To Net: NetName=REV DIR 1 Pin=P?-5
+Added Net: Name=REV DIR 1
+Added Pin To Net: NetName=REV DIR 2 Pin=P5-14
+Added Pin To Net: NetName=REV DIR 2 Pin=P?-11
+Added Net: Name=REV DIR 2
+Added Member To Class: ClassName=METR4810_Schematic Member=Component P? Header 7X2

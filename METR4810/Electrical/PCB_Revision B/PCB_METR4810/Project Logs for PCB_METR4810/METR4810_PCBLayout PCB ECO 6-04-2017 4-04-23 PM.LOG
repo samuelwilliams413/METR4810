@@ -1,0 +1,9 @@
+Removed Pin From Net: NetName=VCC Pin=P3-1
+Removed Pin From Net: NetName=VCC Pin=P3-2
+Removed Pin From Net: NetName=PWM SV 1 Pin=P3-3
+Removed Pin From Net: NetName=PWM SV 2 Pin=P3-4
+Added Pin To Net: NetName=PWM SV 1 Pin=P3-1
+Added Pin To Net: NetName=PWM SV 2 Pin=P3-2
+Added Pin To Net: NetName=VCC Pin=P3-3
+Added Pin To Net: NetName=VCC Pin=P3-4
+Added Member To Class: ClassName=METR4810_Schematic Member=Component P8 Header 4X2

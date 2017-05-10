@@ -1,0 +1,5 @@
+/********************************************************************************* @file    comms.h* @author  SamuelWilliams – 43219667* @date    23032017* @brief   Comms driver********************************************************************************     EXTERNAL FUNCTIONS******************************************************************************* send_str() – send string via serial* get_char() – if there is a char in ring buffer retun it* send_confirmation_msg() – debugging message that echos sent received*******************************************************************************/
+/* External function prototypes ----------------------------------------------*/
+extern void send_str(char msg[]);
+extern uint8_t get_char(void);
+extern void send_confirmation_msg(uint8_t data);

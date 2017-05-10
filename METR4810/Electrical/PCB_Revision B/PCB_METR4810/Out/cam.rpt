@@ -1,0 +1,14 @@
+CAMtasticDXP Drill Report
+Serial Number:0000-00-00000
+Drill File: C:\Users\Samuel\Documents\GitHub\METR4810\Electrical\PCB_Revision B\PCB_METR4810\Out\cam.drl
+Format: 2.4
+Units: English (Inch)
+Step & Repeat Codes Used: NO
+
+
+TOOL		SIZE		COUNT
+====		======		=====
+
+ 1 		0.0280		10
+ 2 		0.0354		62
+ 3 		0.1260		4
