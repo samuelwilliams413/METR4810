@@ -1,0 +1,4 @@
+Change Component Designator: OldDesignator=P? NewDesignator=P2
+Change Component Designator: OldDesignator=P? NewDesignator=P3
+Change Component Designator: OldDesignator=R? NewDesignator=R5
+Added Member To Class: ClassName=Breakout_schematic Member=Component P3 Header 4

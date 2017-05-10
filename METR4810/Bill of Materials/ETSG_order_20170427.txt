@@ -1,0 +1,81 @@
+Header 4 pin straight
+03-37-03
+
+12 Pin Connnector
+03-42-03
+
+12 way connector
+01-40-01
+
+12 way crimp housing
+
+40 pin double row (2x40)
+04-34-03
+
+2 way crimp terminal (for diodes)
+01-25-01
+
+2 way connector  (for diodes)
+01-33-01
+
+crimp terminal
+01-32-01
+
+
+
+Motors
+
+QTY:3
+*40 does 5, get enough for 3 boards
+40 pin double row (2x40)
+04-34-03
+
+
+
+Diodes
+
+QTY:25
+*8 per board, get enough for 3 boards
+2 way connector  (for diodes)
+01-33-01
+
+QTY:25
+*8 per board, get enough for 3 boards
+2 way crimp terminal (for diodes)
+01-25-01
+
+QTY:25
+*8 per board, get enough for 3 boards
+2 way terminal (for diodes)
+01-24-01
+
+
+Bluetooth
+
+QTY:3
+*one per bluetooth header
+Header 4 pin straight
+03-37-03
+
+CAP LARGE
+
+
+CAP SMALL
+1uF
+64-05-08
+
+RESISTORS
+1K0
+61-05-02
+
+MOSFET
+62-01-06
+
+BUTTON
+
+
+Single Row 40 pin header
+04-35-03
+
+1x3 female header
+03-37-02

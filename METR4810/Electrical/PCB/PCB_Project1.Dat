@@ -1,0 +1,14 @@
+﻿Field=#~Integer~#~50|Field=Comment~String~Comment~100|Field=Description~String~Description~100|Field=Designator~String~Designator~100|Field=Footprint~String~Footprint~100|Field=LibRef~String~LibRef~100|Field=Quantity~Integer~Quantity~100|ReportField=Currency~<none>|ReportField=ProductionQuantity~1|ReportField=ProjectFileName~PCB_Project1.PrjPCB|ReportField=ProjectFullPath~C:\Users\Samuel\Documents\GitHub\METR4810\PCB\PCB_Project1.PrjPCB|ReportField=Title~Bill of Materials For Project [PCB_Project1.PrjPCB] (No PCB Document Selected)|ReportField=TotalQuantity~33|ReportField=ReportTime~12:39:49 PM|ReportField=ReportDate~17/03/2017|ReportField=ReportDateTime~17/03/2017 12:39:49 PM|ReportField=OutputName~Bill of Materials|ReportField=OutputType~BOM_PartType|ReportField=GeneratorName~BOM|ReportField=GeneratorDescription~Bill of Materials|ReportField=VariantName~None|ReportField=Address1~|ReportField=Address2~|ReportField=Address3~|ReportField=Address4~|ReportField=Application_BuildNumber~|ReportField=ApprovedBy~|ReportField=Author~|ReportField=CheckedBy~|ReportField=CompanyName~|ReportField=CurrentDate~17/03/2017|ReportField=CurrentTime~12:39:46 PM|ReportField=Date~|ReportField=DocumentFullPathAndName~C:\Users\Samuel\Documents\GitHub\METR4810\PCB\Sheet1.SchDoc|ReportField=DocumentName~Sheet1.SchDoc|ReportField=DocumentNumber~|ReportField=DrawnBy~|ReportField=Engineer~|ReportField=ImagePath~|ReportField=ModifiedDate~16/03/2017|ReportField=Organization~|ReportField=ProjectName~PCB_Project1.PrjPCB|ReportField=Revision~|ReportField=Rule~|ReportField=SheetNumber~|ReportField=SheetTotal~|ReportField=Time~|ReportField=Title~|ReportField=DataSourceFileName~PCB_Project1.PrjPCB|ReportField=DataSourceFullPath~C:\Users\Samuel\Documents\GitHub\METR4810\PCB\PCB_Project1.PrjPCB
+1|Button||B1|SMT Tactile Button|Switch|1
+2|Cap|Capacitor|C1, C2|1608[0603]|Cap|2
+3|Cap Pol2|Polarized Capacitor (Axial)|C3, C4|CAPAE9983X105M|Cap Pol2|2
+4|LED1|Typical RED GaAs LED|D1|L0603|LED1|1
+5|LED1|Typical RED GaAs LED|D2, D3, D4, D5, D6, D7|HDR1X2|LED1|6
+6|Header 3X2|Header, 3-Pin, Dual row|P1, P4, P6|HDR2X3|Header 3X2|3
+7|Header 2|Header, 2-Pin|P2, P3|HDR1X2|Header 2|2
+8|Header 4X2|Header, 4-Pin, Dual row|P5, P7, P9, P10|HDR2X4|Header 4X2|4
+9|Header 4|Header, 4-Pin|P8|HDR1X4|Header 4|1
+10|MOSFET-P|P-Channel MOSFET|Q1|SOT23-3|MOSFET-P|1
+11|Res3|Resistor|R1, R2, R3, R4, R5, R6, R7, R8|J1-0603|Res3|8
+12|ATmega32M1-AU|8-bit AVR Microcontroller, 2.7-5.5V, 16MHz, 32KB Flash, 1KB EEPROM, 2KB SRAM, Industrial Grade (-40° to +85°C), 32-Pin TQFP|U1|32A_L|ATmega32M1-AU|1
+13|Volt Reg|Voltage Regulator|VR1|D2PAK_N|Volt Reg|1

@@ -1,0 +1,422 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 8em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://D:\Users\Public\Documents\Altium\AD16\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">19/03/2017</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">12:37:58 PM</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:01</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///C:\Users\Samuel\Documents\GitHub\METR4810\PCB\PCB1.PcbDoc" class="file"><acronym title="C:\Users\Samuel\Documents\GitHub\METR4810\PCB\PCB1.PcbDoc">C:\Users\Samuel\Documents\GitHub\METR4810\PCB\PCB1.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">30</td></tr>
+</table>
+</td>
+</table><a name="IDRVV5DOIKZBFCEK42Y50W2XQN3PNC40OTJYHMTPISXN3FDUHK42GN"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDIJJYJSV32SJLDVIGIPE3YYPQSDNTN104SIBCSJBTKACTU0WLZFYP">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDZMO25D402PZKJ4Q3NLCNT22KANV0GO3BKTWG3QA1V2T3X3BYFIL">Net Antennae (Tolerance=0mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDJQ4LSBTBN4IVKZBPVYWCG0BCZLMZ0UXZJR5PNLN1PLJY4WWOXKPO">Silk to Silk (Clearance=0.01mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDSRBBBCLXYV3KBB23DISWOOVVHPEROU22V20HVICSWALAUW4QWCWP">Silk To Solder Mask (Clearance=0.01mm) (IsPad),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDIKG3BAUJ5OCTCRJ53P43INSJ1OCFUJKGVNK4FQGJUZP5L1YWAT0B">Minimum Solder Mask Sliver (Gap=0.01mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDZQAFGFT5SHRKM5YVYTRWPYNTFGLXRPI2DEYKNHEHXNDSW5J5F22K">Hole To Hole Clearance (Gap=0.152mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDJH05QNVDSYEFL0NIYOFGWAYC4E5AUHYIP0N3Q2FVMF3LXGCBO2EH">Hole Size Constraint (Min=0.762mm) (Max=4.064mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDKIDFR5ZHZ3VTJWKUOK4EYVK1NMEVZYZWKAX1MMYSDDT3JJQBPKB">Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDCIDG0IZGUUO2GKIZD3RRIZIGAK44PCIGEGBRQJJF0D4HFFFRY0PB">Width Constraint (Min=0.254mm) (Max=2.032mm) (Preferred=0.508mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDL0HSME2OP45SEK0IDYGNZ40NAE3FJU5CJT2N53PENKKK1DKEAJLF">Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDFTDEZ155CSJ2NMZSJPRDQUZQZHTWUTAOYKFWTMIHPY1ZI0XZRWLM">Clearance Constraint (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">30</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDYZN0X3LGCD12KJR1A2FRDAWNMFKSXER2OZ01QIKCWN3BDWJJ5C3">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID5LZ352FGOTNRCEVLUSM10ZVNSPM2UOR4IOCU2OOKYEX2B3V5XAMN">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDE4VW3NJOFLMHQJTVXJNLSLP5GXZ3M0FNQ504SM1CQM5M43M2F0L">Room Sheet1 (Bounding Region = (62.75mm, 63mm, 125.5mm, 105.75mm) (InComponentClass('Sheet1'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">30</td>
+</tr>
+</table><br><a name="IDFTDEZ155CSJ2NMZSJPRDQUZQZHTWUTAOYKFWTMIHPY1ZI0XZRWLM"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Clearance Constraint (Gap=0.254mm) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Samuel\Documents\GitHub\METR4810\PCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3430.892mil|Location2.X=3442.142mil|Location1.Y=2514.06mil|Location2.Y=2525.31mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Samuel\Documents\GitHub\METR4810\PCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3430.892mil|Location2.X=3442.142mil|Location1.Y=2514.06mil|Location2.Y=2525.31mil|Absolute=True">Clearance Constraint: (0.175mm &lt; 0.254mm) Between Area Fill (22.5mm,3.125mm) (25.5mm,5.375mm) on Top Layer And Pad B1-2(22.15mm,3.65mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Samuel\Documents\GitHub\METR4810\PCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3526.364mil|Location2.X=3537.614mil|Location1.Y=2758.154mil|Location2.Y=2769.404mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Samuel\Documents\GitHub\METR4810\PCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3526.364mil|Location2.X=3537.614mil|Location1.Y=2758.154mil|Location2.Y=2769.404mil|Absolute=True">Clearance Constraint: (0.175mm &lt; 0.254mm) Between Area Fill (22.5mm,8.15mm) (25.5mm,10.4mm) on Top Layer And Pad B1-4(25.85mm,9.85mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Samuel\Documents\GitHub\METR4810\PCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3449.099mil|Location2.X=3460.349mil|Location1.Y=3514.061mil|Location2.Y=3525.311mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Samuel\Documents\GitHub\METR4810\PCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3449.099mil|Location2.X=3460.349mil|Location1.Y=3514.061mil|Location2.Y=3525.311mil|Absolute=True">Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad 32M1-31(23.65mm,27.75mm) on Top Layer And Pad 32M1-32(23.65mm,28.55mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Samuel\Documents\GitHub\METR4810\PCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3449.099mil|Location2.X=3460.349mil|Location1.Y=3482.565mil|Location2.Y=3493.815mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Samuel\Documents\GitHub\METR4810\PCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3449.099mil|Location2.X=3460.349mil|Location1.Y=3482.565mil|Location2.Y=3493.815mil|Absolute=True">Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad 32M1-30(23.65mm,26.95mm) on Top Layer And Pad 32M1-31(23.65mm,27.75mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Samuel\Documents\GitHub\METR4810\PCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3449.099mil|Location2.X=3460.349mil|Location1.Y=3451.068mil|Location2.Y=3462.318mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Samuel\Documents\GitHub\METR4810\PCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3449.099mil|Location2.X=3460.349mil|Location1.Y=3451.068mil|Location2.Y=3462.318mil|Absolute=True">Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad 32M1-29(23.65mm,26.15mm) on Top Layer And Pad 32M1-30(23.65mm,26.95mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Samuel\Documents\GitHub\METR4810\PCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3449.099mil|Location2.X=3460.349mil|Location1.Y=3419.571mil|Location2.Y=3430.821mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Samuel\Documents\GitHub\METR4810\PCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3449.099mil|Location2.X=3460.349mil|Location1.Y=3419.571mil|Location2.Y=3430.821mil|Absolute=True">Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad 32M1-28(23.65mm,25.35mm) on Top Layer And Pad 32M1-29(23.65mm,26.15mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Samuel\Documents\GitHub\METR4810\PCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3449.099mil|Location2.X=3460.349mil|Location1.Y=3388.075mil|Location2.Y=3399.325mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Samuel\Documents\GitHub\METR4810\PCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3449.099mil|Location2.X=3460.349mil|Location1.Y=3388.075mil|Location2.Y=3399.325mil|Absolute=True">Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad 32M1-27(23.65mm,24.55mm) on Top Layer And Pad 32M1-28(23.65mm,25.35mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Samuel\Documents\GitHub\METR4810\PCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3449.099mil|Location2.X=3460.349mil|Location1.Y=3356.579mil|Location2.Y=3367.829mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Samuel\Documents\GitHub\METR4810\PCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3449.099mil|Location2.X=3460.349mil|Location1.Y=3356.579mil|Location2.Y=3367.829mil|Absolute=True">Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad 32M1-26(23.65mm,23.75mm) on Top Layer And Pad 32M1-27(23.65mm,24.55mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Samuel\Documents\GitHub\METR4810\PCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3449.099mil|Location2.X=3460.349mil|Location1.Y=3325.083mil|Location2.Y=3336.333mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Samuel\Documents\GitHub\METR4810\PCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3449.099mil|Location2.X=3460.349mil|Location1.Y=3325.083mil|Location2.Y=3336.333mil|Absolute=True">Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad 32M1-25(23.65mm,22.95mm) on Top Layer And Pad 32M1-26(23.65mm,23.75mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Samuel\Documents\GitHub\METR4810\PCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3395.949mil|Location2.X=3407.199mil|Location1.Y=3240.439mil|Location2.Y=3251.689mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Samuel\Documents\GitHub\METR4810\PCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3395.949mil|Location2.X=3407.199mil|Location1.Y=3240.439mil|Location2.Y=3251.689mil|Absolute=True">Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad 32M1-23(21.5mm,21.6mm) on Top Layer And Pad 32M1-24(22.3mm,21.6mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Samuel\Documents\GitHub\METR4810\PCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3364.453mil|Location2.X=3375.703mil|Location1.Y=3240.439mil|Location2.Y=3251.689mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Samuel\Documents\GitHub\METR4810\PCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3364.453mil|Location2.X=3375.703mil|Location1.Y=3240.439mil|Location2.Y=3251.689mil|Absolute=True">Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad 32M1-22(20.7mm,21.6mm) on Top Layer And Pad 32M1-23(21.5mm,21.6mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Samuel\Documents\GitHub\METR4810\PCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3332.957mil|Location2.X=3344.207mil|Location1.Y=3240.439mil|Location2.Y=3251.689mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Samuel\Documents\GitHub\METR4810\PCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3332.957mil|Location2.X=3344.207mil|Location1.Y=3240.439mil|Location2.Y=3251.689mil|Absolute=True">Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad 32M1-21(19.9mm,21.6mm) on Top Layer And Pad 32M1-22(20.7mm,21.6mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Samuel\Documents\GitHub\METR4810\PCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3301.461mil|Location2.X=3312.711mil|Location1.Y=3240.439mil|Location2.Y=3251.689mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Samuel\Documents\GitHub\METR4810\PCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3301.461mil|Location2.X=3312.711mil|Location1.Y=3240.439mil|Location2.Y=3251.689mil|Absolute=True">Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad 32M1-20(19.1mm,21.6mm) on Top Layer And Pad 32M1-21(19.9mm,21.6mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Samuel\Documents\GitHub\METR4810\PCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3269.965mil|Location2.X=3281.215mil|Location1.Y=3240.439mil|Location2.Y=3251.689mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Samuel\Documents\GitHub\METR4810\PCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3269.965mil|Location2.X=3281.215mil|Location1.Y=3240.439mil|Location2.Y=3251.689mil|Absolute=True">Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad 32M1-19(18.3mm,21.6mm) on Top Layer And Pad 32M1-20(19.1mm,21.6mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Samuel\Documents\GitHub\METR4810\PCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3238.469mil|Location2.X=3249.719mil|Location1.Y=3240.439mil|Location2.Y=3251.689mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Samuel\Documents\GitHub\METR4810\PCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3238.469mil|Location2.X=3249.719mil|Location1.Y=3240.439mil|Location2.Y=3251.689mil|Absolute=True">Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad 32M1-18(17.5mm,21.6mm) on Top Layer And Pad 32M1-19(18.3mm,21.6mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Samuel\Documents\GitHub\METR4810\PCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3206.973mil|Location2.X=3218.223mil|Location1.Y=3240.439mil|Location2.Y=3251.689mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Samuel\Documents\GitHub\METR4810\PCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3206.973mil|Location2.X=3218.223mil|Location1.Y=3240.439mil|Location2.Y=3251.689mil|Absolute=True">Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad 32M1-17(16.7mm,21.6mm) on Top Layer And Pad 32M1-18(17.5mm,21.6mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Samuel\Documents\GitHub\METR4810\PCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3122.327mil|Location2.X=3133.577mil|Location1.Y=3325.083mil|Location2.Y=3336.333mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Samuel\Documents\GitHub\METR4810\PCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3122.327mil|Location2.X=3133.577mil|Location1.Y=3325.083mil|Location2.Y=3336.333mil|Absolute=True">Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad 32M1-15(15.35mm,23.75mm) on Top Layer And Pad 32M1-16(15.35mm,22.95mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Samuel\Documents\GitHub\METR4810\PCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3122.327mil|Location2.X=3133.577mil|Location1.Y=3356.579mil|Location2.Y=3367.829mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Samuel\Documents\GitHub\METR4810\PCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3122.327mil|Location2.X=3133.577mil|Location1.Y=3356.579mil|Location2.Y=3367.829mil|Absolute=True">Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad 32M1-14(15.35mm,24.55mm) on Top Layer And Pad 32M1-15(15.35mm,23.75mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Samuel\Documents\GitHub\METR4810\PCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3122.327mil|Location2.X=3133.577mil|Location1.Y=3388.075mil|Location2.Y=3399.325mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Samuel\Documents\GitHub\METR4810\PCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3122.327mil|Location2.X=3133.577mil|Location1.Y=3388.075mil|Location2.Y=3399.325mil|Absolute=True">Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad 32M1-13(15.35mm,25.35mm) on Top Layer And Pad 32M1-14(15.35mm,24.55mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Samuel\Documents\GitHub\METR4810\PCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3122.327mil|Location2.X=3133.577mil|Location1.Y=3419.571mil|Location2.Y=3430.821mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Samuel\Documents\GitHub\METR4810\PCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3122.327mil|Location2.X=3133.577mil|Location1.Y=3419.571mil|Location2.Y=3430.821mil|Absolute=True">Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad 32M1-12(15.35mm,26.15mm) on Top Layer And Pad 32M1-13(15.35mm,25.35mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Samuel\Documents\GitHub\METR4810\PCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3122.327mil|Location2.X=3133.577mil|Location1.Y=3451.068mil|Location2.Y=3462.318mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Samuel\Documents\GitHub\METR4810\PCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3122.327mil|Location2.X=3133.577mil|Location1.Y=3451.068mil|Location2.Y=3462.318mil|Absolute=True">Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad 32M1-11(15.35mm,26.95mm) on Top Layer And Pad 32M1-12(15.35mm,26.15mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Samuel\Documents\GitHub\METR4810\PCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3122.327mil|Location2.X=3133.577mil|Location1.Y=3482.565mil|Location2.Y=3493.815mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Samuel\Documents\GitHub\METR4810\PCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3122.327mil|Location2.X=3133.577mil|Location1.Y=3482.565mil|Location2.Y=3493.815mil|Absolute=True">Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad 32M1-10(15.35mm,27.75mm) on Top Layer And Pad 32M1-11(15.35mm,26.95mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Samuel\Documents\GitHub\METR4810\PCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3122.327mil|Location2.X=3133.577mil|Location1.Y=3514.061mil|Location2.Y=3525.311mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Samuel\Documents\GitHub\METR4810\PCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3122.327mil|Location2.X=3133.577mil|Location1.Y=3514.061mil|Location2.Y=3525.311mil|Absolute=True">Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad 32M1-9(15.35mm,28.55mm) on Top Layer And Pad 32M1-10(15.35mm,27.75mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Samuel\Documents\GitHub\METR4810\PCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3206.973mil|Location2.X=3218.223mil|Location1.Y=3567.209mil|Location2.Y=3578.459mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Samuel\Documents\GitHub\METR4810\PCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3206.973mil|Location2.X=3218.223mil|Location1.Y=3567.209mil|Location2.Y=3578.459mil|Absolute=True">Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad 32M1-7(17.5mm,29.9mm) on Top Layer And Pad 32M1-8(16.7mm,29.9mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Samuel\Documents\GitHub\METR4810\PCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3238.469mil|Location2.X=3249.719mil|Location1.Y=3567.209mil|Location2.Y=3578.459mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Samuel\Documents\GitHub\METR4810\PCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3238.469mil|Location2.X=3249.719mil|Location1.Y=3567.209mil|Location2.Y=3578.459mil|Absolute=True">Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad 32M1-6(18.3mm,29.9mm) on Top Layer And Pad 32M1-7(17.5mm,29.9mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Samuel\Documents\GitHub\METR4810\PCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3269.965mil|Location2.X=3281.215mil|Location1.Y=3567.209mil|Location2.Y=3578.459mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Samuel\Documents\GitHub\METR4810\PCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3269.965mil|Location2.X=3281.215mil|Location1.Y=3567.209mil|Location2.Y=3578.459mil|Absolute=True">Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad 32M1-5(19.1mm,29.9mm) on Top Layer And Pad 32M1-6(18.3mm,29.9mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Samuel\Documents\GitHub\METR4810\PCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3301.461mil|Location2.X=3312.711mil|Location1.Y=3567.209mil|Location2.Y=3578.459mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Samuel\Documents\GitHub\METR4810\PCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3301.461mil|Location2.X=3312.711mil|Location1.Y=3567.209mil|Location2.Y=3578.459mil|Absolute=True">Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad 32M1-4(19.9mm,29.9mm) on Top Layer And Pad 32M1-5(19.1mm,29.9mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Samuel\Documents\GitHub\METR4810\PCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3332.957mil|Location2.X=3344.207mil|Location1.Y=3567.209mil|Location2.Y=3578.459mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Samuel\Documents\GitHub\METR4810\PCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3332.957mil|Location2.X=3344.207mil|Location1.Y=3567.209mil|Location2.Y=3578.459mil|Absolute=True">Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad 32M1-3(20.7mm,29.9mm) on Top Layer And Pad 32M1-4(19.9mm,29.9mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Samuel\Documents\GitHub\METR4810\PCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3364.453mil|Location2.X=3375.703mil|Location1.Y=3567.209mil|Location2.Y=3578.459mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Samuel\Documents\GitHub\METR4810\PCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3364.453mil|Location2.X=3375.703mil|Location1.Y=3567.209mil|Location2.Y=3578.459mil|Absolute=True">Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad 32M1-2(21.5mm,29.9mm) on Top Layer And Pad 32M1-3(20.7mm,29.9mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Samuel\Documents\GitHub\METR4810\PCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3395.949mil|Location2.X=3407.199mil|Location1.Y=3567.209mil|Location2.Y=3578.459mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Samuel\Documents\GitHub\METR4810\PCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3395.949mil|Location2.X=3407.199mil|Location1.Y=3567.209mil|Location2.Y=3578.459mil|Absolute=True">Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad 32M1-1(22.3mm,29.9mm) on Top Layer And Pad 32M1-2(21.5mm,29.9mm) on Top Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>

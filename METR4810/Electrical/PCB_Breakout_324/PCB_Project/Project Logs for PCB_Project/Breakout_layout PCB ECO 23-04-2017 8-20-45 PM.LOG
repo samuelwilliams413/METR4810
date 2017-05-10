@@ -1,0 +1,9 @@
+Removed Pin From Net: NetName=VCC Pin=R14-2
+Removed Pin From Net: NetName=VCC Pin=R15-2
+Removed Pin From Net: NetName=VCC Pin=R16-2
+Removed Pin From Net: NetName=BAT Pin=VR2-1
+Removed Pin From Net: NetName=GND Pin=VR2-2
+Removed Member From Class: ClassName=Breakout_schematic Member=R14
+Removed Member From Class: ClassName=Breakout_schematic Member=R15
+Removed Member From Class: ClassName=Breakout_schematic Member=R16
+Removed Member From Class: ClassName=Breakout_schematic Member=VR2
