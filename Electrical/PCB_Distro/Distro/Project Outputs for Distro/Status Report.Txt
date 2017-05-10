@@ -1,12 +1,12 @@
 Output: NC Drill Files
 Type  : NC Drill
 From  : Project [Distro.PrjPcb]
-   Generated File[Distro_layout.TXT]
-   Generated File[Distro_layout.LDP]
-   Generated File[Distro_layout.DRR]
+   Generated File[Distro_layout_top_buck.TXT]
+   Generated File[Distro_layout_top_buck.LDP]
+   Generated File[Distro_layout_top_buck.DRR]
 
 
 Files Generated   : 3
 Documents Printed : 0
 
-Finished Output Generation At 10:13:12 AM On 24/04/2017
+Finished Output Generation At 10:04:27 PM On 10/05/2017

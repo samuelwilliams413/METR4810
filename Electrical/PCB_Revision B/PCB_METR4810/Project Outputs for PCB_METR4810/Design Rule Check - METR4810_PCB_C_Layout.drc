@@ -1,7 +1,7 @@
 Protel Design System Design Rule Check
 PCB File : C:\Users\Samuel\Documents\GitHub\METR4810\Electrical\PCB_Revision B\PCB_METR4810\METR4810_PCB_C_Layout.PcbDoc
 Date     : 10/05/2017
-Time     : 6:25:53 PM
+Time     : 10:00:08 PM
 
 Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
 Rule Violations :0
@@ -51,8 +51,8 @@ Processing Rule : Height Constraint (Min=0mil) (Max=1000mil) (Prefered=500mil) (
 Rule Violations :0
 
 Processing Rule : Hole Size Constraint (Min=1mil) (Max=100mil) (All)
-   Violation between Hole Size Constraint: (128.346mil > 100mil) Pad J1-11(423.986mil,1377.756mil) on Multi-Layer Actual Hole Size = 128.346mil
-   Violation between Hole Size Constraint: (128.346mil > 100mil) Pad J1-10(423.986mil,393.898mil) on Multi-Layer Actual Hole Size = 128.346mil
+   Violation between Hole Size Constraint: (125.984mil > 100mil) Pad J?-16(285mil,1378.992mil) on Multi-Layer Actual Hole Size = 125.984mil
+   Violation between Hole Size Constraint: (125.984mil > 100mil) Pad J?-17(285mil,374.661mil) on Multi-Layer Actual Hole Size = 125.984mil
    Violation between Hole Size Constraint: (125.984mil > 100mil) Via (0mil,0mil) from Top Layer to Bottom Layer Actual Hole Size = 125.984mil
    Violation between Hole Size Constraint: (125.984mil > 100mil) Via (0mil,1771.653mil) from Top Layer to Bottom Layer Actual Hole Size = 125.984mil
    Violation between Hole Size Constraint: (125.984mil > 100mil) Via (1968.504mil,0mil) from Top Layer to Bottom Layer Actual Hole Size = 125.984mil
@@ -123,6 +123,8 @@ Processing Rule : Silk To Solder Mask (Clearance=10mil) (IsPad),(All)
    Violation between Silk To Solder Mask Clearance Constraint: (3.937mil < 10mil) Between Track (1604.822mil,762.126mil)(1604.822mil,777.874mil) on Top Overlay And Pad R9-1(1618.602mil,740.472mil) on Top Layer [Top Overlay] to [Top Solder] clearance [3.937mil]
    Violation between Silk To Solder Mask Clearance Constraint: (3.937mil < 10mil) Between Track (1632.382mil,762.126mil)(1632.382mil,777.874mil) on Top Overlay And Pad R9-2(1618.602mil,799.528mil) on Top Layer [Top Overlay] to [Top Solder] clearance [3.937mil]
    Violation between Silk To Solder Mask Clearance Constraint: (3.937mil < 10mil) Between Track (1604.822mil,762.126mil)(1604.822mil,777.874mil) on Top Overlay And Pad R9-2(1618.602mil,799.528mil) on Top Layer [Top Overlay] to [Top Solder] clearance [3.937mil]
+   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 10mil) Between Text "METR4810
+TEAM 10" (455mil,1335mil) on Top Overlay And Pad VR1-2(1502.52mil,1255mil) on Top Layer [Top Overlay] to [Top Solder] clearance [0mil]
    Violation between Silk To Solder Mask Clearance Constraint: (3.937mil < 10mil) Between Track (918.061mil,1231.581mil)(918.061mil,1247.329mil) on Top Overlay And Pad R16-2(904.281mil,1209.927mil) on Top Layer [Top Overlay] to [Top Solder] clearance [3.937mil]
    Violation between Silk To Solder Mask Clearance Constraint: (3.937mil < 10mil) Between Track (890.502mil,1231.581mil)(890.502mil,1247.329mil) on Top Overlay And Pad R16-2(904.281mil,1209.927mil) on Top Layer [Top Overlay] to [Top Solder] clearance [3.937mil]
    Violation between Silk To Solder Mask Clearance Constraint: (3.937mil < 10mil) Between Track (918.061mil,1231.581mil)(918.061mil,1247.329mil) on Top Overlay And Pad R16-1(904.281mil,1268.982mil) on Top Layer [Top Overlay] to [Top Solder] clearance [3.937mil]
@@ -151,26 +153,30 @@ Processing Rule : Silk To Solder Mask (Clearance=10mil) (IsPad),(All)
    Violation between Silk To Solder Mask Clearance Constraint: (3.937mil < 10mil) Between Track (1855.157mil,374.37mil)(1870.906mil,374.37mil) on Top Overlay And Pad R1-2(1892.559mil,388.15mil) on Top Layer [Top Overlay] to [Top Solder] clearance [3.937mil]
    Violation between Silk To Solder Mask Clearance Constraint: (3.937mil < 10mil) Between Track (1855.157mil,401.929mil)(1870.906mil,401.929mil) on Top Overlay And Pad R1-1(1833.504mil,388.15mil) on Top Layer [Top Overlay] to [Top Solder] clearance [3.937mil]
    Violation between Silk To Solder Mask Clearance Constraint: (3.937mil < 10mil) Between Track (1855.157mil,374.37mil)(1870.906mil,374.37mil) on Top Overlay And Pad R1-1(1833.504mil,388.15mil) on Top Layer [Top Overlay] to [Top Solder] clearance [3.937mil]
-   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 10mil) Between Text "METR4810
-TEAM 10" (215mil,1565mil) on Top Overlay And Pad P6-2(980mil,1600mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0mil]
-   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 10mil) Between Text "METR4810
-TEAM 10" (215mil,1565mil) on Top Overlay And Pad P6-1(880mil,1600mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0mil]
-Rule Violations :42
+   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 10mil) Between Track (-165mil,1378.992mil)(285mil,1378.992mil) on Top Overlay And Pad J?-16(285mil,1378.992mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0mil]
+   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 10mil) Between Track (-165mil,374.661mil)(285mil,374.661mil) on Top Overlay And Pad J?-17(285mil,374.661mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0mil]
+Rule Violations :43
 
 Processing Rule : Silk to Silk (Clearance=10mil) (All),(All)
    Violation between Silk To Silk Clearance Constraint: (7.845mil < 10mil) Between Text "B-SIG-0" (252.532mil,20mil) on Top Overlay And Track (200mil,5.512mil)(500mil,5.512mil) on Top Overlay Silk Text to Silk Clearance [7.845mil]
-   Violation between Silk To Silk Clearance Constraint: (3.367mil < 10mil) Between Text "GND-MOSI-VCC" (1070mil,1327.556mil) on Top Overlay And Track (1030mil,1350mil)(1030mil,1650mil) on Top Overlay Silk Text to Silk Clearance [3.367mil]
    Violation between Silk To Silk Clearance Constraint: (Collision < 10mil) Between Text "METR4810
-TEAM 10" (215mil,1565mil) on Top Overlay And Track (1030mil,1350mil)(1030mil,1650mil) on Top Overlay Silk Text to Silk Clearance [0mil]
+TEAM 10" (455mil,1335mil) on Top Overlay And Track (830mil,1350mil)(830mil,1541.666mil) on Top Overlay Silk Text to Silk Clearance [0mil]
+   Violation between Silk To Silk Clearance Constraint: (Collision < 10mil) Between Text "METR4810
+TEAM 10" (455mil,1335mil) on Top Overlay And Track (830mil,1350mil)(830mil,1650mil) on Top Overlay Silk Text to Silk Clearance [0mil]
+   Violation between Silk To Silk Clearance Constraint: (3.367mil < 10mil) Between Text "GND-MOSI-VCC" (1070mil,1327.556mil) on Top Overlay And Track (1030mil,1350mil)(1030mil,1650mil) on Top Overlay Silk Text to Silk Clearance [3.367mil]
    Violation between Silk To Silk Clearance Constraint: (8.411mil < 10mil) Between Text "2" (960mil,1700mil) on Top Overlay And Track (830mil,1650mil)(1030mil,1650mil) on Top Overlay Silk Text to Silk Clearance [8.411mil]
    Violation between Silk To Silk Clearance Constraint: (5.871mil < 10mil) Between Text "GND-MOSI-VCC" (1070mil,1327.556mil) on Top Overlay And Track (830mil,1650mil)(1030mil,1650mil) on Top Overlay Silk Text to Silk Clearance [5.871mil]
    Violation between Silk To Silk Clearance Constraint: (5.072mil < 10mil) Between Text "1" (860mil,1680mil) on Top Overlay And Track (830mil,1650mil)(1030mil,1650mil) on Top Overlay Silk Text to Silk Clearance [5.072mil]
    Violation between Silk To Silk Clearance Constraint: (1.733mil < 10mil) Between Text "6" (960mil,1340mil) on Top Overlay And Track (830mil,1350mil)(1030mil,1350mil) on Top Overlay Silk Text to Silk Clearance [1.733mil]
    Violation between Silk To Silk Clearance Constraint: (5.871mil < 10mil) Between Text "GND-MOSI-VCC" (1070mil,1327.556mil) on Top Overlay And Track (830mil,1350mil)(1030mil,1350mil) on Top Overlay Silk Text to Silk Clearance [5.871mil]
    Violation between Silk To Silk Clearance Constraint: (1.733mil < 10mil) Between Text "5" (860mil,1340mil) on Top Overlay And Track (830mil,1350mil)(1030mil,1350mil) on Top Overlay Silk Text to Silk Clearance [1.733mil]
-   Violation between Silk To Silk Clearance Constraint: (Collision < 10mil) Between Text "GND-MOSI-VCC" (1070mil,1327.556mil) on Top Overlay And Text "METR4810
-TEAM 10" (215mil,1565mil) on Top Overlay Silk Text to Silk Clearance [0mil]
-Rule Violations :10
+   Violation between Silk To Silk Clearance Constraint: (Collision < 10mil) Between Text "METR4810
+TEAM 10" (455mil,1335mil) on Top Overlay And Track (830mil,1350mil)(1030mil,1350mil) on Top Overlay Silk Text to Silk Clearance [0mil]
+   Violation between Silk To Silk Clearance Constraint: (Collision < 10mil) Between Text "METR4810
+TEAM 10" (455mil,1335mil) on Top Overlay And Text "5" (860mil,1340mil) on Top Overlay Silk Text to Silk Clearance [0mil]
+   Violation between Silk To Silk Clearance Constraint: (Collision < 10mil) Between Text "METR4810
+TEAM 10" (455mil,1335mil) on Top Overlay And Text "RST-SCK-MISO" (810mil,1327.556mil) on Top Overlay Silk Text to Silk Clearance [0mil]
+Rule Violations :13
 
 Processing Rule : Net Antennae (Tolerance=0mil) (All)
 Rule Violations :0
@@ -178,9 +184,9 @@ Rule Violations :0
 Processing Rule : Modified Polygon (Allow modified: No), (Allow shelved: No)
 Rule Violations :0
 
-Processing Rule : Room METR4810_Schematic (Bounding Region = (3321.85mil, 2491.85mil, 5721.85mil, 4706.85mil) (InComponentClass('METR4810_Schematic'))
+Processing Rule : Room METR4810_Schematic (Bounding Region = (3321.85mil, 2491.85mil, 5751.85mil, 4716.85mil) (InComponentClass('METR4810_Schematic'))
 Rule Violations :0
 
 
-Violations Detected : 132
+Violations Detected : 136
 Time Elapsed        : 00:00:01
