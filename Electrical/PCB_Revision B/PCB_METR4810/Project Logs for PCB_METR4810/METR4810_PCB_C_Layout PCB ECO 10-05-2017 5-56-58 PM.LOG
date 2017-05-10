@@ -1,0 +1,47 @@
+Removed Pin From Net: NetName=GND Pin=J1-1
+Removed Pin From Net: NetName=CAM_SIG Pin=J1-2
+Removed Pin From Net: NetName=PWM SV 1 Pin=J1-3
+Removed Pin From Net: NetName=MOTOR_1A Pin=J1-4
+Removed Pin From Net: NetName=MOTOR_1B Pin=J1-5
+Removed Pin From Net: NetName=GND Pin=J1-6
+Removed Pin From Net: NetName=GND Pin=J1-7
+Removed Pin From Net: NetName=PWM SV 2 Pin=J1-8
+Removed Pin From Net: NetName=MOTOR_2B Pin=J1-9
+Removed Pin From Net: NetName=MOTOR_2A Pin=J1-10
+Removed Pin From Net: NetName=BAT Pin=J1-11
+Removed Pin From Net: NetName=BAT Pin=J1-12
+Removed Pin From Net: NetName=BAT Pin=J1-13
+Removed Pin From Net: NetName=VCC Pin=J1-14
+Removed Pin From Net: NetName=VCC Pin=J1-15
+Removed Pin From Net: NetName=VCC Pin=P12-1
+Removed Pin From Net: NetName=GND Pin=P12-2
+Removed Pin From Net: NetName=BAT Pin=P12-3
+Removed Pin From Net: NetName=GND Pin=P12-4
+Removed Member From Class: ClassName=METR4810_Schematic Member=P12
+Added Component: Designator=C11(CAPAE9983X105M)
+Added Component: Designator=C12(CAPAE9983X105M)
+Added Component: Designator=C13(C1206)
+Added Component: Designator=J1(DSUB1.385-2H9)
+Added Component: Designator=VR1(D2PAK_N)
+Added Pin To Net: NetName=BAT Pin=C11-1
+Added Pin To Net: NetName=GND Pin=C11-2
+Added Pin To Net: NetName=BAT Pin=C12-1
+Added Pin To Net: NetName=GND Pin=C12-2
+Added Pin To Net: NetName=GND Pin=C13-1
+Added Pin To Net: NetName=VCC Pin=C13-2
+Added Pin To Net: NetName=MOTOR_1B Pin=J1-1
+Added Pin To Net: NetName=MOTOR_1A Pin=J1-2
+Added Pin To Net: NetName=PWM SV 1 Pin=J1-3
+Added Pin To Net: NetName=CAM_SIG Pin=J1-4
+Added Pin To Net: NetName=GND Pin=J1-5
+Added Pin To Net: NetName=MOTOR_2A Pin=J1-6
+Added Pin To Net: NetName=MOTOR_2B Pin=J1-7
+Added Pin To Net: NetName=PWM SV 2 Pin=J1-8
+Added Pin To Net: NetName=BAT Pin=J1-9
+Added Pin To Net: NetName=BAT Pin=VR1-1
+Added Pin To Net: NetName=GND Pin=VR1-2
+Added Pin To Net: NetName=VCC Pin=VR1-3
+Added Member To Class: ClassName=METR4810_Schematic Member=Component C11 Cap Pol2
+Added Member To Class: ClassName=METR4810_Schematic Member=Component C12 Cap Pol2
+Added Member To Class: ClassName=METR4810_Schematic Member=Component C13 Cap Semi
+Added Member To Class: ClassName=METR4810_Schematic Member=Component VR1 Volt Reg
