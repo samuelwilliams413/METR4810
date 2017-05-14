@@ -1,8 +1,0 @@
-Removed Pin From Net: NetName=3S(11.1V) Pin=P6-1
-Removed Pin From Net: NetName=5V Pin=P6-2
-Removed Pin From Net: NetName=PWMM5.1 Pin=P6-3
-Removed Pin From Net: NetName=GND Pin=P6-6
-Removed Pin From Net: NetName=M4.1 Pin=U1-17
-Removed Member From Class: ClassName=Sheet1 Member=P6
-Added Pin To Net: NetName=M1.1 Pin=U1-17
-Added Pin To Net: NetName=M4.1 Pin=U1-32

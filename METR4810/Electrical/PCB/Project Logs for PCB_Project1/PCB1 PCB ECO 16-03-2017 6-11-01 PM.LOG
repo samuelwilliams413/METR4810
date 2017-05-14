@@ -1,3 +1,0 @@
-Removed Pin From Net: NetName=MOSI Pin=P7-3
-Added Pin To Net: NetName=PWMM2.2 Pin=P7-3
-Added Pin To Net: NetName=M4.1 Pin=U1-17
