@@ -1,4 +1,0 @@
-Removed Pin From Net: NetName=PWM SV 1 Pin=U1-13
-Removed Pin From Net: NetName=PWM SV 2 Pin=U1-14
-Added Pin To Net: NetName=PWM SV 2 Pin=U1-13
-Added Pin To Net: NetName=PWM SV 1 Pin=U1-14

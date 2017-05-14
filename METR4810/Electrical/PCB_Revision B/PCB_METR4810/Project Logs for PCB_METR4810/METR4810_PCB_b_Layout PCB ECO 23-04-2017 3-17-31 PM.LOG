@@ -1,8 +1,0 @@
-Removed Pin From Net: NetName=MOTOR_2B Pin=P?-4
-Removed Pin From Net: NetName=MOTOR_3A Pin=P?-5
-Removed Pin From Net: NetName=MOTOR_3A Pin=P?-6
-Removed Pin From Net: NetName=MOTOR_4A Pin=P?-7
-Added Pin To Net: NetName=MOTOR_3A Pin=P?-4
-Added Pin To Net: NetName=MOTOR_2B Pin=P?-5
-Added Pin To Net: NetName=MOTOR_4A Pin=P?-6
-Added Pin To Net: NetName=MOTOR_3A Pin=P?-7

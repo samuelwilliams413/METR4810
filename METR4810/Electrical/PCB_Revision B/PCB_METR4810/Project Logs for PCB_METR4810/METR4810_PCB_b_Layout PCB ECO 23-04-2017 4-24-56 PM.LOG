@@ -1,7 +1,0 @@
-Removed Pin From Net: NetName=DC 1 ENABLE Pin=P2-5
-Removed Pin From Net: NetName=DC 2 ENABLE Pin=P2-6
-Added Pin To Net: NetName=DC 2 ENABLE Pin=P2-5
-Added Pin To Net: NetName=DC 1 ENABLE Pin=P2-6
-Added Member To Class: ClassName=METR4810_Schematic Member=Component P? Header 8
-Added Member To Class: ClassName=METR4810_Schematic Member=Component P? Header 8
-Added Member To Class: ClassName=METR4810_Schematic Member=Component P? Header 8

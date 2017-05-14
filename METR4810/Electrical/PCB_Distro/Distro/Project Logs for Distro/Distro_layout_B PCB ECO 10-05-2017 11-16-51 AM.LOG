@@ -1,5 +1,0 @@
-Removed Pin From Net: NetName=MOTOR_1A Pin=J1-6
-Removed Pin From Net: NetName=MOTOR_2A Pin=J1-7
-Added Pin To Net: NetName=MOTOR_2A Pin=J1-6
-Added Pin To Net: NetName=MOTOR_1A Pin=J1-7
-Added Member To Class: ClassName=Distro_schematic Member=Component L? Inductor

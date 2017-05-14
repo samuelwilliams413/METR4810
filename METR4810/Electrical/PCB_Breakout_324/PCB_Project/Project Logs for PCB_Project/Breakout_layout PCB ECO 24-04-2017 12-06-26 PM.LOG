@@ -1,6 +1,0 @@
-Added Component: Designator=P?(HDR1X4)
-Added Pin To Net: NetName=VCC Pin=P?-1
-Added Pin To Net: NetName=GND Pin=P?-2
-Added Pin To Net: NetName=TXD_3.3V Pin=P?-3
-Added Pin To Net: NetName=RXD Pin=P?-4
-Added Member To Class: ClassName=Breakout_schematic Member=Component P? Header 10

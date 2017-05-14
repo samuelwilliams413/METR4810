@@ -1,5 +1,0 @@
-Removed Pin From Net: NetName=CAM_POW Pin=J?-3
-Removed Pin From Net: NetName=PWM SV 1 Pin=J?-4
-Removed Pin From Net: NetName=CAM_SIG Pin=J?-10
-Removed Pin From Net: NetName=PWM SV 2 Pin=J?-11
-Added Member To Class: ClassName=Distro_schematic Member=Component J? D Connector 15
