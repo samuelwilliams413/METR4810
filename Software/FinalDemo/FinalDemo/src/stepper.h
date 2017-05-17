@@ -7,3 +7,5 @@
 void full_step_forward (int num_step);
 
 void full_step_back (int num_step);
+void hold_stepper (void);
+void relax_stepper (void);

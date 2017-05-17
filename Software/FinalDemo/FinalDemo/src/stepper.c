@@ -5,9 +5,20 @@
 
 uint32_t present;
 
+void hold_stepper (void) {
+	PORTC = 0b00100000;
+}
+
+void relax_stepper (void) {
+	PORTC &= 0b0;
+}
+
 void full_step_forward (int num_step) {
 	for (int i = 0; i < num_step; ++i)
 	{
+	
+	PORTC = 0b001001000;
+	_delay_ms(DELAY);
 		PORTC = 0b00000100;
 		 		_delay_ms(DELAY);
 		 		PORTC = 0b00001100;
@@ -21,8 +32,6 @@ void full_step_forward (int num_step) {
 		 		PORTC = 0b00110000;
 		 		_delay_ms(DELAY);
 		 		PORTC = 0b00100000;
-		 		_delay_ms(DELAY);
-				PORTC = 0b001001000;
 		 		_delay_ms(DELAY);
 		
 	}
