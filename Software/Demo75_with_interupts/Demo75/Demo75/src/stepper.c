@@ -14,38 +14,32 @@ void stepper_init(void){
 
 void move_stepper(void) {
 	if(stepperDirection) {
-		currentPosition = (currentPosition + 1) % 4;
+		currentPosition = (currentPosition + 1) % 8;
 	} else {
-		currentPosition = (currentPosition - 1) % 4;
+		currentPosition = (currentPosition - 1) % 8;
 		if(currentPosition == -1){
-			currentPosition = 3;
+			currentPosition = 7;
 		}
 	}
-	stepperQueue = (stepperQueue >> 1);
+	stepperQueue = stepperQueue - 1;
 
-	step();
+	stepBinary();
 }
 
 void forward_stepper(int n) {
-	int i = 0;
 	if (stepperDirection == 0) {
 		stepperDirection = 1;
 		stepperQueue = 0;
 	}
-	for(i = 0; i < n; i++) {
-		stepperQueue |= (stepperQueue << 1) | (1 << 1);
-	}
+	stepperQueue = stepperQueue + n;
 }
 
 void backward_stepper(int n) {
-	int i = 0; 
 	if (stepperDirection == 1) {
 		stepperDirection = 0;
 		stepperQueue = 0;
 	}
-	for(i = 0; i < n; i++) {
-		stepperQueue |= (stepperQueue << 1) | (1 << 1);
-	}
+	stepperQueue = stepperQueue + n;
 }
 
 void step(void) {
@@ -60,6 +54,41 @@ void step(void) {
 	PORTC &= ~(1<<r2);
 	PORTC &= ~(1<<r3);
 
-	sprintf(buffer, "stepperDirection: %d\tcurrentPosition: %d\tr0: %d\tr1: %d\tr2: %d\tr3: %d\n", stepperDirection, currentPosition, r0, r1, r2, r3);
+	//sprintf(buffer, "stepperDirection: %d\tcurrentPosition: %d\tr0: %d\tr1: %d\tr2: %d\tr3: %d\n", stepperDirection, currentPosition, r0, r1, r2, r3);
+	sprintf(buffer, "step: %d\n", currentPosition);
 	send_str(buffer);
 }
+
+void stepBinary(void) {
+	char buffer[75];
+	
+	switch(currentPosition) {
+	case 0:
+		PORTC = 0b00000100;
+		break;
+	case 1:
+		PORTC = 0b00001100;
+		break;
+	case 2:
+		PORTC = 0b00001000;
+		break;
+	case 3:
+		PORTC = 0b00011000;
+		break;
+	case 4:
+		PORTC = 0b00010000;
+		break;
+	case 5:
+		PORTC = 0b00110000;
+		break;
+	case 6:
+		PORTC = 0b00100000;
+		break;
+	case 7:
+		PORTC = 0b001001000;
+		break;
+	}
+	sprintf(buffer, "step: %d\n", stepperQueue);
+	send_str(buffer);
+}
+

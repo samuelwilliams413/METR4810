@@ -27,34 +27,37 @@ static char carStatus[10];
 static char buffer[50];
 static int n;
 
-
-
+void forwards(void);
+void reverse(void);
+void left(void);
+void right(void);
+void stop(void);
 ////////////////////////////////////////////////DC motors function
 
-void forwards(){
+void forwards(void){
 	 motorRfwd(0);
 	 motorLfwd(0);
 	 sprintf(carStatus, "Forward");
 }
 
-void reverse(){
+void reverse(void){
 	motorRbwd(0);
 	motorLbwd(0);
 	sprintf(carStatus, "Reverse");
 }
 
-void left(){
+void left(void){
 	motorRfwd(0);
 	motorLbwd(0);
 	sprintf(carStatus, "Left");
 }
-void right(){
+void right(void){
 	motorRbwd(0);
 	motorLfwd(0);
 	sprintf(carStatus, "Right");
 }
 
-void stop(){
+void stop(void){
 	motorL_stop();
 	motorR_stop();
 	sprintf(carStatus, "Stopped");
@@ -102,13 +105,13 @@ int main(void) {
 		switch (command) {
 			
 			case 'q':
-			forward_stepper(10);
+			forward_stepper(1000);
 			n = sprintf(buffer, "Winch moved one step up\n");
 			send_str(buffer);
 			break;
 			
 			case 'a':
-			backward_stepper(10);
+			backward_stepper(1000);
 			n = sprintf(buffer, "Winch moved one step down\n");
 			send_str(buffer);
 			break;

@@ -17,3 +17,4 @@ void move_stepper(void);
 void forward_stepper(int);
 void backward_stepper(int);
 void step(void);
+void stepBinary(void);

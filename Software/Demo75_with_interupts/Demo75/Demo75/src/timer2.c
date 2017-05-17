@@ -57,32 +57,31 @@ void timer_init()
 	 * and to divide the clock by 64. This starts the timer
 	 * running.
 	 */
-	TCCR0A = (1<<WGM01);
-	TCCR0B = (1<<CS01)|(1<<CS00);
+	TCCR0A = (1<<WGM21);
+	TCCR0B = (1<<CS21)|(1<<CS20);
 
 	/* Enable an interrupt on output compare match. 
 	 * Note that interrupts have to be enabled globally
 	 * before the interrupts will fire.
 	 */
-	TIMSK0 |= (1<<OCIE0A);
+	TIMSK0 |= (1<<OCIE2A);
 	
 	/* Make sure the interrupt flag is cleared by writing a 
 	 * 1 to it.
 	 */
-	TIFR0 &= (1<<OCF0A);
+	TIFR0 &= (1<<OCF2A);
 
 }
 
 ISR (TIMER0_COMPA_vect) {
 	clock_ticks++;
-	if (clock_ticks%25 == 0) {
+	if (clock_ticks%100 == 0) { // Periodically step if needed
 		if (stepperQueue > 0) {
 			move_stepper();
 		}
 	}
-	if (clock_ticks%500 == 0) {
+
+	if (clock_ticks%500 == 0) { // Status LED
 		PORTA ^= (1<<4);
-		sprintf(buffer, "stepperQueue: %u\n", stepperQueue);
-		send_str(buffer);
 	}
 }
