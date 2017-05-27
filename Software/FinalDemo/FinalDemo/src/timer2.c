@@ -3,7 +3,7 @@
 
 
 #include "timer2.h"
-// Motor Control Functions -- pwm is an 8-bit value
+
 
 static volatile uint32_t clock_ticks;
 

@@ -5,14 +5,13 @@
 
 void move_servo1(uint16_t angle)
 {
-	OCR1A = (310 - 110) * angle / 150 + 110;
-	
-	
+	//Map the degree angle to the compare match register
+	OCR1A = (310 - 110) * angle / 150 + 110;	
 }
 
 void move_servo2(uint16_t angle)
 {
-	
+	//Map the degree angle to the compare match register
 	OCR1B = (310 - 110) * angle / 150 + 110;
 	
 }
