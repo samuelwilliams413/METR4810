@@ -8,4 +8,4 @@
 \contentsline {subsection}{\numberline {5.1}Starting the camera}{5}{subsection.5.1}
 \contentsline {subsection}{\numberline {5.2}Establishing the bluetooth connection}{5}{subsection.5.2}
 \contentsline {subsection}{\numberline {5.3}Using serial communication}{5}{subsection.5.3}
-\contentsline {section}{\numberline {6}System control}{5}{section.6}
+\contentsline {section}{\numberline {6}System control}{6}{section.6}
