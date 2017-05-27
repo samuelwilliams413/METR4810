@@ -1,5 +1,11 @@
 \BOOKMARK [1][-]{section.1}{Introduction}{}% 1
 \BOOKMARK [1][-]{section.2}{System description}{}% 2
 \BOOKMARK [1][-]{section.3}{Assembly}{}% 3
-\BOOKMARK [1][-]{section.4}{Needed software}{}% 4
-\BOOKMARK [1][-]{section.5}{System control}{}% 5
+\BOOKMARK [1][-]{section.4}{Required software}{}% 4
+\BOOKMARK [2][-]{subsection.4.1}{Bluetooth communication}{section.4}% 5
+\BOOKMARK [2][-]{subsection.4.2}{Camera software}{section.4}% 6
+\BOOKMARK [1][-]{section.5}{Starting the Bad Bitch}{}% 7
+\BOOKMARK [2][-]{subsection.5.1}{Starting the camera}{section.5}% 8
+\BOOKMARK [2][-]{subsection.5.2}{Establishing the bluetooth connection}{section.5}% 9
+\BOOKMARK [2][-]{subsection.5.3}{Using serial communication}{section.5}% 10
+\BOOKMARK [1][-]{section.6}{System control}{}% 11
