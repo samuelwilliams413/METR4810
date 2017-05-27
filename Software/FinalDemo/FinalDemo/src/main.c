@@ -50,12 +50,12 @@ void reverse(void){
 void left(void){
 	motorRfwd(0);
 	motorLbwd(0);
-	sprintf(carStatus, "Left");
+	sprintf(carStatus, "Right");
 }
 void right(void){
 	motorRbwd(0);
-	motorLfwd(0);
-	sprintf(carStatus, "Right");
+	motorLfwd(0);;
+	sprintf(carStatus, "Left");
 }
 
 void stop(void){
@@ -69,43 +69,44 @@ void stop(void){
 ///////////////////////////////////////// Main function
 
 int main(void) {
-	char roverState[50];
-	sprintf(roverState, "Stopped");
-	char stepperState[50];
-	sprintf(stepperState, "Relaxed");
 	//Initializations
 
 	//Initialize timer2
 	timer_init();
-	
+
 	//Initialize communication through bluetooth
 	uart_init();
-	
+
 	//Initialize DC motors
 	motor_init();
 	stop();
-	
+
 	//Initialize servo
-	int servo1Position = 0; //position of the upper claw in degree
-	int servo2Position = 0; //position of the lower claw in degree
+	int servo1Position = 90; //position of the upper claw in degree
+	int servo2Position = 90; //position of the lower claw in degree
 	servo_init();
 	move_servo1(servo1Position);
 	move_servo2(servo2Position);
-	
+
+	// Initialise sysSta
+	char roverState[50];
+	char stepperState[50];
+	sprintf(roverState, "Stopped");
+	sprintf(stepperState, "Relaxed");
 	n = sprintf(buffer, "Ready! \n");
 	send_str(buffer);
 
-	
-	
-	
+
+
+
 	//Stay forever inside this while loop
 	while (1) {
 		//get the control command
 		char command = get_char();
-
 		sprintf(stepperState, "Holding");
+
 		switch (command) {
-			
+
 			case 'x':
 			hold_stepper();
 			sprintf(stepperState, "Holding");
@@ -121,14 +122,14 @@ int main(void) {
 			break;
 
 			case 'q':
-			full_step_forward(10);
+			full_step_forward(25);
 			sprintf(stepperState, "Stepping forwards");
 			n = sprintf(buffer, "Winch moved one step up\n");
 			send_str(buffer);
 			break;
-			
+
 			case 'a':
-			full_step_back(10);
+			full_step_back(25);
 			sprintf(stepperState, "Stepping backwards");
 			n = sprintf(buffer, "Winch moved one step down\n");
 			send_str(buffer);
@@ -143,8 +144,8 @@ int main(void) {
 			servo1Position);
 			send_str(buffer);
 			break;
-			
-			
+
+
 			case 's':
 			if (servo1Position > 0) {
 				servo1Position -= 5;
@@ -154,8 +155,8 @@ int main(void) {
 			servo1Position);
 			send_str(buffer);
 			break;
-			
-			
+
+
 			case 'e':
 			if (servo2Position < 150) {
 				servo2Position += 5;
@@ -165,9 +166,19 @@ int main(void) {
 			servo2Position);
 			send_str(buffer);
 			break;
-			
-			
+
+
 			case 'd':
+			if (servo2Position > 0) {
+				servo2Position -= 5;
+			}
+			move_servo2(servo2Position);
+			n = sprintf(buffer,"Servo 2 moved to position %d*\n",
+			servo2Position);
+			send_str(buffer);
+			break;
+
+			case 'r':
 			if (servo2Position > 0) {
 				servo2Position -= 5;
 			}
@@ -194,14 +205,14 @@ int main(void) {
 			case 'j':
 			right();
 			sprintf(roverState, "turning right");
-			n = sprintf(buffer,"Car is moving to the right\n");
+			n = sprintf(buffer,"Car is moving to the Left\n");
 			send_str(buffer);
 			break;
 
 			case 'l':
 			left();
 			sprintf(roverState, "turning left");
-			n = sprintf(buffer,"Car is moving to the left\n");
+			n = sprintf(buffer,"Car is moving to the Right\n");
 			send_str(buffer);
 			break;
 
@@ -211,7 +222,7 @@ int main(void) {
 			n = sprintf(buffer,"Car stopped\n");
 			send_str(buffer);
 			break;
-	
+
 		}
 
 		n = sprintf(buffer, "SysSta:\tS1pos=%d, S2pos=%d\r\nRover:\t%s\r\nWinch:\t%s\n", servo1Position, servo2Position, roverState, stepperState);
@@ -223,5 +234,3 @@ int main(void) {
 	}
 	return (0);	// should never get here, this is to prevent a compiler warning
 }
-
-
