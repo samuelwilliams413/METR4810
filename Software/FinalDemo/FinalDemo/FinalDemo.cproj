@@ -62,7 +62,7 @@
       </framework-data>
     </AsfFrameworkConfig>
     <avrtool>com.atmel.avrdbg.tool.ispmk2</avrtool>
-    <avrtoolserialnumber>000200212218</avrtoolserialnumber>
+    <avrtoolserialnumber>000200211426</avrtoolserialnumber>
     <avrdeviceexpectedsignature>0x1E9515</avrdeviceexpectedsignature>
     <avrtoolinterface>ISP</avrtoolinterface>
     <avrtoolinterfaceclock>125000</avrtoolinterfaceclock>
@@ -74,7 +74,7 @@
         <InterfaceName>ISP</InterfaceName>
       </ToolOptions>
       <ToolType>com.atmel.avrdbg.tool.ispmk2</ToolType>
-      <ToolNumber>000200212218</ToolNumber>
+      <ToolNumber>000200211426</ToolNumber>
       <ToolName>AVRISP mkII</ToolName>
     </com_atmel_avrdbg_tool_ispmk2>
     <com_atmel_avrdbg_tool_simulator>
@@ -92,7 +92,7 @@
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <ToolchainSettings>
       <AvrGcc>
-  <avrgcc.common.Device>-mmcu=atmega324a -B "%24(PackRepoDir)\Atmel\ATmega_DFP\1.0.98\gcc\dev\atmega324a"</avrgcc.common.Device>
+  <avrgcc.common.Device>-mmcu=atmega324a -B "%24(PackRepoDir)\atmel\ATmega_DFP\1.0.106\gcc\dev\atmega324a"</avrgcc.common.Device>
   <avrgcc.common.outputfiles.hex>True</avrgcc.common.outputfiles.hex>
   <avrgcc.common.outputfiles.lss>True</avrgcc.common.outputfiles.lss>
   <avrgcc.common.outputfiles.eep>True</avrgcc.common.outputfiles.eep>
@@ -112,7 +112,7 @@
       <Value>../src/ASF/common/utils</Value>
       <Value>../src/ASF/mega/utils/preprocessor</Value>
       <Value>../src</Value>
-      <Value>%24(PackRepoDir)\Atmel\ATmega_DFP\1.0.98\include</Value>
+      <Value>%24(PackRepoDir)\atmel\ATmega_DFP\1.0.106\include</Value>
     </ListValues>
   </avrgcc.compiler.directories.IncludePaths>
   <avrgcc.compiler.optimization.level>Optimize for size (-Os)</avrgcc.compiler.optimization.level>
@@ -136,7 +136,7 @@
       <Value>../src/ASF/common/utils</Value>
       <Value>../src/ASF/mega/utils/preprocessor</Value>
       <Value>../src</Value>
-      <Value>%24(PackRepoDir)\Atmel\ATmega_DFP\1.0.98\include</Value>
+      <Value>%24(PackRepoDir)\atmel\ATmega_DFP\1.0.106\include</Value>
     </ListValues>
   </avrgcc.assembler.general.IncludePaths>
 </AvrGcc>
@@ -145,7 +145,7 @@
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <ToolchainSettings>
       <AvrGcc>
-  <avrgcc.common.Device>-mmcu=atmega324a -B "%24(PackRepoDir)\Atmel\ATmega_DFP\1.0.98\gcc\dev\atmega324a"</avrgcc.common.Device>
+  <avrgcc.common.Device>-mmcu=atmega324a -B "%24(PackRepoDir)\atmel\ATmega_DFP\1.0.106\gcc\dev\atmega324a"</avrgcc.common.Device>
   <avrgcc.common.outputfiles.hex>True</avrgcc.common.outputfiles.hex>
   <avrgcc.common.outputfiles.lss>True</avrgcc.common.outputfiles.lss>
   <avrgcc.common.outputfiles.eep>True</avrgcc.common.outputfiles.eep>
@@ -165,7 +165,7 @@
       <Value>../src/ASF/common/utils</Value>
       <Value>../src/ASF/mega/utils/preprocessor</Value>
       <Value>../src</Value>
-      <Value>%24(PackRepoDir)\Atmel\ATmega_DFP\1.0.98\include</Value>
+      <Value>%24(PackRepoDir)\atmel\ATmega_DFP\1.0.106\include</Value>
     </ListValues>
   </avrgcc.compiler.directories.IncludePaths>
   <avrgcc.compiler.optimization.level>Optimize (-O1)</avrgcc.compiler.optimization.level>
@@ -190,7 +190,7 @@
       <Value>../src/ASF/common/utils</Value>
       <Value>../src/ASF/mega/utils/preprocessor</Value>
       <Value>../src</Value>
-      <Value>%24(PackRepoDir)\Atmel\ATmega_DFP\1.0.98\include</Value>
+      <Value>%24(PackRepoDir)\atmel\ATmega_DFP\1.0.106\include</Value>
     </ListValues>
   </avrgcc.assembler.general.IncludePaths>
   <avrgcc.assembler.debugging.DebugLevel>Default (-Wa,-g)</avrgcc.assembler.debugging.DebugLevel>

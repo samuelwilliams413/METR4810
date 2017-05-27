@@ -35,6 +35,7 @@ void stop(void);
 
 ////////////////////////////////////////////////DC motors function
 
+//Function to move the rover forward
 void forwards(void){
 	 motorRfwd(0);
 	 motorLfwd(0);
@@ -97,13 +98,11 @@ int main(void) {
 	send_str(buffer);
 
 
-
-
 	//Stay forever inside this while loop
 	while (1) {
 		//get the control command
 		char command = get_char();
-		sprintf(stepperState, "Holding");
+		
 
 		switch (command) {
 
@@ -123,67 +122,64 @@ int main(void) {
 
 			case 'q':
 			full_step_forward(25);
-			sprintf(stepperState, "Stepping forwards");
+			sprintf(stepperState, "Holding");
 			n = sprintf(buffer, "Winch moved one step up\n");
 			send_str(buffer);
+			
 			break;
 
 			case 'a':
 			full_step_back(25);
-			sprintf(stepperState, "Stepping backwards");
+			sprintf(stepperState, "Holding");
 			n = sprintf(buffer, "Winch moved one step down\n");
 			send_str(buffer);
 			break;
-
+			
 			case 'w':
 			if (servo1Position < 150) {
 				servo1Position += 5;
 			}
 			move_servo1(servo1Position);
-			n = sprintf(buffer,"Servo 1 moved to position %d*\n",
+			n = sprintf(buffer,"Claw servo moved to position %d*\n",
 			servo1Position);
 			send_str(buffer);
 			break;
-
 
 			case 's':
 			if (servo1Position > 0) {
 				servo1Position -= 5;
 			}
 			move_servo1(servo1Position);
-			n = sprintf(buffer,"Servo 1 moved to position %d*\n",
+			n = sprintf(buffer,"Claw servo moved to position %d*\n",
 			servo1Position);
 			send_str(buffer);
 			break;
 
 
-			case 'e':
+			case 'r':
 			if (servo2Position < 150) {
 				servo2Position += 5;
 			}
 			move_servo2(servo2Position);
-			n = sprintf(buffer,"Servo 2 moved to position %d*\n",
+			n = sprintf(buffer,"Camera moved to position %d*\n",
 			servo2Position);
 			send_str(buffer);
 			break;
 
+			case 'e':
+			if (servo2Position > 0) {
+				servo2Position -= 5;
+			}
+			move_servo2(servo2Position);
+			n = sprintf(buffer,"Camera moved to position %d*\n",
+			servo2Position);
+			send_str(buffer);
+			break;
 
 			case 'd':
-			if (servo2Position > 0) {
-				servo2Position -= 5;
-			}
+			servo2Position = 85;
 			move_servo2(servo2Position);
-			n = sprintf(buffer,"Servo 2 moved to position %d*\n",
-			servo2Position);
-			send_str(buffer);
-			break;
-
-			case 'r':
-			if (servo2Position > 0) {
-				servo2Position -= 5;
-			}
-			move_servo2(servo2Position);
-			n = sprintf(buffer,"Servo 2 moved to position %d*\n",
+			n = sprintf(buffer,"Camera moved to position %d*\n",
 			servo2Position);
 			send_str(buffer);
 			break;
@@ -217,6 +213,7 @@ int main(void) {
 			break;
 
 			case 'k':
+			case ' ':
 			stop();
 			sprintf(roverState, "Stopped");
 			n = sprintf(buffer,"Car stopped\n");
@@ -224,8 +221,10 @@ int main(void) {
 			break;
 
 		}
+		n = sprintf(buffer,"\n");
+		send_str(buffer);
 
-		n = sprintf(buffer, "SysSta:\tS1pos=%d, S2pos=%d\r\nRover:\t%s\r\nWinch:\t%s\n", servo1Position, servo2Position, roverState, stepperState);
+		n = sprintf(buffer, "Claw position=%d\r\nCamera position=%d\r\nRover:%s\r\nWinch:%s\n", servo1Position, servo2Position, roverState, stepperState);
 		send_str(buffer);
 
 		n = sprintf(buffer,"\n");
