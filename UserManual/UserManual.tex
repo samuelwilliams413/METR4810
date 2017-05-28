@@ -76,14 +76,27 @@ Required tools
 Put part A on B..
 \section{Required software}
 \subsection{Bluetooth communication}
-The Bad Bitch is remotely controlled through bluetooth serial communication. After establishing the bluetooth connection with the Bad Bitch, you have several ways to communicate with the system. One possibility is to use the open source software PUTTY. PUTTY is an SSH and telnet client. To download and install PUTTY, use the following link to select your platform and follow the instructions:
+The Bad Bitch is remotely controlled through bluetooth serial communication. After establishing the bluetooth connection with the Bad Bitch, you have several ways to communicate with the system. One possibility is to use the open source software PUTTY. PUTTY is an SSH and telnet client. To download and install PUTTY, use the following link. Select your platform and follow the instructions:
 \url{https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html}.
 \subsection{Camera software}
-
+To run the Bad Bitch camera, you will need to download and install the open source software XSplit broadcaster using the following link:
+\url{https://www.xsplit.com/#broadcaster}
 \section{Starting the Bad Bitch}
 To start the Bad Bitch, press the Start Button on the buoy.
 \subsection{Starting the camera}
-The camera receiver has to be connected to one of the computer USB ports. Then start  
+The camera receiver has to be connected to one of the computer USB ports. Then start XSplit. Once the XSplit is opened follow these steps:
+\begin{itemize}
+\item Click source in the menu bar.
+\item Select Webcame,capture card, video devices.
+\item Click AV TO USB2.0.
+\end{itemize}
+At that moment you should see the streaming from the camera. However the image is flipped. To correct it:
+\begin{itemize}
+\item Go to Scene at the bottom of the XSplit window.
+\item Select AV TO USB2.0.
+\item Click Settings on the bottom left of the XSplit window.
+\item Select the tab Layout and the press flip horizontally.
+\end{itemize}
 \subsection{Establishing the bluetooth connection}
 Establishing the Bluetooth models depends on the used platform, please refer to your platform bluetooth documentation. Here is a description for Windows users. Once the Bad Bitch is powered, in the computer under the Bluetooth properties, select "Add a device". The default device name of the Bluetooth module is "Bad Bitch". Double click "Bad Bitch" and select the "Hardware" tab, you can see which COM port the module is connected.
 \subsection{Using serial communication}
