@@ -1,0 +1,5 @@
+Added Component: Designator=P?(HDR1X18)
+Added Component: Designator=P?(HDR1X18)
+Added Member To Class: ClassName=Distro_schematic Member=Component J1 Connector 15
+Added Member To Class: ClassName=Distro_schematic Member=Component P? Header 18
+Added Member To Class: ClassName=Distro_schematic Member=Component P? Header 18

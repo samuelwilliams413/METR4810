@@ -1,0 +1,4 @@
+Removed Pin From Net: NetName=CAM_POW Pin=P?-4
+Removed Pin From Net: NetName=CAM_SIG Pin=P?-6
+Added Pin To Net: NetName=CAM_SIG Pin=P?-4
+Added Pin To Net: NetName=CAM_POW Pin=P?-6

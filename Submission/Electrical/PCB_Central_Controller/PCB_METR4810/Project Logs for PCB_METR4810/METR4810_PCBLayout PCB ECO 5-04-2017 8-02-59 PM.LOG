@@ -1,0 +1,4 @@
+Removed Pin From Net: NetName=HI-BEAM Pin=U1-21
+Removed Pin From Net: NetName=STATUS Pin=U1-26
+Added Pin To Net: NetName=HI-BEAM Pin=U1-26
+Added Pin To Net: NetName=STATUS Pin=U1-34

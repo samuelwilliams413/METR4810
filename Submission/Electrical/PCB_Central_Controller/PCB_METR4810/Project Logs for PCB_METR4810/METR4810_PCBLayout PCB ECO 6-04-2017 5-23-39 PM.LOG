@@ -1,0 +1,20 @@
+Change Component Designator: OldDesignator=P? NewDesignator=P5
+Change Component Designator: OldDesignator=P? NewDesignator=P9
+Change Component Designator: OldDesignator=Q? NewDesignator=Q2
+Change Component Designator: OldDesignator=Q? NewDesignator=Q3
+Change Component Designator: OldDesignator=R? NewDesignator=R17
+Change Component Designator: OldDesignator=R? NewDesignator=R18
+Change Component Designator: OldDesignator=R? NewDesignator=R19
+Change Component Designator: OldDesignator=R? NewDesignator=R20
+Added Pin To Net: NetName=STEPPER A Pin=U1-19
+Added Pin To Net: NetName=STEPPER B Pin=U1-20
+Change Net Name : Old Net Name=NetP?_7 New Net Name=NetP5_7
+Change Net Name : Old Net Name=NetQ?_2 New Net Name=NetQ2_2
+Added Pin To Net: NetName=NetQ3_2 Pin=Q3-2
+Added Pin To Net: NetName=NetQ3_2 Pin=R19-1
+Added Net: Name=NetQ3_2
+Added Member To Class: ClassName=METR4810_Schematic Member=Component P5 Header 8
+Added Member To Class: ClassName=METR4810_Schematic Member=Component Q3 MOSFET-J
+Added Member To Class: ClassName=METR4810_Schematic Member=Component R17 Res3
+Added Member To Class: ClassName=METR4810_Schematic Member=Component R18 Res3
+Added Member To Class: ClassName=METR4810_Schematic Member=Component R19 Res3

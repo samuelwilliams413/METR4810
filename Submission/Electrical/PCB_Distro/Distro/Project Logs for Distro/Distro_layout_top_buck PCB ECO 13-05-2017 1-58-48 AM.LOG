@@ -1,0 +1,5 @@
+Removed Pin From Net: NetName=VCC Pin=P9-1
+Removed Pin From Net: NetName=GND Pin=P9-2
+Removed Pin From Net: NetName=BAT Pin=P9-3
+Removed Pin From Net: NetName=GND Pin=P9-4
+Removed Member From Class: ClassName=Distro_schematic Member=P9

@@ -1,0 +1,4 @@
+Removed Pin From Net: NetName=DC 1 ENABLE Pin=U1-11
+Removed Pin From Net: NetName=DC 2 ENABLE Pin=U1-12
+Added Pin To Net: NetName=DC 2 ENABLE Pin=U1-11
+Added Pin To Net: NetName=DC 1 ENABLE Pin=U1-12

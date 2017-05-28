@@ -1,0 +1,34 @@
+Removed Pin From Net: NetName=MOTOR_1B Pin=J1-1
+Removed Pin From Net: NetName=MOTOR_1A Pin=J1-2
+Removed Pin From Net: NetName=PWM SV 1 Pin=J1-3
+Removed Pin From Net: NetName=CAM_SIG Pin=J1-4
+Removed Pin From Net: NetName=GND Pin=J1-5
+Removed Pin From Net: NetName=MOTOR_2A Pin=J1-6
+Removed Pin From Net: NetName=MOTOR_2B Pin=J1-7
+Removed Pin From Net: NetName=PWM SV 2 Pin=J1-8
+Removed Pin From Net: NetName=BAT Pin=J1-9
+Removed Member From Class: ClassName=METR4810_Schematic Member=J1
+Added Component: Designator=J?(PCBComponent_1)
+Added Component: Designator=P?(HDR1X4)
+Added Pin To Net: NetName=GND Pin=J?-1
+Added Pin To Net: NetName=CAM_SIG Pin=J?-2
+Added Pin To Net: NetName=PWM SV 1 Pin=J?-3
+Added Pin To Net: NetName=MOTOR_1A Pin=J?-4
+Added Pin To Net: NetName=MOTOR_1B Pin=J?-5
+Added Pin To Net: NetName=GND Pin=J?-6
+Added Pin To Net: NetName=GND Pin=J?-7
+Added Pin To Net: NetName=PWM SV 2 Pin=J?-8
+Added Pin To Net: NetName=MOTOR_2B Pin=J?-9
+Added Pin To Net: NetName=MOTOR_2A Pin=J?-10
+Added Pin To Net: NetName=BAT Pin=J?-11
+Added Pin To Net: NetName=BAT Pin=J?-12
+Added Pin To Net: NetName=GND Pin=P?-2
+Added Pin To Net: NetName=BAT Pin=P?-3
+Added Pin To Net: NetName=GND Pin=P?-4
+Added Pin To Net: NetName=SERVO_VCC Pin=J?-13
+Added Pin To Net: NetName=SERVO_VCC Pin=J?-14
+Added Pin To Net: NetName=SERVO_VCC Pin=J?-15
+Added Pin To Net: NetName=SERVO_VCC Pin=P?-1
+Added Net: Name=SERVO_VCC
+Added Member To Class: ClassName=METR4810_Schematic Member=Component J? Connector 15
+Added Member To Class: ClassName=METR4810_Schematic Member=Component P? Header 4

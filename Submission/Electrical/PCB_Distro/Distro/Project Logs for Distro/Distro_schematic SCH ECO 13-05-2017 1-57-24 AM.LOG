@@ -1,0 +1,11 @@
+Remove Pin=J?-2 From Net=CAM_SIG
+Remove Pin=J?-3 From Net=PWM SV 1
+Remove Pin=J?-4 From Net=MOTOR_1A
+Remove Pin=J?-5 From Net=MOTOR_1B
+Remove Pin=J?-7 From Net=PWM SV 2
+Remove Pin=J?-8 From Net=MOTOR_2B
+Remove Pin=J?-9 From Net=MOTOR_2A
+Remove Pin=P4-1 From Net=PWM SV 1
+Remove Pin=P5-1 From Net=PWM SV 2
+Add Pin To Net: Pin=P4-1 Old Net=PWM SV 1 New Net=PWM SV 2
+Add Pin To Net: Pin=P5-1 Old Net=PWM SV 2 New Net=PWM SV 1

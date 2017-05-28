@@ -1,0 +1,4 @@
+Change Pin Designator/Name:  Old Designator=U1-15 Old Name=PD6 (PCINT30/OC2B/ICP) New Designator =PB3 (AIN1/OC0A/PCINT11) New Name=43
+Change Pin Designator/Name:  Old Designator=U1-16 Old Name=PD7 (PCINT31/OC2A) New Designator =PB4 (S\S\/OC0B/PCINT12) New Name=44
+Change Pin Designator/Name:  Old Designator=U1-43 Old Name=PB3 (AIN1/OC0A/PCINT11) New Designator =PD6 (PCINT30/OC2B/ICP) New Name=15
+Change Pin Designator/Name:  Old Designator=U1-44 Old Name=PB4 (S\S\/OC0B/PCINT12) New Designator =PD7 (PCINT31/OC2A) New Name=16
