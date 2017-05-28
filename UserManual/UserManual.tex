@@ -1,5 +1,8 @@
 \documentclass[letterpaper, 12 pt]{article}
 
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{color}
 \usepackage{url}
 \usepackage{color}
 \usepackage{hyperref}
@@ -16,8 +19,8 @@
 % BEGIN DOCUMENT
 % -------------------------------------------------------------------------------------
 \begin{document}
-\title{Bad Bitch User Manual}
-\author{Team 10}
+\title{The Goldfish User Manual}
+\author{METR4810 Team 10}
 \maketitle
 \pagestyle{empty}
 
@@ -26,7 +29,7 @@
 \newpage
 \vspace*{13cm}
 \section*{Warning!}
-The Bad Bitch was designed and build only to recover the submarine. The user assumes the responsibility of using it for any other purpose!
+The Goldfish was designed and build only to recover the submarine. The user assumes the responsibility of using it for any other purpose!
 
 % -------------------------------------------------------------------------------------
 % TABLE OF CONTENTS
@@ -36,12 +39,20 @@ The Bad Bitch was designed and build only to recover the submarine. The user ass
 \newpage
 
 \section{Introduction}
-The Bad Bitch is used to recover the sunken miniature submarine from the tank. This user manual describes how to assemble the Bad Bitch and how to successfully use it to accomplish the recovery mission. The manual contains also hints about the required software.
+The Goldfish is used to recover the sunken miniature submarine from the tank. This user manual describes how to assemble the Goldfish and how to successfully use it to accomplish the recovery mission. The manual contains also hints about the required software.
+
+\begin{figure}[H]
+  \caption{The Goldfish.}
+  \centering
+    \includegraphics[width=0.7\textwidth]{20170529_053543}
+\end{figure}
+
+
 \section{System description}
-The Bad Bitch consists of a buoy floating on the sea surface and a rover equipped with a camera and a claw. The Bad Bitch is controlled through a computer keyboard. Table \ref{tab:components} gives the complete list of parts that compose the Bad Bitch.
-\begin{table}[h]
+The Goldfish consists of a buoy floating on the sea surface and a rover equipped with a camera and a claw. The Goldfish is controlled using a computer keyboard. Table \ref{tab:components} gives the complete list of parts that compose the Goldfish.
+\begin{table}[H]
 \begin{center}
-\caption{List of parts composing the Bad Bitch.}
+\caption{List of parts composing the Goldfish.}
 \label{tab:components}
 \vspace{0.5cm}
 \begin{tabular}{|c|c|}
@@ -50,6 +61,10 @@ The Bad Bitch consists of a buoy floating on the sea surface and a rover equippe
 \hline
 Claw with arm & 1\\
 \hline
+Claw fingers & 11\\
+\hline
+Claw short finger & 1\\
+\hline
 Rover body & 1\\
 \hline
 Rover wheels & 4\\
@@ -57,6 +72,15 @@ Rover wheels & 4\\
 DB cable & 1\\
 \hline
 Camera receiver & 1\\
+\hline
+Buoy arm & 4\\
+\hline
+Buoy foam & 4\\
+\hline
+Buoy electronic container & 1\\
+\hline
+Winch container & 1\\
+\hline
 
 \hline
 
@@ -65,24 +89,34 @@ Camera receiver & 1\\
 \end{center}
 \end{table}
 \section{Assembly}
-Describe how to assemble the thing
-
-Required tools
+In order to assemble the Goldfish you will need the following tools:
 \begin{itemize}
 \item Screw drive
-\item ..
+\item Wrench
 \end{itemize}
+Follow the steps below to assemble the Goldfish:
+\begin{itemize}
+\item Attach the servo container at the bottom of the electronic container making sure that the stepper wire are going through the holes to the PCB in the electronic container.
+\item Connect each one of the arms to one side on the bottom of the winch container.
+\item Attach the servo arm to the rover body using M4 bolts and nuts.
+\item Mount the wheels to the rover DC motors.
+\item Build the two side of the claw using the fingers as shown in figure. Attach each side the one of the claw sides. Make sure that the short finger is on the section containing the servo and that the short brace from the servo side.
 
-Put part A on B..
+\begin{figure}[H]
+  \caption{Goldfish claw.}
+  \centering
+    \includegraphics[width=0.6\textwidth]{20170529_053601}
+\end{figure}
+\end{itemize}
 \section{Required software}
 \subsection{Bluetooth communication}
-The Bad Bitch is remotely controlled through bluetooth serial communication. After establishing the bluetooth connection with the Bad Bitch, you have several ways to communicate with the system. One possibility is to use the open source software PUTTY. PUTTY is an SSH and telnet client. To download and install PUTTY, use the following link. Select your platform and follow the instructions:
+The Goldfish is remotely controlled through bluetooth serial communication. After establishing the bluetooth connection with the Goldfish, you have several ways to communicate with the system. One possibility is to use the open source software PUTTY. PUTTY is an SSH and telnet client. To download and install PUTTY, use the following link. Select your platform and follow the instructions:
 \url{https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html}.
 \subsection{Camera software}
-To run the Bad Bitch camera, you will need to download and install the open source software XSplit broadcaster using the following link:
+To run the Goldfish camera, you will need to download and install the open source software XSplit broadcaster using the following link:
 \url{https://www.xsplit.com/#broadcaster}
-\section{Starting the Bad Bitch}
-To start the Bad Bitch, press the Start Button on the buoy.
+\section{Starting the Goldfish}
+To start the Goldfish, press the Start Button on the buoy.
 \subsection{Starting the camera}
 The camera receiver has to be connected to one of the computer USB ports. Then start XSplit. Once the XSplit is opened follow these steps:
 \begin{itemize}
@@ -98,7 +132,7 @@ At that moment you should see the streaming from the camera. However the image i
 \item Select the tab Layout and the press flip horizontally.
 \end{itemize}
 \subsection{Establishing the bluetooth connection}
-Establishing the Bluetooth models depends on the used platform, please refer to your platform bluetooth documentation. Here is a description for Windows users. Once the Bad Bitch is powered, in the computer under the Bluetooth properties, select "Add a device". The default device name of the Bluetooth module is "Bad Bitch". Double click "Bad Bitch" and select the "Hardware" tab, you can see which COM port the module is connected.
+Establishing the Bluetooth models depends on the used platform, please refer to your platform bluetooth documentation. Here is a description for Windows users. Once the Goldfish is powered, in the computer under the Bluetooth properties, select "Add a device". The default device name of the Bluetooth module is "Goldfish". Double click "Goldfish" and select the "Hardware" tab, you can see which COM port the module is connected.
 \subsection{Using serial communication}
 As stated above, you may use any terminal programs for the serial communication. Here are the instruction for using PUTTY.
 \begin{itemize}
@@ -108,7 +142,7 @@ As stated above, you may use any terminal programs for the serial communication.
 \item Click "Open". A terminal should be opened. The first line should contain the "Ready!" message which indicates that the Bad Bit is ready for receiving commands.
 \end{itemize}
 \section{System control}
-The Bad Bitch is controlled through the keyboard. Table \ref{tab:keys} summarizes the keys that control the Bad Bitch. After pressing a key, it is not required to press the enter key. Once the command has been executed, a feedback message is displayed in the terminal followed by the current status of all actuators.
+The Goldfish is controlled through the keyboard. Table \ref{tab:keys} summarizes the keys that control the Goldfish. After pressing a key, it is not required to press the enter key. Once the command has been executed, a feedback message is displayed in the terminal followed by the current status of all actuators.
 \begin{table}[h]
 \begin{center}
 \caption{Keys controlling the system.}
